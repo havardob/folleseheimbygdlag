@@ -1,0 +1,15 @@
+node_modules
+build/
+dist/
+output/
+_site/
+.astro/
+temp/
+
+*.env
+*.log
+*.tsbuildinfo
+
+.vscode
+.idea
+.vercel
