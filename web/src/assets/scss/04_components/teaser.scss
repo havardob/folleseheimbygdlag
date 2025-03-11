@@ -1,0 +1,21 @@
+.teaser {
+   display: grid;
+   grid-template-columns: 50% 50%;
+   
+   &__image {
+      object-fit: cover;
+      object-position: center center;
+   }
+   
+   &__title {
+   
+   }
+   
+   &__content {
+   
+   }
+   
+   &__link {
+   
+   }
+}

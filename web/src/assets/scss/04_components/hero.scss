@@ -1,0 +1,70 @@
+@use "../02_tools/breakpoint";
+
+.hero {
+   &__image {
+      width: 100%;
+      
+      img {
+         aspect-ratio: 21 / 9;
+         max-height: 45rem;
+         object-fit: cover;
+         object-position: center center;
+         width: 100%;
+      }
+   }
+   
+   &__content {
+      width: 95%;
+      max-width: 45rem;
+      margin-inline: auto;
+      background-color: var(--color-white);
+      position: relative;
+      text-align: center;
+      padding-block: 2rem;
+      padding-inline: 2rem;
+      margin-block-start: -2rem;
+      
+      @include breakpoint.large-up {
+      max-width: 62.5rem;
+         margin-block-start: -10rem;
+         padding-block: 3.5rem;
+         padding-inline: 5.5rem;
+      }
+   }
+   
+   hgroup {
+      display: flex;
+      flex-direction: column;
+      row-gap: .75rem;
+   }
+   
+   &__subtitle {
+      font-weight: 600;
+      color: var(--color-follese);
+      line-height: 1.375;
+      font-size: 1.125rem;
+      @include breakpoint.large-up {
+         font-size: 1.25rem;
+      }
+   }
+   
+   &__title {
+      font-family: var(--ff-secondary), serif;
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 1.25;
+      @include breakpoint.large-up {
+         line-height: 1.05;
+         font-size: 4rem;
+      }
+   }
+   
+   &__intro {
+      margin-block-start: 1rem;
+      font-size: 1.125rem;
+      @include breakpoint.large-up {
+         margin-block-start: 1.25rem;
+         font-size: 1.5rem;
+      }
+   }
+}

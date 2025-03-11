@@ -1,0 +1,40 @@
+---
+import { siteSettings } from "../data/siteSettings";
+import SiteHeader from "../components/SiteHeader.astro";
+import {siteHeader} from "../data/siteHeader";
+
+interface Props {
+  metaTitle: string;
+  metaDescription?: string;
+  metaImageUrl?: string;
+  metaUrl?: string;
+}
+
+const {
+  metaTitle = siteSettings?.metaTitle,
+  metaDescription = siteSettings?.metaDescription,
+  metaImageUrl = siteSettings?.metaImageUrl,
+  metaUrl = siteSettings?.metaUrl,
+} = Astro.props;
+---
+
+<html lang="nb-NO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{metaTitle}</title>
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:site_name" content={metaTitle} />
+    <meta name="description" content={metaDescription} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={metaUrl} />
+    <meta property="og:image" content={metaImageUrl} />
+    <link rel="icon" type="image/svg+xml" href={metaImageUrl} />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+  <body>
+    <SiteHeader nav={siteHeader.nav} />
+    <slot />
+  </body>
+</html>

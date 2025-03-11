@@ -1,0 +1,23 @@
+@mixin small-up {
+   @media (min-width: 40rem) {
+      @content;
+   }
+}
+
+@mixin medium-up {
+   @media (min-width: 60rem) {
+      @content;
+   }
+}
+
+@mixin large-up {
+   @media (min-width: 80rem) {
+      @content;
+   }
+}
+
+@mixin huge-up {
+   @media (min-width: 100rem) {
+      @content;
+   }
+}

@@ -1,0 +1,27 @@
+---
+interface Props {
+  nav?: { href: string; label: string }[];
+}
+
+const { nav } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="u-max-content-width">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="/">
+        <span class="u-visually-hidden">Gå til forside</span>
+        <img src="/images/logo_bla.png" alt="" />
+      </a>
+      <nav class="site-header__nav">
+        {
+          nav?.map((item) => (
+            <a href={item.href} class="site-header__link">
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </div>
+</header>

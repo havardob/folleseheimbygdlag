@@ -1,0 +1,21 @@
+.l-frontpage {
+   &__banner {
+   
+   }
+   
+   &__teaser {
+      margin-block-start: 4rem;
+      display: flex;
+      flex-direction: column;
+      row-gap: 4rem;
+   }
+   
+   &__cards {
+      margin-block-start: 4rem;
+   }
+   
+   &__cards-more-link {
+      display: flex;
+      justify-content: center;
+   }
+}

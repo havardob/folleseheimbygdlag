@@ -1,0 +1,42 @@
+@use "../02_tools/breakpoint";
+
+.site-header {
+   background-color: var(--color-sky);
+   
+   &__inner {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 1.5rem;
+      align-items: center;
+      padding-block: 2rem;
+   }
+   
+   &__logo {
+      text-decoration: none;
+      display: block;
+      img {
+      height: 6rem;
+      }
+   }
+   
+   &__nav {
+      display: flex;
+      align-items: center;
+      column-gap: 1.5rem;
+      
+      @include breakpoint.large-up {
+         font-size: 1.25rem;
+      }
+   }
+   
+   &__link, &__dropdown {
+      text-decoration: none;
+      
+      &:hover,
+      &:focus-visible,
+      &.is-open,
+      &.is-current {
+         color: var(--color-follese);
+      }
+   }
+}

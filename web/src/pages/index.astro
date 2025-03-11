@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MoreLink from "../components/MoreLink.astro";
+import Hero from "../components/Hero.astro";
+---
+
+<Layout metaTitle="Forside">
+  <h1 class="u-visually-hidden">Forside</h1>
+  <section class="l-frontpage__banner">
+    <Hero title="Follese Heimbygdlag, Husmannsplassen i Træ" subtitle="Badeplass og museum" imageUrl="/images/basseng.jpg">
+      Vi er en gjeng engasjerte, positive mennesker med stor kjærlighet for bygden vår.
+    </Hero>
+  </section>
+  <section class="l-frontpage__cards">
+    <div class="u-max-content-width">
+      <div class="l-frontpage__cards-more-link">
+        <MoreLink href="#">Se flere nyheter</MoreLink>
+      </div>
+    </div>
+  </section>
+</Layout>

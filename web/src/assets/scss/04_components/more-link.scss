@@ -1,0 +1,22 @@
+@use "../02_tools/breakpoint";
+
+.more-link {
+   display: inline-flex;
+   padding-block: .5rem;
+   padding-inline: 1.25rem;
+   border-radius: 99em;
+   text-decoration: none;
+   color: var(--color-follese);
+   background-color: var(--color-white);
+   border: 2px solid var(--color-follese);
+   
+   &:hover {
+      background-color: var(--color-sky);
+   }
+   
+   @include breakpoint.large-up {
+      font-size: 1.125rem;
+      padding-block: .75rem;
+      padding-inline: 1.75rem;
+   }
+}
