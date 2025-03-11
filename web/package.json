@@ -12,6 +12,7 @@
     "sass": "sass"
   },
   "dependencies": {
+    "@sanity/client": "^6.28.3",
     "astro": "^5.4.3",
     "sass": "^1.85.1"
   },

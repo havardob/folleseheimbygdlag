@@ -1,7 +1,6 @@
 ---
-import { siteSettings } from "../data/siteSettings";
+import {getCollection} from "astro:content";
 import SiteHeader from "../components/SiteHeader.astro";
-import {siteHeader} from "../data/siteHeader";
 
 interface Props {
   metaTitle: string;
@@ -9,6 +8,9 @@ interface Props {
   metaImageUrl?: string;
   metaUrl?: string;
 }
+
+const siteSettingsData = await getCollection('siteSettings');
+const siteSettings = siteSettingsData[0].data;
 
 const {
   metaTitle = siteSettings?.metaTitle,
@@ -34,7 +36,7 @@ const {
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
   </head>
   <body>
-    <SiteHeader nav={siteHeader.nav} />
+    <SiteHeader />
     <slot />
   </body>
 </html>
