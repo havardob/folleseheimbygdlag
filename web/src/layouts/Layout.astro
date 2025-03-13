@@ -1,6 +1,7 @@
 ---
 import {getCollection} from "astro:content";
 import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 
 interface Props {
   metaTitle: string;
@@ -38,5 +39,6 @@ const {
   <body>
     <SiteHeader />
     <slot />
+    <SiteFooter />
   </body>
 </html>

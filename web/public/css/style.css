@@ -170,14 +170,24 @@ body {
   justify-content: space-between;
   column-gap: 1.5rem;
   align-items: center;
-  padding-block: 2rem;
+  padding-block: 1rem;
+}
+@media (min-width: 60rem) {
+  .site-header__inner {
+    padding-block: 2rem;
+  }
 }
 .site-header__logo {
   text-decoration: none;
   display: block;
 }
 .site-header__logo img {
-  height: 6rem;
+  height: 4rem;
+}
+@media (min-width: 60rem) {
+  .site-header__logo img {
+    height: 6rem;
+  }
 }
 .site-header__nav {
   display: flex;
@@ -195,16 +205,44 @@ body {
 .site-header__link:hover, .site-header__link:focus-visible, .site-header__link.is-open, .site-header__link.is-current, .site-header__dropdown:hover, .site-header__dropdown:focus-visible, .site-header__dropdown.is-open, .site-header__dropdown.is-current {
   color: var(--color-follese);
 }
+.site-header__menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  padding-block: 0.5rem;
+  padding-inline-start: 1.125rem;
+  padding-inline-end: 1.25rem;
+  border-radius: 99em;
+  text-decoration: none;
+  color: var(--color-white);
+  background-color: var(--color-follese);
+}
+@media (min-width: 80rem) {
+  .site-header__menu-toggle {
+    display: none;
+  }
+}
+.site-header__menu-toggle svg {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+}
+.site-header__menu-toggle:hover {
+  background-color: var(--color-follese-dark);
+}
 
 .hero__image {
   width: 100%;
 }
 .hero__image img {
-  aspect-ratio: 21/9;
-  max-height: 45rem;
+  aspect-ratio: 16/9;
   object-fit: cover;
   object-position: center center;
   width: 100%;
+}
+@media (min-width: 60rem) {
+  .hero__image img {
+    aspect-ratio: 1920/715;
+  }
 }
 .hero__content {
   width: 95%;
@@ -213,8 +251,8 @@ body {
   background-color: var(--color-white);
   position: relative;
   text-align: center;
-  padding-block: 2rem;
-  padding-inline: 2rem;
+  padding-block-start: 2rem;
+  padding-inline: 1rem;
   margin-block-start: -2rem;
 }
 @media (min-width: 80rem) {
@@ -244,7 +282,7 @@ body {
 .hero__title {
   font-family: var(--ff-secondary), serif;
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 1.75rem;
   line-height: 1.25;
 }
 @media (min-width: 80rem) {
@@ -256,12 +294,97 @@ body {
 .hero__intro {
   margin-block-start: 1rem;
   font-size: 1.125rem;
+  text-wrap: pretty;
 }
 @media (min-width: 80rem) {
   .hero__intro {
     margin-block-start: 1.25rem;
     font-size: 1.5rem;
   }
+}
+
+.card {
+  --inner-bg: transparent;
+}
+.card {
+  position: relative;
+}
+.card:hover {
+  --inner-bg: var(--color-sky);
+}
+.card__inner {
+  background-color: var(--inner-bg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+@media (min-width: 60rem) {
+  .card__inner {
+    row-gap: 2rem;
+  }
+}
+.card__image {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.card__image img {
+  object-position: center;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.card__title {
+  font-size: 1.25rem;
+  font-family: var(--ff-secondary), serif;
+  font-weight: 400;
+  text-wrap: pretty;
+}
+@media (min-width: 60rem) {
+  .card__title {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+}
+.card__title a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.125em;
+}
+.card__title a:after {
+  content: "";
+  display: block;
+  inset: 0;
+  position: absolute;
+}
+.card__text {
+  font-size: 1rem;
+  margin-block-start: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@media (min-width: 60rem) {
+  .card__text {
+    margin-block-start: 1.25rem;
+    font-size: 1.25rem;
+  }
+}
+.card__date {
+  display: block;
+  font-size: 0.875rem;
+  margin-block-start: 1.25rem;
+}
+@media (min-width: 60rem) {
+  .card__date {
+    margin-block-start: 2rem;
+    font-size: 1rem;
+  }
+}
+
+.site-footer {
+  background-color: var(--color-follese-dark);
+  min-height: 500px;
 }
 
 .more-link {
@@ -289,36 +412,51 @@ body {
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 80rem) {
+@media (min-width: 60rem) {
   .teaser {
     flex-direction: row;
   }
 }
-@media (min-width: 80rem) {
+@media (min-width: 60rem) {
   .teaser[data-position=right] {
     flex-direction: row-reverse;
   }
 }
-@media (min-width: 80rem) {
+@media (min-width: 60rem) {
   .teaser > * {
     width: 50%;
+    overflow: hidden;
   }
 }
 .teaser__image {
-  height: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+@media (min-width: 60rem) {
+  .teaser__image {
+    overflow: initial;
+  }
 }
 .teaser__image img {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   object-position: center center;
 }
 .teaser__content {
   background-color: var(--color-sky);
-  padding-block: 2rem;
+  padding-block: 3rem;
   padding-inline: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+}
+@media (min-width: 60rem) {
+  .teaser__content {
+    padding-inline: 2rem;
+  }
 }
 @media (min-width: 80rem) {
   .teaser__content {
@@ -366,15 +504,55 @@ body {
   }
 }
 
+.l-frontpage {
+  padding-block-end: 6rem;
+}
 .l-frontpage__blocks {
-  margin-block-start: 4rem;
+  margin-block-start: 3rem;
   display: flex;
   flex-direction: column;
+  row-gap: 3rem;
+}
+@media (min-width: 60rem) {
+  .l-frontpage__blocks {
+    row-gap: 0;
+    margin-block-start: 4rem;
+  }
 }
 .l-frontpage__cards {
-  margin-block-start: 4rem;
+  margin-block-start: 6rem;
+}
+.l-frontpage__cards-title {
+  font-size: 2rem;
+  line-height: 1.25;
+  font-weight: 400;
+  font-family: var(--ff-secondary), serif;
+}
+@media (min-width: 80rem) {
+  .l-frontpage__cards-title {
+    font-size: 3rem;
+  }
+}
+.l-frontpage__cards-list {
+  margin-block-start: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+  margin-inline: -1rem;
+}
+@media (min-width: 60rem) {
+  .l-frontpage__cards-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 80rem) {
+  .l-frontpage__cards-list {
+    grid-template-columns: repeat(3, 1fr);
+    margin-inline: -1.25rem;
+  }
 }
 .l-frontpage__cards-more-link {
+  margin-block-start: 4rem;
   display: flex;
   justify-content: center;
 }

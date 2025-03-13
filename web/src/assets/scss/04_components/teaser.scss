@@ -3,26 +3,35 @@
 .teaser {
    display: flex;
    flex-direction: column;
-   @include breakpoint.large-up {
+   @include breakpoint.medium-up {
       flex-direction: row;
    }
    
    &[data-position="right"] {
-      @include breakpoint.large-up {
+      @include breakpoint.medium-up {
          flex-direction: row-reverse;
       }
    }
    
    & > * {
-      @include breakpoint.large-up {
+      @include breakpoint.medium-up {
          width: 50%;
+         overflow: hidden;
       }
    }
    
    &__image {
-      height: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      
+      @include breakpoint.medium-up {
+         overflow: initial;
+      }
       
       img {
+         height: 100%;
+         width: 100%;
          object-fit: cover;
          object-position: center center;
       }
@@ -30,12 +39,17 @@
    
    &__content {
       background-color: var(--color-sky);
-      padding-block: 2rem;
+      padding-block: 3rem;
       padding-inline: 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+      
+      @include breakpoint.medium-up {
+         padding-inline: 2rem;
+      }
+      
       @include breakpoint.large-up {
          padding-inline: 3rem;
       }

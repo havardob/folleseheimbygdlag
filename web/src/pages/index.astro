@@ -3,33 +3,35 @@ import Layout from "../layouts/Layout.astro";
 import MoreLink from "../components/MoreLink.astro";
 import Hero from "../components/Hero.astro";
 import Teaser from "../components/Teaser.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout metaTitle="Forside">
-  <h1 class="u-visually-hidden">Forside</h1>
-  <section class="l-frontpage__banner">
-    <Hero
-      title="Follese Heimbygdlag, Husmannsplassen i Træ"
-      subtitle="Badeplass og museum"
-      imageUrl="/images/basseng.jpg"
-    >
-      Vi er en gjeng engasjerte, positive mennesker med stor kjærlighet for
-      bygden vår.
-    </Hero>
-  </section>
-  <div class="u-max-content-width">
-    <section class="l-frontpage__blocks">
-      <Teaser
+  <div class="l-frontpage">
+    <h1 class="u-visually-hidden">Forside</h1>
+    <section class="l-frontpage__banner">
+      <Hero
+        title="Follese Heimbygdlag, Husmannsplassen i Træ"
+        subtitle="Badeplass og museum"
         imageUrl="/images/basseng.jpg"
-        title="Bli medlem"
-        text="Historielaget har i dag ca. 150 medlemmer som ønsker du å ivareta lokale tilbud, støtter vedlikehold av den offentlige badeplassen og bidrar til bevaring av lokale kulturminner. Medlemskapet koster kr 300 pr. år."
-        link={{
-          text: "Mer om medlemskap",
-          href: "#",
-        }}
-      />
-      <Teaser
+      >
+        Vi er en gjeng engasjerte, positive mennesker med stor kjærlighet for
+        bygden vår.
+      </Hero>
+    </section>
+    <div class="u-max-content-width">
+      <section class="l-frontpage__blocks">
+        <Teaser
           imageUrl="/images/basseng.jpg"
+          title="Bli medlem"
+          text="Historielaget har i dag ca. 150 medlemmer som ønsker du å ivareta lokale tilbud, støtter vedlikehold av den offentlige badeplassen og bidrar til bevaring av lokale kulturminner. Medlemskapet koster kr 300 pr. år."
+          link={{
+            text: "Mer om medlemskap",
+            href: "#",
+          }}
+        />
+        <Teaser
+          imageUrl="/images/tegning.jpg"
           title="Husmannsplassen"
           text="Husmannsplassen i Træ ligg lunt til ved fjorden mellom svaberg og grøne bakkar. I det 200 år gamle våningshuset kan ein framleis sjå korleis folket levde og budde."
           link={{
@@ -37,14 +39,25 @@ import Teaser from "../components/Teaser.astro";
             href: "#",
           }}
           imagePlacement="left"
-      />
-    </section>
-  </div>
-  <section class="l-frontpage__cards">
-    <div class="u-max-content-width">
-      <div class="l-frontpage__cards-more-link">
-        <MoreLink href="#">Se flere nyheter</MoreLink>
-      </div>
+        />
+      </section>
     </div>
-  </section>
+    <div class="u-max-content-width">
+      <section class="l-frontpage__cards">
+        <h2 class="l-frontpage__cards-title">Nyheter</h2>
+        <div class="l-frontpage__cards-list">
+          <Card
+            title="Årsmøte 2025"
+            text="Det inviteres til årsmøte på FOLK den 10. juni kl. 17.00. Alle medlemmer er velkommen til å delta hvis de har muligheten til det. Det vil bli servert kaffe."
+            date="27.04.2025"
+            href="#"
+            imageUrl="/images/sankthans.jpg"
+          />
+        </div>
+        <div class="l-frontpage__cards-more-link">
+          <MoreLink href="#">Se flere nyheter</MoreLink>
+        </div>
+      </section>
+    </div>
+  </div>
 </Layout>

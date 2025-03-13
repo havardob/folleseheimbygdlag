@@ -8,14 +8,21 @@
       justify-content: space-between;
       column-gap: 1.5rem;
       align-items: center;
-      padding-block: 2rem;
+      padding-block: 1rem;
+      @include breakpoint.medium-up {
+         padding-block: 2rem;
+      }
    }
    
    &__logo {
       text-decoration: none;
       display: block;
+      
       img {
-      height: 6rem;
+         height: 4rem;
+         @include breakpoint.medium-up {
+            height: 6rem;
+         }
       }
    }
    
@@ -37,6 +44,32 @@
       &.is-open,
       &.is-current {
          color: var(--color-follese);
+      }
+   }
+   
+   &__menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      column-gap: .5rem;
+      padding-block: .5rem;
+      padding-inline-start: 1.125rem;
+      padding-inline-end: 1.25rem;
+      border-radius: 99em;
+      text-decoration: none;
+      color: var(--color-white);
+      background-color: var(--color-follese);
+      
+      @include breakpoint.large-up {
+         display: none;
+      }
+      
+      svg {
+         flex-shrink: 0;
+         font-size: 1.25rem;
+      }
+      
+      &:hover {
+         background-color: var(--color-follese-dark);
       }
    }
 }

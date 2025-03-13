@@ -1,19 +1,52 @@
+@use "../02_tools/breakpoint";
+
 .l-frontpage {
-   &__banner {
-   
-   }
-   
+   padding-block-end: 6rem;
    &__blocks {
-      margin-block-start: 4rem;
+      margin-block-start: 3rem;
       display: flex;
       flex-direction: column;
+      row-gap: 3rem;
+      
+      @include breakpoint.medium-up {
+         row-gap: 0;
+         margin-block-start: 4rem;
+      }
    }
    
    &__cards {
-      margin-block-start: 4rem;
+      margin-block-start: 6rem;
+   }
+   
+   &__cards-title {
+      font-size: 2rem;
+      line-height: 1.25;
+      font-weight: 400;
+      font-family: var(--ff-secondary), serif;
+      
+      @include breakpoint.large-up {
+         font-size: 3rem;
+      }
+   }
+   
+   &__cards-list {
+      margin-block-start: 1rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 2rem;
+         margin-inline: -1rem;
+      @include breakpoint.medium-up {
+         grid-template-columns: repeat(2, 1fr);
+      }
+      
+      @include breakpoint.large-up {
+         grid-template-columns: repeat(3, 1fr);
+         margin-inline: -1.25rem;
+      }
    }
    
    &__cards-more-link {
+      margin-block-start: 4rem;
       display: flex;
       justify-content: center;
    }

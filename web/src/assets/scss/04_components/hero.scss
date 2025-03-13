@@ -5,11 +5,14 @@
       width: 100%;
       
       img {
-         aspect-ratio: 21 / 9;
-         max-height: 45rem;
+         aspect-ratio: 16 / 9;
          object-fit: cover;
          object-position: center center;
          width: 100%;
+         
+         @include breakpoint.medium-up {
+         aspect-ratio: 1920 / 715;
+         }
       }
    }
    
@@ -20,12 +23,12 @@
       background-color: var(--color-white);
       position: relative;
       text-align: center;
-      padding-block: 2rem;
-      padding-inline: 2rem;
+      padding-block-start: 2rem;
+      padding-inline: 1rem;
       margin-block-start: -2rem;
       
       @include breakpoint.large-up {
-      max-width: 62.5rem;
+         max-width: 62.5rem;
          margin-block-start: -10rem;
          padding-block: 3.5rem;
          padding-inline: 5.5rem;
@@ -51,7 +54,7 @@
    &__title {
       font-family: var(--ff-secondary), serif;
       font-weight: 400;
-      font-size: 2rem;
+      font-size: 1.75rem;
       line-height: 1.25;
       @include breakpoint.large-up {
          line-height: 1.05;
@@ -62,6 +65,7 @@
    &__intro {
       margin-block-start: 1rem;
       font-size: 1.125rem;
+      text-wrap: pretty;
       @include breakpoint.large-up {
          margin-block-start: 1.25rem;
          font-size: 1.5rem;
