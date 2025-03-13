@@ -40,5 +40,61 @@ export default {
         },
       ],
     },
+    {
+      title: 'Seksjoner',
+      name: 'blocks',
+      type: 'array',
+      of: [
+        {
+          title: 'Bilde med tekst og knapp',
+          name: 'teaserBlock',
+          type: 'object',
+          fields: [
+            {
+              title: 'Bilde',
+              name: 'image',
+              type: 'image',
+            },
+            {
+              title: 'Overskrift',
+              name: 'title',
+              type: 'string',
+            },
+            {
+              title: 'Tekst',
+              name: 'content',
+              type: 'text',
+              rows: 4,
+            },
+            {
+              title: 'Lenke',
+              name: 'link',
+              type: 'url',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: 'Nyhets-seksjon',
+      name: 'newsSection',
+      type: 'object',
+      fields: [
+        {
+          title: 'Overskrift over nyhetene',
+          name: 'title',
+          type: 'string',
+        },
+        {
+          title: 'Antall',
+          description: "Velg hvor mange av de siste nyhetene som skal vises her på forsiden",
+          name: 'count',
+          type: 'number',
+          options: {
+            list: [3, 6, 9]
+          }
+        },
+      ],
+    },
   ],
 }

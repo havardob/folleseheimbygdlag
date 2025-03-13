@@ -8,8 +8,8 @@ export default defineConfig({
   name: 'default',
   title: 'Follese Heimbydglag',
 
-  projectId: 'qd5ip3k2',
-  dataset: 'production',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || "",
+  dataset: process.env.SANITY_STUDIO_DATASET || "",
 
   plugins: [
     structureTool({

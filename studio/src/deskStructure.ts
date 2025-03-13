@@ -5,9 +5,15 @@ export default (S: any) =>
         .title("Innhold")
         .items([
             S.listItem()
-                .title("Front Page")
+                .title("Forside")
                 .icon(BiHome)
                 .child(S.document().schemaType("frontPage").documentId("frontPage")),
+            S.divider(),
+            ...S.documentTypeListItems()
+                .filter((listItem: any) => ["page"].includes(listItem.getId())),
+            S.divider(),
+            ...S.documentTypeListItems()
+                .filter((listItem: any) => ["newsArticle"].includes(listItem.getId())),
             S.divider(),
             S.listItem()
                 .title("Innstillinger")
