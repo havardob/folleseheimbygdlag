@@ -1,21 +1,84 @@
+@use "../02_tools/breakpoint";
+
 .teaser {
-   display: grid;
-   grid-template-columns: 50% 50%;
-   
-   &__image {
-      object-fit: cover;
-      object-position: center center;
+   display: flex;
+   flex-direction: column;
+   @include breakpoint.large-up {
+      flex-direction: row;
    }
    
-   &__title {
+   &[data-position="right"] {
+      @include breakpoint.large-up {
+         flex-direction: row-reverse;
+      }
+   }
    
+   & > * {
+      @include breakpoint.large-up {
+         width: 50%;
+      }
+   }
+   
+   &__image {
+      height: 100%;
+      
+      img {
+         object-fit: cover;
+         object-position: center center;
+      }
    }
    
    &__content {
+      background-color: var(--color-sky);
+      padding-block: 2rem;
+      padding-inline: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      @include breakpoint.large-up {
+         padding-inline: 3rem;
+      }
+   }
    
+   &__title {
+      font-family: var(--ff-secondary), serif;
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 1.25;
+      
+      @include breakpoint.large-up {
+         font-size: 3rem;
+      }
+   }
+   
+   &__text {
+      margin-block-start: .5em;
+      font-size: 1.125rem;
+      
+      @include breakpoint.large-up {
+         font-size: 1.25rem;
+      }
    }
    
    &__link {
-   
+      margin-block-start: 1.5rem;
+      display: inline-flex;
+      padding-block: .5rem;
+      padding-inline: 1.25rem;
+      border-radius: 99em;
+      text-decoration: none;
+      color: var(--color-white);
+      background-color: var(--color-follese);
+      
+      &:hover {
+         background-color: var(--color-follese-dark);
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 1.125rem;
+         padding-block: .75rem;
+         padding-inline: 2rem;
+      }
    }
 }

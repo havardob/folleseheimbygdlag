@@ -1,0 +1,27 @@
+---
+interface Props {
+  current: string;
+  parent?: {
+    slug: string;
+    title: string;
+  };
+}
+
+const { current, parent } = Astro.props;
+---
+
+<ol class="breadcrumbs">
+  <li class="breadcrumbs__item">
+    <a href="/" class="breadcrumbs__link">Forside</a>
+  </li>
+  {
+    parent?.slug && (
+      <li class="breadcrumbs__item">
+        <a href={`/${parent.slug}`} class="breadcrumbs__link">{parent.title}</a>
+      </li>
+    )
+  }
+  <li class="breadcrumbs__item">
+    <span class="breadcrumbs__link">{current}</span>
+  </li>
+</ol>

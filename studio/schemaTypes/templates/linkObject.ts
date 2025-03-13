@@ -1,6 +1,9 @@
+import {BiGlobe, BiLink} from "react-icons/bi";
+
 export const externalLinkUrl = {
-    title: "Website address (URL)",
-    description: "Paste in or write the website's URL that you want to link to. Remember to add 'http://' or 'https://' at the beginning",
+    title: "Nettsideadresse (URL)",
+    icon: BiGlobe,
+    description: "Lim inn eller skriv inn adressen til nettsiden du vil lenke til. Husk å legge til 'https://' i begynnelsen, f.eks. 'https://nasjonalbiblioteket.no'",
     name: "href",
     type: "url",
     validation: (Rule: any) => Rule.uri({
@@ -9,13 +12,15 @@ export const externalLinkUrl = {
 }
 
 export const internalLinkRef = {
-    title: "Internal Document",
-    description: "Choose the internal document you want to link to",
+    title: "Intern side",
+    description: "Velg en side eller underside som er opprettet her i Sanity som du vil lenke til",
     name: "internalDocument",
     type: "reference",
+    icon: BiLink,
     to: [
         { type: "frontPage" },
-        { type: "subPage" },
+        { type: "page" },
+        { type: "subPage" }
     ],
     options: {
         disableNew: true,

@@ -31,6 +31,9 @@ export default {
         {
           type: 'reference',
           to: [{type: 'subPage'}],
+          options: {
+            filter: '!(_id in *[_type == "page"].children[]._ref)',
+          }
         },
       ],
     },

@@ -11,6 +11,8 @@ export default (S: any) =>
             S.divider(),
             ...S.documentTypeListItems()
                 .filter((listItem: any) => ["page"].includes(listItem.getId())),
+            ...S.documentTypeListItems()
+                .filter((listItem: any) => ["subPage"].includes(listItem.getId())),
             S.divider(),
             ...S.documentTypeListItems()
                 .filter((listItem: any) => ["newsArticle"].includes(listItem.getId())),

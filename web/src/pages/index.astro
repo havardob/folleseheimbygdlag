@@ -2,15 +2,44 @@
 import Layout from "../layouts/Layout.astro";
 import MoreLink from "../components/MoreLink.astro";
 import Hero from "../components/Hero.astro";
+import Teaser from "../components/Teaser.astro";
 ---
 
 <Layout metaTitle="Forside">
   <h1 class="u-visually-hidden">Forside</h1>
   <section class="l-frontpage__banner">
-    <Hero title="Follese Heimbygdlag, Husmannsplassen i Træ" subtitle="Badeplass og museum" imageUrl="/images/basseng.jpg">
-      Vi er en gjeng engasjerte, positive mennesker med stor kjærlighet for bygden vår.
+    <Hero
+      title="Follese Heimbygdlag, Husmannsplassen i Træ"
+      subtitle="Badeplass og museum"
+      imageUrl="/images/basseng.jpg"
+    >
+      Vi er en gjeng engasjerte, positive mennesker med stor kjærlighet for
+      bygden vår.
     </Hero>
   </section>
+  <div class="u-max-content-width">
+    <section class="l-frontpage__blocks">
+      <Teaser
+        imageUrl="/images/basseng.jpg"
+        title="Bli medlem"
+        text="Historielaget har i dag ca. 150 medlemmer som ønsker du å ivareta lokale tilbud, støtter vedlikehold av den offentlige badeplassen og bidrar til bevaring av lokale kulturminner. Medlemskapet koster kr 300 pr. år."
+        link={{
+          text: "Mer om medlemskap",
+          href: "#",
+        }}
+      />
+      <Teaser
+          imageUrl="/images/basseng.jpg"
+          title="Husmannsplassen"
+          text="Husmannsplassen i Træ ligg lunt til ved fjorden mellom svaberg og grøne bakkar. I det 200 år gamle våningshuset kan ein framleis sjå korleis folket levde og budde."
+          link={{
+            text: "Huset og museet",
+            href: "#",
+          }}
+          imagePlacement="left"
+      />
+    </section>
+  </div>
   <section class="l-frontpage__cards">
     <div class="u-max-content-width">
       <div class="l-frontpage__cards-more-link">

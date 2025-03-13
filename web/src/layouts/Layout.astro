@@ -13,7 +13,7 @@ const siteSettingsData = await getCollection('siteSettings');
 const siteSettings = siteSettingsData[0].data;
 
 const {
-  metaTitle = siteSettings?.metaTitle,
+  metaTitle,
   metaDescription = siteSettings?.metaDescription,
   metaImageUrl = siteSettings?.metaImageUrl,
   metaUrl = siteSettings?.metaUrl,
@@ -25,9 +25,9 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{metaTitle}</title>
-    <meta property="og:title" content={metaTitle} />
-    <meta property="og:site_name" content={metaTitle} />
+    <title>{`${siteSettings.metaTitle} | ${metaTitle}`}</title>
+    <meta property="og:title" content={`${siteSettings.metaTitle} | ${metaTitle}`} />
+    <meta property="og:site_name" content={`${siteSettings.metaTitle} | ${metaTitle}`} />
     <meta name="description" content={metaDescription} />
     <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={metaUrl} />

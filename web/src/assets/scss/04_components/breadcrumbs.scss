@@ -1,0 +1,23 @@
+.breadcrumbs {
+   list-style-type: "";
+   margin: 0;
+   padding: 0;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   row-gap: .5rem;
+   
+   &__item {
+      &:not(:last-child) {
+         &:after {
+            display: inline-block;
+            margin-inline: .375rem .5rem;
+            content: "/";
+         }
+      }
+   }
+   
+   &__link {
+      text-underline-offset: 2px;
+   }
+}

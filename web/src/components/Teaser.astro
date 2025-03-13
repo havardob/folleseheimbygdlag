@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  text?: string;
+  link?: { text: string; href: string };
+  imageUrl: string;
+  imagePlacement?: "left" | "right";
+}
+
+const { title, text, link, imageUrl, imagePlacement = "right" } = Astro.props;
+---
+
+<div class="teaser" data-position={imagePlacement}>
+  <div class="teaser__image">
+    <img src={imageUrl} alt="" />
+  </div>
+  <div class="teaser__content">
+    <h2 class="teaser__title">{title}</h2>
+    {text && <p class="teaser__text">{text}</p>}
+    {
+      link && (
+        <a href={link.href} class="teaser__link">
+          {link.text}
+        </a>
+      )
+    }
+  </div>
+</div>

@@ -57,6 +57,7 @@ body {
   }
 }
 :root {
+  --color-follese-dark: #0a4f97;
   --color-follese: #1960AA;
   --color-cobalt: #0D2B49;
   --color-sky: #ECF5FF;
@@ -141,6 +142,24 @@ body {
 
 :where(h1, h2, h3, h4, h5, h6) {
   text-wrap: pretty;
+}
+
+.breadcrumbs {
+  list-style-type: "";
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 0.5rem;
+}
+.breadcrumbs__item:not(:last-child):after {
+  display: inline-block;
+  margin-inline: 0.375rem 0.5rem;
+  content: "/";
+}
+.breadcrumbs__link {
+  text-underline-offset: 2px;
 }
 
 .site-header {
@@ -262,23 +281,95 @@ body {
   .more-link {
     font-size: 1.125rem;
     padding-block: 0.75rem;
-    padding-inline: 1.75rem;
+    padding-inline: 2rem;
   }
 }
 
 .teaser {
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 80rem) {
+  .teaser {
+    flex-direction: row;
+  }
+}
+@media (min-width: 80rem) {
+  .teaser[data-position=right] {
+    flex-direction: row-reverse;
+  }
+}
+@media (min-width: 80rem) {
+  .teaser > * {
+    width: 50%;
+  }
 }
 .teaser__image {
+  height: 100%;
+}
+.teaser__image img {
   object-fit: cover;
   object-position: center center;
 }
-.l-frontpage__teaser {
+.teaser__content {
+  background-color: var(--color-sky);
+  padding-block: 2rem;
+  padding-inline: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+@media (min-width: 80rem) {
+  .teaser__content {
+    padding-inline: 3rem;
+  }
+}
+.teaser__title {
+  font-family: var(--ff-secondary), serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+@media (min-width: 80rem) {
+  .teaser__title {
+    font-size: 3rem;
+  }
+}
+.teaser__text {
+  margin-block-start: 0.5em;
+  font-size: 1.125rem;
+}
+@media (min-width: 80rem) {
+  .teaser__text {
+    font-size: 1.25rem;
+  }
+}
+.teaser__link {
+  margin-block-start: 1.5rem;
+  display: inline-flex;
+  padding-block: 0.5rem;
+  padding-inline: 1.25rem;
+  border-radius: 99em;
+  text-decoration: none;
+  color: var(--color-white);
+  background-color: var(--color-follese);
+}
+.teaser__link:hover {
+  background-color: var(--color-follese-dark);
+}
+@media (min-width: 80rem) {
+  .teaser__link {
+    font-size: 1.125rem;
+    padding-block: 0.75rem;
+    padding-inline: 2rem;
+  }
+}
+
+.l-frontpage__blocks {
   margin-block-start: 4rem;
   display: flex;
   flex-direction: column;
-  row-gap: 4rem;
 }
 .l-frontpage__cards {
   margin-block-start: 4rem;

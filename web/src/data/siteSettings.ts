@@ -8,7 +8,5 @@ const query = `*[_id == "siteSettings"][0]{
 }`
 
 export async function getSiteSettingsData() {
-  const data = await client.fetch(query);
-  console.log(data);
-  return data;
+  return await client.fetch(query);
 }
