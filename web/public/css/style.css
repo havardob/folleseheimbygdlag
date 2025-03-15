@@ -190,12 +190,13 @@ body {
   }
 }
 .site-header__nav {
-  display: flex;
   align-items: center;
   column-gap: 1.5rem;
+  display: none;
 }
 @media (min-width: 80rem) {
   .site-header__nav {
+    display: flex;
     font-size: 1.25rem;
   }
 }

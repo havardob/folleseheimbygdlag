@@ -4,9 +4,12 @@ const query = `*[_id == "siteSettings"][0]{
     _id,
     metaTitle,
     metaDescription,
-    metaUrl
+    metaUrl,
+    mainNav
 }`
 
 export async function getSiteSettingsData() {
-  return await client.fetch(query);
+  const data = await client.fetch(query);
+  console.log(data.mainNav)
+  return data;
 }

@@ -27,11 +27,12 @@
    }
    
    &__nav {
-      display: flex;
       align-items: center;
       column-gap: 1.5rem;
+      display: none;
       
       @include breakpoint.large-up {
+         display: flex;
          font-size: 1.25rem;
       }
    }

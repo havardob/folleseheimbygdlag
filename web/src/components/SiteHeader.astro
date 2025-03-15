@@ -1,6 +1,6 @@
 ---
 interface Props {
-  nav?: { href: string; label: string }[];
+  nav?: { title: string }[];
 }
 
 const { nav } = Astro.props;
@@ -16,8 +16,8 @@ const { nav } = Astro.props;
       <nav class="site-header__nav">
         {
           nav?.map((item) => (
-            <a href={item.href} class="site-header__link">
-              {item.label}
+            <a href={"#"} class="site-header__link">
+              {item.title}
             </a>
           ))
         }

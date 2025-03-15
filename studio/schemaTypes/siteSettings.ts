@@ -77,6 +77,11 @@ export default {
           icon: BiGlobe,
           fields: [
             {
+              title: 'Tekst',
+              name: 'title',
+              type: 'string',
+            },
+            {
               ...externalLinkUrl,
             },
           ],
@@ -91,6 +96,9 @@ export default {
               title: 'Tekst',
               name: 'title',
               type: 'string',
+            },
+            {
+              ...internalLinkRef,
             },
             {
               title: 'Lenker',
@@ -119,6 +127,11 @@ export default {
                   name: 'externalLink',
                   icon: BiGlobe,
                   fields: [
+                    {
+                      title: 'Tekst',
+                      name: 'title',
+                      type: 'string',
+                    },
                     {
                       ...externalLinkUrl,
                     },

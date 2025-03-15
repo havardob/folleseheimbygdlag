@@ -1,5 +1,5 @@
 ---
-import {getCollection} from "astro:content";
+import { getCollection } from "astro:content";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 
@@ -10,7 +10,7 @@ interface Props {
   metaUrl?: string;
 }
 
-const siteSettingsData = await getCollection('siteSettings');
+const siteSettingsData = await getCollection("siteSettings");
 const siteSettings = siteSettingsData[0].data;
 
 const {
@@ -19,6 +19,7 @@ const {
   metaImageUrl = siteSettings?.metaImageUrl,
   metaUrl = siteSettings?.metaUrl,
 } = Astro.props;
+
 ---
 
 <html lang="nb-NO">
@@ -27,8 +28,14 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{`${siteSettings.metaTitle} | ${metaTitle}`}</title>
-    <meta property="og:title" content={`${siteSettings.metaTitle} | ${metaTitle}`} />
-    <meta property="og:site_name" content={`${siteSettings.metaTitle} | ${metaTitle}`} />
+    <meta
+      property="og:title"
+      content={`${siteSettings.metaTitle} | ${metaTitle}`}
+    />
+    <meta
+      property="og:site_name"
+      content={`${siteSettings.metaTitle} | ${metaTitle}`}
+    />
     <meta name="description" content={metaDescription} />
     <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={metaUrl} />
@@ -37,7 +44,7 @@ const {
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
   </head>
   <body>
-    <SiteHeader />
+    <SiteHeader nav={siteSettings?.mainNav}/>
     <slot />
     <SiteFooter />
   </body>
