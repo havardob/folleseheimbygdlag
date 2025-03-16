@@ -1,0 +1,13 @@
+.l-subpage {
+   padding-block-end: 10rem;
+   &__breadcrumbs {
+      margin-block: 2rem;
+   }
+   
+   &__title {
+      font-weight: 400;
+      font-size: 4rem;
+      line-height: 1.05;
+      font-family: var(--ff-secondary), sans-serif;
+   }
+}

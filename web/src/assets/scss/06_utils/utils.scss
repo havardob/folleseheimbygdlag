@@ -1,15 +1,19 @@
 .u-visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+   clip: rect(0 0 0 0);
+   clip-path: inset(50%);
+   height: 1px;
+   overflow: hidden;
+   position: absolute;
+   white-space: nowrap;
+   width: 1px;
 }
 
 .u-max-content-width {
    max-width: 80rem;
    width: calc(100% - 2rem);
-   margin-inline: auto
+   margin-inline: auto;
+   
+   &--wide {
+      max-width: 100rem;
+   }
 }

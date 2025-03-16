@@ -1,29 +1,52 @@
 ---
 interface Props {
-  nav?: { title: string }[];
+  nav?: { title: string; link: {href: string}; type: string, links: any }[];
 }
 
 const { nav } = Astro.props;
 ---
 
 <header class="site-header">
-  <div class="u-max-content-width">
+  <div class="u-max-content-width u-max-content-width--wide">
     <div class="site-header__inner">
       <a class="site-header__logo" href="/">
         <span class="u-visually-hidden">Gå til forside</span>
         <img src="/images/logo_bla.png" alt="" />
       </a>
       <nav class="site-header__nav">
-        {
-          nav?.map((item) => (
-            <a href={"#"} class="site-header__link">
-              {item.title}
-            </a>
-          ))
-        }
+        <ul>
+          {
+            nav?.map((item) => (
+              <li>
+                <a href={item.link ? `/${item.link.href}` : `#`} class="site-header__link">
+                  <span>{item.title}</span>
+                  {item.type === "dropdown" && (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 16L6 10H18L12 16Z"></path></svg>
+                  )}
+                </a>
+                {item.type === "dropdown" && (
+                    <ul class="site-header__dropdown">
+                      {item.links.map((subItem: any) => (
+                          <li>
+                            <a href={`/${subItem.link?.href}`}>{subItem.title}</a>
+                          </li>
+                      ))}
+                    </ul>
+                )}
+              </li>
+            ))
+          }
+        </ul>
       </nav>
       <button class="site-header__menu-toggle">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" fill="currentColor"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path></svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="1em"
+          fill="currentColor"
+        >
+          <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
+        </svg>
         <span>Meny</span>
       </button>
     </div>

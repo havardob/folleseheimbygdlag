@@ -23,28 +23,101 @@
          @include breakpoint.medium-up {
             height: 6rem;
          }
+         
+         @include breakpoint.large-up {
+            height: 7.5rem;
+         }
       }
    }
    
    &__nav {
-      align-items: center;
-      column-gap: 1.5rem;
       display: none;
       
+      
       @include breakpoint.large-up {
+         display: block;
+         font-size: 1.125rem;
+      }
+      
+      & > ul {
+         list-style-type: "";
+         padding: 0;
+         margin: 0;
          display: flex;
-         font-size: 1.25rem;
+         align-items: center;
+         column-gap: 1.5rem;
+         
+         & > li {
+            position: relative;
+         }
       }
    }
    
-   &__link, &__dropdown {
+   &__link {
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      column-gap: .125rem;
+      padding-block: 1rem;
+      
+      svg {
+         flex-shrink: 0;
+      }
       
       &:hover,
       &:focus-visible,
       &.is-open,
-      &.is-current {
-         color: var(--color-follese);
+      &.is-current,
+      &:has(+ ul:hover) {
+         span {
+            color: var(--color-follese);
+         }
+         
+         svg {
+            rotate: 180deg;
+         }
+      }
+      
+      &:hover, &:focus-visible {
+         & + ul {
+            transform: scaleY(1);
+         }
+      }
+   }
+   
+   &__dropdown {
+      list-style-type: "";
+      background-color: var(--color-follese);
+      color: var(--color-white);
+      position: absolute;
+      left: 0;
+      transform: scaleY(0);
+      display: flex;
+      flex-direction: column;
+      padding-block: .5rem;
+      padding-inline: .5rem;
+      row-gap: .5rem;
+      
+      &:hover,
+      &:focus-within,
+      &:has(a:focus-visible) {
+         transform: scaleY(1);
+      }
+      
+      li {
+         width: 100%;
+      }
+      
+      a {
+         text-decoration: none;
+         white-space: nowrap;
+         display: flex;
+         padding-block: .5rem;
+         padding-inline: .75rem;
+         
+         &:hover {
+            background-color: var(--color-follese-dark);
+         }
       }
    }
    

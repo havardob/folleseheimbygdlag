@@ -8,7 +8,7 @@ export async function getStaticPaths() {
 
   return subPages.map((result: any) => ({
       params: {
-        subPage: result.data.slug,
+        subPage: result.data.fullSlug,
       },
       props: {
         data: result.data,

@@ -1,4 +1,5 @@
 import { client } from "./_sanityClient.ts";
+import {getSlug} from "./_query-helpers.ts";
 
 const query = `*[_type == "subPage"] {
     _id, 
@@ -7,19 +8,12 @@ const query = `*[_type == "subPage"] {
       "slug": *[_type == "page" && references(^._id)][0].slug.current,
       "title": *[_type == "page" && references(^._id)][0].title
     },
+    "fullSlug": ${getSlug},
     title, 
     leading,
     body
 }`;
 
 export async function getSubPagesData() {
-  const subPages = await client.fetch(query);
-
-  for (let subPage of subPages) {
-    if (subPage.parent.slug) {
-      subPage.slug = `${subPage.parent.slug}/${subPage.slug}`;
-    }
-  }
-
-  return subPages;
+  return await client.fetch(query);
 }
