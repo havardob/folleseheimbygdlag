@@ -1,5 +1,5 @@
-import {client} from "./_sanityClient";
-import {getSlug} from "./_query-helpers.ts";
+import { client } from "./_sanityClient";
+import {getSubpageSlug} from "./_query-helpers.ts";
 
 const query = `*[_id == "siteSettings"][0]{
     _id,
@@ -15,12 +15,16 @@ const query = `*[_id == "siteSettings"][0]{
       _type == "internal" => {
         "type": "internal",
         "title": title,
-        "link": internalDocument->{"href": ${getSlug}}
+        "link": internalDocument->{
+          "href": ${getSubpageSlug}
+        },
       },
       _type == "dropdown" => {
         "type": "dropdown",
         "title": title,
-        "link": internalDocument->{"href": ${getSlug}},
+        "link": internalDocument->{
+          "href": ${getSubpageSlug}
+        },
         links[] {
           _type == "external" => {
             "type": "external",
@@ -29,13 +33,15 @@ const query = `*[_id == "siteSettings"][0]{
           },
           _type == "internal" => {
             "type": "internal",
-            "title": title,
-            "link": internalDocument->{"href": ${getSlug}}
+            "title": title,            
+            "link": internalDocument->{
+              "href": ${getSubpageSlug}
+            },
           },
         }
       }
     }
-}`
+}`;
 
 export async function getSiteSettingsData() {
   return await client.fetch(query);

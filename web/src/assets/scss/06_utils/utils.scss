@@ -17,3 +17,66 @@
       max-width: 100rem;
    }
 }
+
+.u-rich-text {
+   & > * + * {
+      margin-block-start: 1.25em;
+   }
+   
+   & > :where(h1, h2, h3, h4, h5, h6):not([class]) + * {
+      margin-block-start: .5em;
+   }
+   
+   & > * + :where(h1, h2, h3, h4, h5, h6):not([class]) {
+      margin-block-start: 1.5em;
+   }
+   
+   & > ul:not([class]) {
+      list-style-type: disc;
+      
+      ::marker {
+         color: var(--color-follese);
+      }
+      
+      li + li,
+      li > ul,
+      li > ol {
+         margin-block-start: 0.5em;
+      }
+   }
+   
+   & > ol:not([class]) {
+      list-style-type: decimal;
+      
+      ::marker {
+         color: var(--color-follese);
+      }
+      
+      li + li,
+      li > ul,
+      li > ol {
+         margin-block-start: 0.5em;
+      }
+   }
+   
+   & > * > a:not([class]) {
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 0.25em;
+      text-decoration-thickness: 1px;
+      text-decoration-color: var(--color-follese);
+      
+      &:hover {
+         color: var(--color-follese);
+         text-decoration-thickness: 3px;
+      }
+   }
+   
+   strong:not([class]) {
+      font-weight: 600;
+   }
+   
+   & > * + .image-block {
+      margin-block-start: 3em;
+   }
+}

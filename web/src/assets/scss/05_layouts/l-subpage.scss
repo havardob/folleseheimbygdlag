@@ -1,13 +1,86 @@
+@use "../02_tools/breakpoint";
+
 .l-subpage {
    padding-block-end: 10rem;
+   
    &__breadcrumbs {
       margin-block: 2rem;
    }
    
    &__title {
       font-weight: 400;
-      font-size: 4rem;
-      line-height: 1.05;
       font-family: var(--ff-secondary), sans-serif;
+      font-size: 2.5rem;
+      line-height: 1.125;
+      
+      @include breakpoint.medium-up {
+         font-size: 3rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 4rem;
+         line-height: 1.05;
+      }
+   }
+   
+   &__leading {
+      margin-block-start: 1.5rem;
+      font-size: 1.25rem;
+      max-width: 50ch;
+      
+      @include breakpoint.medium-up {
+         font-size: 1.375rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 1.5rem;
+         line-height: 1.375;
+      }
+   }
+   
+   &__body {
+      margin-block-start: 4rem;
+      margin-inline: auto;
+      max-width: 50ch;
+      font-size: 1rem;
+      
+      @include breakpoint.medium-up {
+         font-size: 1.125rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 1.25rem;
+      }
+      
+      & > :where(h1, h2, h3):not([class]) {
+         font-family: var(--ff-secondary), serif;
+         font-weight: 400;
+      }
+      
+      & > h2:not([class]) {
+         font-size: 1.5rem;
+         
+         @include breakpoint.medium-up {
+            font-size: 2rem;
+            line-height: 1.25;
+         }
+         
+         @include breakpoint.large-up {
+            font-size: 2.5rem;
+         }
+      }
+      
+      & > h3:not([class]) {
+         font-size: 1.125rem;
+         
+         @include breakpoint.medium-up {
+            font-size: 1.5rem;
+            line-height: 1.375;
+         }
+         
+         @include breakpoint.large-up {
+            font-size: 1.75rem;
+         }
+      }
    }
 }

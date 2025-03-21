@@ -5,11 +5,11 @@ import { getCollection } from "astro:content";
 import RichText from "../components/portableText/RichText.astro";
 
 export async function getStaticPaths() {
-  const subPages = await getCollection("subPages");
+  const newsArticles = await getCollection("newsArticles");
 
-  return subPages.map((result: any) => ({
+  return newsArticles.map((result: any) => ({
     params: {
-      subPage: result.data.fullSlug,
+      newsArticle: result.data.fullSlug,
     },
     props: {
       data: result.data,
@@ -21,18 +21,22 @@ const { data } = Astro.props;
 ---
 
 <Layout metaTitle={data.title}>
-  <div class="l-subpage">
-    <div class="l-subpage__breadcrumbs">
+  <div class="l-news-article">
+    <div class="l-news-article__breadcrumbs">
       <div class="u-max-content-width">
         <Breadcrumbs current={data.title} parent={data.parent} />
       </div>
     </div>
     <div class="u-max-content-width">
-      <h1 class="l-subpage__title">{data.title}</h1>
-      {data.leading && <div class="l-subpage__leading">{data.leading}</div>}
+      <h1 class="l-news-article__title">{data.title}</h1>
+      {
+        data.leading && (
+          <div class="l-news-article__leading">{data.leading}</div>
+        )
+      }
       {
         data.body !== null && (
-          <div class="l-subpage__body | u-rich-text">
+          <div class="l-news-article__body">
             <RichText content={data.body} />
           </div>
         )

@@ -1,0 +1,23 @@
+---
+import { PortableText } from "astro-portabletext";
+import InlineLink from "../InlineLink.astro";
+import ImageBlock from "../ImageBlock.astro";
+
+interface Props {
+    content: any[]
+}
+
+const components = {
+  mark: {
+    externalLink: InlineLink,
+    internalLink: InlineLink,
+  },
+  type: {
+      imageBlock: ImageBlock,
+  },
+};
+
+const { content } = Astro.props;
+---
+
+<PortableText value={content} components={components} />

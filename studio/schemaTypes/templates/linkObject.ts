@@ -20,7 +20,8 @@ export const internalLinkRef = {
     to: [
         { type: "frontPage" },
         { type: "page" },
-        { type: "subPage" }
+        { type: "subPage" },
+        { type: "newsArchive" }
     ],
     options: {
         disableNew: true,

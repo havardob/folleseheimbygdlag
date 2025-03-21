@@ -1,6 +1,8 @@
 ---
+import TriangleDown from "./icons/TriangleDown.astro";
+import Menu from "./icons/Menu.astro";
 interface Props {
-  nav?: { title: string; link: {href: string}; type: string, links: any }[];
+  nav?: { title: string; link: { href: string }; type: string; links: any }[];
 }
 
 const { nav } = Astro.props;
@@ -14,24 +16,32 @@ const { nav } = Astro.props;
         <img src="/images/logo_bla.png" alt="" />
       </a>
       <nav class="site-header__nav">
-        <ul>
+        <ul class="site-header__nav-list">
           {
             nav?.map((item) => (
-              <li>
-                <a href={item.link ? `/${item.link.href}` : `#`} class="site-header__link">
+              <li class="site-header__nav-item">
+                  <div class="site-header__nav-item-inner">
+                <a
+                  href={item.link ? `/${item.link.href}` : `#`}
+                  class="site-header__link"
+                >
+
                   <span>{item.title}</span>
-                  {item.type === "dropdown" && (
-                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" viewBox="0 0 24 24" fill="currentColor"><path d="M12 16L6 10H18L12 16Z"></path></svg>
-                  )}
                 </a>
                 {item.type === "dropdown" && (
-                    <ul class="site-header__dropdown">
-                      {item.links.map((subItem: any) => (
-                          <li>
-                            <a href={`/${subItem.link?.href}`}>{subItem.title}</a>
-                          </li>
-                      ))}
-                    </ul>
+                  <span class="site-header__dropdown-icon">
+                    <TriangleDown />
+                  </span>
+                )}
+                  </div>
+                {item.type === "dropdown" && (
+                  <ul class="site-header__dropdown">
+                    {item.links.map((subItem: any) => (
+                      <li>
+                        <a href={`/${subItem.link?.href}`}>{subItem.title}</a>
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </li>
             ))
@@ -39,14 +49,7 @@ const { nav } = Astro.props;
         </ul>
       </nav>
       <button class="site-header__menu-toggle">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          width="1em"
-          fill="currentColor"
-        >
-          <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
-        </svg>
+<Menu />
         <span>Meny</span>
       </button>
     </div>

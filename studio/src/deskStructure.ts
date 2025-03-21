@@ -1,4 +1,4 @@
-import { BiCog, BiHome } from "react-icons/bi";
+import {BiArchive, BiCog, BiHome} from "react-icons/bi";
 
 export default (S: any) =>
     S.list()
@@ -16,6 +16,10 @@ export default (S: any) =>
             S.divider(),
             ...S.documentTypeListItems()
                 .filter((listItem: any) => ["newsArticle"].includes(listItem.getId())),
+            S.listItem()
+                .title("Nyhetsarkiv")
+                .icon(BiArchive)
+                .child(S.document().schemaType("newsArchive").documentId("newsArchive")),
             S.divider(),
             S.listItem()
                 .title("Innstillinger")

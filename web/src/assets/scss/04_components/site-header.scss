@@ -33,23 +33,53 @@
    &__nav {
       display: none;
       
-      
       @include breakpoint.large-up {
          display: block;
          font-size: 1.125rem;
       }
+   }
+   
+   &__nav-list {
+      list-style-type: "";
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      column-gap: 1.5rem;
+   }
+   
+   &__nav-item {
+      cursor: pointer;
+      position: relative;
       
-      & > ul {
-         list-style-type: "";
-         padding: 0;
-         margin: 0;
-         display: flex;
-         align-items: center;
-         column-gap: 1.5rem;
+      &:hover, &:focus-within, &:has(:focus-visible) {
+         color: var(--color-follese);
          
-         & > li {
-            position: relative;
+         .site-header__dropdown-icon {
+            
+            svg {
+               rotate: 180deg;
+            }
          }
+         
+         .site-header__dropdown {
+            transform: scaleY(1);
+         }
+      }
+   }
+   
+   &__nav-item-inner {
+      display: inline-flex;
+      align-items: center;
+      column-gap: .25rem;
+      padding-block: .75rem;
+   }
+   
+   &__dropdown-icon {
+      flex-shrink: 0;
+      
+      svg {
+         font-size: 1.5rem;
       }
    }
    
@@ -58,29 +88,16 @@
       display: flex;
       align-items: center;
       column-gap: .125rem;
-      padding-block: 1rem;
       
-      svg {
-         flex-shrink: 0;
+      span {
+         text-underline-offset: 4px;
+         text-decoration-thickness: 1px;
       }
       
       &:hover,
-      &:focus-visible,
-      &.is-open,
-      &.is-current,
-      &:has(+ ul:hover) {
+      &:focus-visible {
          span {
-            color: var(--color-follese);
-         }
-         
-         svg {
-            rotate: 180deg;
-         }
-      }
-      
-      &:hover, &:focus-visible {
-         & + ul {
-            transform: scaleY(1);
+            text-decoration-line: underline;
          }
       }
    }
@@ -90,13 +107,16 @@
       background-color: var(--color-follese);
       color: var(--color-white);
       position: absolute;
-      left: 0;
+      border-radius: 4px;
+      right: 0;
       transform: scaleY(0);
+      transform-origin: right top;
       display: flex;
       flex-direction: column;
       padding-block: .5rem;
       padding-inline: .5rem;
       row-gap: .5rem;
+      transition: transform .15s ease;
       
       &:hover,
       &:focus-within,

@@ -12,12 +12,17 @@
          &:after {
             display: inline-block;
             margin-inline: .375rem .5rem;
-            content: "/";
+            content: "•";
          }
       }
    }
    
    &__link {
-      text-underline-offset: 2px;
+      text-underline-offset: 4px;
+      text-decoration: none;
+      
+      &:is(a):hover {
+         text-decoration: underline;
+      }
    }
 }

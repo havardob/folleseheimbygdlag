@@ -1,0 +1,10 @@
+---
+const { markDef, children } = Astro.props.node;
+
+console.log(markDef, children)
+
+const text = children[0].text;
+const href = markDef?.link?.href || "";
+---
+
+<a href={`/${href}`}>{text}</a>
