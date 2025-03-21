@@ -79,4 +79,8 @@
    & > * + .image-block {
       margin-block-start: 3em;
    }
+   
+   & > *:not(.file-block) + .file-block {
+      margin-block-start: 1.5em;
+   }
 }

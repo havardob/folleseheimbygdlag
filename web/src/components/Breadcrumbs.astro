@@ -1,4 +1,5 @@
 ---
+import House from "./icons/House.astro";
 interface Props {
   current: string;
   parent?: {
@@ -12,7 +13,9 @@ const { current, parent } = Astro.props;
 
 <ol class="breadcrumbs">
   <li class="breadcrumbs__item">
-    <a href="/" class="breadcrumbs__link">Forside</a>
+    <a href="/" class="breadcrumbs__link">
+      Forside
+    </a>
   </li>
   {
     parent?.slug && (

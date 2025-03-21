@@ -1,4 +1,5 @@
 import {
+    BiFile,
     BiImage,
     BiLinkAlt,
     BiLinkExternal, BiQuestionMark,
@@ -129,6 +130,23 @@ export const richTextMain = {
                 }
             ]
         },
+        {
+            name: "fileBlock",
+            icon: BiFile,
+            title: "Fil",
+            type: "object",
+            fields: [
+                {
+                    title: "Filnavn",
+                    name: "title",
+                    type: "string",
+                }, {
+                    title: "Fil",
+                    name: "file",
+                    type: "file"
+                }
+            ]
+        }
     ],
 }
 

@@ -1,0 +1,35 @@
+.file-block {
+   & + & {
+      margin-block-start: -1px;
+   }
+   
+   &__link {
+      display: flex;
+      align-items: center;
+      column-gap: .5rem;
+      text-decoration: none;
+      padding: .5em;
+      border-radius: 4px;
+      border-block: 1px solid #DDD;
+      &:hover {
+         text-decoration: underline;
+      }
+   }
+   
+   &__icon {
+      flex-shrink: 0;
+      
+      svg {
+         font-size: 1.5rem;
+      }
+   }
+   
+   &__title {
+   
+   }
+   
+   &__size {
+      font-size: .875rem;
+      color: #787878;
+   }
+}

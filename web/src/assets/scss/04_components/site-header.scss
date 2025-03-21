@@ -64,6 +64,11 @@
          
          .site-header__dropdown {
             transform: scaleY(1);
+            
+            li {
+               animation: fadeIn .1s linear forwards;
+               animation-delay: .15s;
+            }
          }
       }
    }
@@ -126,6 +131,7 @@
       
       li {
          width: 100%;
+         opacity: 0;
       }
       
       a {
@@ -165,5 +171,11 @@
       &:hover {
          background-color: var(--color-follese-dark);
       }
+   }
+}
+
+@keyframes fadeIn {
+   to {
+     opacity: 1;
    }
 }

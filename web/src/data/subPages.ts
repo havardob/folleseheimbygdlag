@@ -16,9 +16,5 @@ const query = `*[_type == "subPage"] {
 
 export async function getSubPagesData() {
   const data = await client.fetch(query);
-  for (let subPage of data) {
-    console.log(subPage.fullSlug);
-    console.log(subPage.body);
-  }
   return data;
 }

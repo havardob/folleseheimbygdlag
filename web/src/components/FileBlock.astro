@@ -1,0 +1,33 @@
+---
+import Pdf from "./icons/Pdf.astro";
+import Docx from "./icons/Docx.astro";
+import Xlsx from "./icons/Xlsx.astro";
+import Document from "./icons/Document.astro";
+const { title, meta } = Astro.props.node;
+---
+
+<div class="file-block">
+  <a
+    href={meta.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="file-block__link"
+  >
+    <span class="file-block__icon">
+      {meta.extension === "pdf" && <Pdf />}
+      {meta.extension === "docx" && <Docx />}
+      {meta.extension === "xlsx" && <Xlsx />}
+      {
+        meta.extension !== "xlsx" &&
+          meta.extension !== "docx" &&
+          meta.extension !== "pdf" && <Document />
+      }
+    </span>
+    <span class="file-block__title">
+      <span>{title}</span>
+      <span class="file-block__size">
+        ({meta.extension.toUpperCase()} {(meta.size / 100000).toFixed(2)}MB)
+      </span>
+    </span>
+  </a>
+</div>

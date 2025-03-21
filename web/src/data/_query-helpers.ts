@@ -11,6 +11,10 @@ export function groqGetBody(key: string) {
         _type == "imageBlock" => {
             "imageFile": imageFile.asset->url,
         },
+        _type == "fileBlock" => {
+            title,
+            "meta": file.asset->,
+        },
         markDefs[] {
           ...,
           _type == "internalLink" => {
