@@ -1,4 +1,56 @@
+@use "../02_tools/breakpoint";
+
 .site-footer {
    background-color: var(--color-follese-dark);
-   min-height: 500px;
+   color: var(--color-white);
+   padding-block-start: 2rem;
+   padding-block-end: 3rem;
+   
+   @include breakpoint.medium-up {
+      padding-block: 4rem;
+   }
+   
+   &__inner {
+      display: flex;
+      flex-direction: column;
+      row-gap: 2rem;
+      
+      @include breakpoint.medium-up {
+         flex-direction: row;
+         column-gap: 4rem;
+         row-gap: 0;
+      }
+   }
+   
+   &__logo {
+      flex-shrink: 0;
+      text-decoration: none;
+      display: block;
+      
+      img {
+         height: 5rem;
+         
+         @include breakpoint.large-up {
+            height: 7.5rem;
+         }
+      }
+   }
+   
+   &__content {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1.5rem;
+      font-size: 1rem;
+      
+      @include breakpoint.large-up {
+         font-size: 1.25rem;
+      }
+      
+   }
+   
+   &__group-title {
+      color: var(--color-follese-light);
+      font-weight: 500;
+      font-size: 1em;
+   }
 }

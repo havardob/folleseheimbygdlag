@@ -5,7 +5,7 @@ interface Props {
   nav?: { title: string; link: { href: string }; type: string; links: any }[];
 }
 
-const { nav } = Astro.props;
+const { nav }: Props = Astro.props;
 ---
 
 <header class="site-header">
@@ -20,25 +20,24 @@ const { nav } = Astro.props;
           {
             nav?.map((item) => (
               <li class="site-header__nav-item">
-                  <div class="site-header__nav-item-inner">
-                <a
-                  href={item.link ? `/${item.link.href}` : `#`}
-                  class="site-header__link"
-                >
-
-                  <span>{item.title}</span>
-                </a>
-                {item.type === "dropdown" && (
-                  <span class="site-header__dropdown-icon">
-                    <TriangleDown />
-                  </span>
-                )}
-                  </div>
+                <div class="site-header__nav-item-inner">
+                  <a
+                    href={item.link ? item.link.href : "#"}
+                    class="site-header__link"
+                  >
+                    <span>{item.title}</span>
+                  </a>
+                  {item.type === "dropdown" && (
+                    <span class="site-header__dropdown-icon">
+                      <TriangleDown />
+                    </span>
+                  )}
+                </div>
                 {item.type === "dropdown" && (
                   <ul class="site-header__dropdown">
                     {item.links.map((subItem: any) => (
                       <li>
-                        <a href={`/${subItem.link?.href}`}>{subItem.title}</a>
+                        <a href={subItem.link?.href}>{subItem.title}</a>
                       </li>
                     ))}
                   </ul>
@@ -48,10 +47,37 @@ const { nav } = Astro.props;
           }
         </ul>
       </nav>
-      <button class="site-header__menu-toggle">
-<Menu />
+      <button class="site-header__menu-toggle" id="menuToggle">
+        <Menu />
         <span>Meny</span>
       </button>
     </div>
   </div>
 </header>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const mobileNav = document.getElementById("mobileNav");
+    const menuToggle = document.getElementById("menuToggle");
+    const menuClose = document.getElementById("menuClose");
+
+    if (menuToggle && mobileNav) {
+      menuToggle.addEventListener("click", () => {
+        mobileNav.showModal();
+        document.documentElement.style.overflowY = "hidden";
+      });
+    }
+
+    if (menuClose && mobileNav) {
+      menuClose.addEventListener("click", () => {
+        mobileNav.close();
+      });
+    }
+
+    if (mobileNav) {
+      mobileNav.addEventListener("close", () => {
+        document.documentElement.style.overflowY = "initial";
+      })
+    }
+  });
+</script>

@@ -22,8 +22,15 @@ const { data } = Astro.props;
 
 <Layout metaTitle={data.title}>
   <div class="l-subpage">
-    <div class="l-subpage__breadcrumbs">
-      <div class="u-max-content-width">
+    {
+      data.bannerImage && (
+        <div class="l-subpage__banner-image">
+          <img src={data.bannerImage} alt="" />
+        </div>
+      )
+    }
+    <div class="u-max-content-width">
+      <div class="l-subpage__breadcrumbs">
         <Breadcrumbs current={data.title} parent={data.parent} />
       </div>
     </div>

@@ -1,6 +1,7 @@
 import {BiCog, BiDockBottom, BiDockTop, BiGlobe, BiLink, BiShare} from 'react-icons/bi'
 import {externalLinkUrl, internalLinkRef} from './templates/linkObject'
 import {RiDropdownList} from 'react-icons/ri'
+import {richTextSimple} from './templates/richText'
 
 export default {
   name: 'siteSettings',
@@ -122,7 +123,7 @@ export default {
                   ],
                 },
                 {
-                  title: "Ekstern lenke",
+                  title: 'Ekstern lenke',
                   type: 'object',
                   name: 'externalLink',
                   icon: BiGlobe,
@@ -138,6 +139,30 @@ export default {
                   ],
                 },
               ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: 'Footer',
+      type: 'array',
+      name: 'footer',
+      group: 'footerGroup',
+      of: [
+        {
+          name: 'group',
+          title: 'Gruppe',
+          type: 'object',
+          fields: [
+            {
+              title: 'Overskrift',
+              name: 'title',
+              type: 'string',
+            },
+            {
+              ...richTextSimple,
+              name: 'text',
             },
           ],
         },

@@ -1,0 +1,47 @@
+---
+import Close from "./icons/Close.astro";
+interface Props {
+  nav?: { title: string; link: { href: string }; type: string; links: any }[];
+}
+
+const { nav }: Props = Astro.props;
+---
+
+<dialog class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav__inner">
+    <button class="mobile-nav__close-button" id="menuClose">
+      <Close />
+      <span>Lukk</span>
+    </button>
+    <div class="mobile-nav__nav">
+      <ul class="mobile-nav__list">
+        {
+          nav?.map((item) => (
+            <li class="mobile-nav__item">
+              <a
+                class="mobile-nav__link"
+                href={item.link ? item.link.href : "#"}
+              >
+                {item.title}
+              </a>
+              {item.type === "dropdown" && (
+                <ul class="mobile-nav__dropdown">
+                  {item.links.map((subItem: any) => (
+                    <li class="mobile-nav__dropdown-item">
+                      <a
+                        href={subItem.link?.href}
+                        class="mobile-nav__dropdown-link"
+                      >
+                        {subItem.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</dialog>

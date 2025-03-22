@@ -24,7 +24,7 @@ const { title, meta } = Astro.props.node;
       }
     </span>
     <span class="file-block__title">
-      <span>{title}</span>
+      <span>{title ? title : meta.originalFilename}</span>
       <span class="file-block__size">
         ({meta.extension.toUpperCase()} {(meta.size / 100000).toFixed(2)}MB)
       </span>

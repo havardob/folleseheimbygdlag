@@ -14,6 +14,11 @@ export default {
   },
   fields: [
     {
+      title: "Bilde i toppen",
+      name: "bannerImage",
+      type: "image",
+    },
+    {
       title: 'Tittel',
       name: 'title',
       type: 'text',

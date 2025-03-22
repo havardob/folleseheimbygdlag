@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import MobileNav from "../components/MobileNav.astro";
 
 interface Props {
   metaTitle: string;
@@ -45,7 +46,8 @@ const {
   </head>
   <body>
     <SiteHeader nav={siteSettings?.mainNav}/>
+    <MobileNav nav={siteSettings?.mainNav} />
     <slot />
-    <SiteFooter />
+    <SiteFooter groups={siteSettings.footer} />
   </body>
 </html>

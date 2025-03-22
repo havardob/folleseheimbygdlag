@@ -1,5 +1,5 @@
 import { client } from "./_sanityClient";
-import {getSubpageSlug} from "./_query-helpers.ts";
+import {getSubpageSlug, groqGetBody} from "./_query-helpers.ts";
 
 const query = `*[_id == "siteSettings"][0]{
     _id,
@@ -40,7 +40,11 @@ const query = `*[_id == "siteSettings"][0]{
           },
         }
       }
-    }
+    },
+    footer[] {
+      title, 
+      "text": ${groqGetBody('text')}
+    } 
 }`;
 
 export async function getSiteSettingsData() {
