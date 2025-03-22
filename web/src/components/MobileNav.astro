@@ -1,5 +1,6 @@
 ---
 import Close from "./icons/Close.astro";
+import ChevronRight from "./icons/ChevronRight.astro";
 interface Props {
   nav?: { title: string; link: { href: string }; type: string; links: any }[];
 }
@@ -15,6 +16,12 @@ const { nav }: Props = Astro.props;
     </button>
     <div class="mobile-nav__nav">
       <ul class="mobile-nav__list">
+        <li class="mobile-nav__item">
+          <a class="mobile-nav__link" href={"/"}>
+            Forside
+            <ChevronRight />
+          </a>
+        </li>
         {
           nav?.map((item) => (
             <li class="mobile-nav__item">
@@ -23,6 +30,7 @@ const { nav }: Props = Astro.props;
                 href={item.link ? item.link.href : "#"}
               >
                 {item.title}
+                {item.link ? <ChevronRight /> : ""}
               </a>
               {item.type === "dropdown" && (
                 <ul class="mobile-nav__dropdown">
@@ -33,6 +41,7 @@ const { nav }: Props = Astro.props;
                         class="mobile-nav__dropdown-link"
                       >
                         {subItem.title}
+                        {subItem.link ? <ChevronRight /> : ""}
                       </a>
                     </li>
                   ))}

@@ -622,11 +622,10 @@ body {
   animation: slideIn 0.25s ease-in-out forwards;
 }
 .mobile-nav__inner {
-  background-color: var(--color-follese);
+  background-color: var(--color-cobalt);
   color: var(--color-white);
   position: relative;
   padding-block: 5rem;
-  padding-inline: 3rem;
   width: min(100%, 35rem);
   overflow-y: auto;
 }
@@ -643,7 +642,7 @@ body {
   border-radius: 99em;
   text-decoration: none;
   background-color: var(--color-white);
-  color: var(--color-follese);
+  color: var(--color-cobalt);
 }
 .mobile-nav__close-button:focus-visible {
   outline: 1px solid var(--color-white);
@@ -657,34 +656,48 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  border-block-end: 1px solid rgba(255, 255, 255, 0.25);
 }
 .mobile-nav__link {
+  display: flex;
   text-decoration: none;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  padding-block: 0.75rem;
+  padding-inline: 1rem;
+  border-block-start: 1px solid rgba(255, 255, 255, 0.25);
+  justify-content: space-between;
+  column-gap: 0.5rem;
+  font-weight: 600;
 }
-.mobile-nav__link:not([href="#"]) {
-  text-underline-offset: 2px;
-  text-decoration: underline;
-  text-decoration-color: rgba(255, 255, 255, 0.5);
+.mobile-nav__link svg {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  opacity: 0.375;
 }
 .mobile-nav__dropdown {
   list-style-type: "";
-  padding-inline-start: 1rem;
-  border-inline-start: 1px solid rgba(255, 255, 255, 0.25);
+  padding-inline-start: 2rem;
   display: flex;
   flex-direction: column;
-  margin-block: 1rem;
-  row-gap: 0.5rem;
+  border-block-start: 1px solid rgba(255, 255, 255, 0.25);
+}
+.mobile-nav__dropdown-item:last-child .mobile-nav__dropdown-link {
+  border-block-end: 0;
 }
 .mobile-nav__dropdown-link {
-  font-size: 1.125rem;
+  display: flex;
+  font-size: 1rem;
   text-decoration: none;
+  padding-block: 0.75rem;
+  padding-inline-end: 1rem;
+  border-block-end: 1px solid rgba(255, 255, 255, 0.25);
+  justify-content: space-between;
+  column-gap: 0.5rem;
 }
-.mobile-nav__dropdown-link:not([href="#"]) {
-  text-underline-offset: 2px;
-  text-decoration: underline;
-  text-decoration-color: rgba(255, 255, 255, 0.5);
+.mobile-nav__dropdown-link svg {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  opacity: 0.375;
 }
 
 @keyframes slideIn {
