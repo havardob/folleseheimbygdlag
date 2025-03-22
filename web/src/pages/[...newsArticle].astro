@@ -22,8 +22,8 @@ const { data } = Astro.props;
 
 <Layout metaTitle={data.title}>
   <div class="l-news-article">
-    <div class="l-news-article__breadcrumbs">
       <div class="u-max-content-width">
+    <div class="l-news-article__breadcrumbs">
         <Breadcrumbs current={data.title} parent={data.parent} />
       </div>
     </div>

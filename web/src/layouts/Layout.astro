@@ -20,7 +20,6 @@ const {
   metaImageUrl = siteSettings?.metaImageUrl,
   metaUrl = siteSettings?.metaUrl,
 }: Props = Astro.props;
-
 ---
 
 <html lang="nb-NO">
@@ -45,9 +44,17 @@ const {
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
   </head>
   <body>
-    <SiteHeader nav={siteSettings?.mainNav}/>
-    <MobileNav nav={siteSettings?.mainNav} />
-    <slot />
-    <SiteFooter groups={siteSettings.footer} />
+    <div class="l-site">
+      <div class="l-site__header">
+        <SiteHeader nav={siteSettings?.mainNav} />
+      </div>
+      <MobileNav nav={siteSettings?.mainNav} />
+      <div class="l-site__main">
+        <slot />
+      </div>
+      <div class="l-site__footer">
+        <SiteFooter groups={siteSettings.footer} />
+      </div>
+    </div>
   </body>
 </html>

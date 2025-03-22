@@ -1,0 +1,129 @@
+@use "../02_tools/breakpoint";
+
+.l-news-article {
+   padding-block-end: 10rem;
+   
+   &__banner-image {
+      width: 100%;
+      max-width: 120rem;
+      margin-inline: auto;
+      position: relative;
+      
+      &:after {
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         width: 100%;
+         height: 5%;
+         background: white; /* Same as your page background */
+         clip-path: ellipse(60% 100% at 50% 100%);
+      }
+      
+      img {
+         aspect-ratio: 16 / 9;
+         object-fit: cover;
+         object-position: center center;
+         width: 100%;
+         
+         @include breakpoint.medium-up {
+            aspect-ratio: 1920 / 715;
+         }
+      }
+      
+      & + .l-subpage__breadcrumbs {
+         position: relative;
+      }
+   }
+   
+   &__breadcrumbs {
+      margin-block: 1rem;
+      max-width: 50rem;
+      margin-inline: auto;
+   }
+   
+   &__title {
+      font-weight: 400;
+      font-family: var(--ff-secondary), sans-serif;
+      font-size: 2rem;
+      line-height: 1.125;
+      max-width: 50rem;
+      margin-block-start: 2rem;
+      margin-inline: auto;
+      
+      @include breakpoint.medium-up {
+         margin-block-start: 4rem;
+         font-size: 3rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 4rem;
+         line-height: 1.05;
+      }
+   }
+   
+   &__leading {
+      margin-block-start: 1rem;
+      font-size: 1.25rem;
+      max-width: 50rem;
+      margin-inline: auto;
+      
+      @include breakpoint.medium-up {
+         margin-block-start: 1.5rem;
+         font-size: 1.375rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 1.5rem;
+         line-height: 1.375;
+      }
+   }
+   
+   &__body {
+      margin-block-start: 4rem;
+      max-width: 50rem;
+      font-size: 1rem;
+      margin-inline: auto;
+      --color-link-decoration-default: var(--color-follese);
+      --color-link-text-hover: var(--color-follese);
+      
+      @include breakpoint.medium-up {
+         font-size: 1.125rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 1.25rem;
+      }
+      
+      & > :where(h1, h2, h3):not([class]) {
+         font-family: var(--ff-secondary), serif;
+         font-weight: 400;
+      }
+      
+      & > h2:not([class]) {
+         font-size: 1.5rem;
+         
+         @include breakpoint.medium-up {
+            font-size: 2rem;
+            line-height: 1.25;
+         }
+         
+         @include breakpoint.large-up {
+            font-size: 2.5rem;
+         }
+      }
+      
+      & > h3:not([class]) {
+         font-size: 1.125rem;
+         
+         @include breakpoint.medium-up {
+            font-size: 1.5rem;
+            line-height: 1.375;
+         }
+         
+         @include breakpoint.large-up {
+            font-size: 1.75rem;
+         }
+      }
+   }
+}
