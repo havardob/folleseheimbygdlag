@@ -122,6 +122,7 @@
       padding-inline: .5rem;
       row-gap: .5rem;
       transition: transform .15s ease;
+      z-index: 500;
       
       &:hover,
       &:focus-within,

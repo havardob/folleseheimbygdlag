@@ -276,6 +276,7 @@ body {
   padding-inline: 0.5rem;
   row-gap: 0.5rem;
   transition: transform 0.15s ease;
+  z-index: 500;
 }
 .site-header__dropdown:hover, .site-header__dropdown:focus-within, .site-header__dropdown:has(a:focus-visible) {
   transform: scaleY(1);

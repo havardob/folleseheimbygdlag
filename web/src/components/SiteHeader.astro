@@ -1,6 +1,7 @@
 ---
 import TriangleDown from "./icons/TriangleDown.astro";
 import Menu from "./icons/Menu.astro";
+import ChevronDown from "./icons/ChevronDown.astro";
 interface Props {
   nav?: { title: string; link: { href: string }; type: string; links: any }[];
 }
@@ -29,7 +30,7 @@ const { nav }: Props = Astro.props;
                   </a>
                   {item.type === "dropdown" && (
                     <span class="site-header__dropdown-icon">
-                      <TriangleDown />
+                      <ChevronDown />
                     </span>
                   )}
                 </div>
