@@ -1,4 +1,5 @@
 import {client} from "./_sanityClient.ts";
+import {groqGetBody} from "./_query-helpers.ts";
 
 const query = `*[_type == "newsArticle"] {
     _id,
@@ -8,8 +9,10 @@ const query = `*[_type == "newsArticle"] {
       "slug": *[_type == "newsArchive"][0].slug.current,
       "title": *[_type == "newsArchive"][0].title
     },
-    "fullSlug": *[_type == "newsArchive"]{ "slug": slug.current }[0].slug + "/" + slug.current,
-    publishedDate
+    "fullSlug": "/" + *[_type == "newsArchive"]{ "slug": slug.current }[0].slug + "/" + slug.current,
+    publishedDate,
+    "featuredImage": featuredImage.asset->url,
+    "body": ${groqGetBody('body')}
 }`
 
 export async function getNewsArticlesData() {

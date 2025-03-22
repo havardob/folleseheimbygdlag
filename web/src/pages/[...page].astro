@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { getCollection } from "astro:content";
+import RichText from "../components/portableText/RichText.astro";
+
+export async function getStaticPaths() {
+    const pages = await getCollection("pages");
+
+    return pages.map((result: any) => ({
+        params: {
+            page: result.data.fullSlug,
+        },
+        props: {
+            data: result.data,
+        },
+    }));
+}
+
+const { data } = Astro.props;
+---
+
+<Layout metaTitle={data.title}>
+  <div class="l-subpage">
+      {
+          data.bannerImage && (
+          <div class="l-subpage__banner-image">
+            <img src={data.bannerImage} alt="" />
+          </div>
+          )
+      }
+    <div class="u-max-content-width">
+      <div class="l-subpage__breadcrumbs">
+        <Breadcrumbs current={data.title} />
+      </div>
+    </div>
+    <div class="u-max-content-width">
+      <h1 class="l-subpage__title">{data.title}</h1>
+        {data.leading && <div class="l-subpage__leading">{data.leading}</div>}
+        {
+            data.body !== null && (
+            <div class="l-subpage__body | u-rich-text">
+              <RichText content={data.body} />
+            </div>
+            )
+        }
+    </div>
+  </div>
+</Layout>

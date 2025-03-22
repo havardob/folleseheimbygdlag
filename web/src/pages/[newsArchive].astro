@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { getNewsArchiveData } from "../data/newsArchive";
+import { getCollection } from "astro:content";
+import Card from "../components/Card.astro";
+
+export async function getStaticPaths() {
+  const result = await getNewsArchiveData();
+  const newsArticles = await getCollection("newsArticles");
+  let articles: any[] = [];
+  newsArticles.map((article: any) => articles.push(article.data));
+
+  return [
+    {
+      params: {
+        newsArchive: result.fullSlug,
+      },
+      props: {
+        data: result,
+        articles: articles,
+      },
+    },
+  ];
+}
+
+const { data, articles } = Astro.props;
+---
+
+<Layout metaTitle={data.title}>
+  <div class="l-news-archive">
+    <div class="u-max-content-width u-max-content-width--wide">
+      <div class="l-news-archive__breadcrumbs">
+        <Breadcrumbs current={data.title} />
+      </div>
+    </div>
+    <div class="u-max-content-width u-max-content-width--wide">
+      <h1 class="l-news-archive__title">{data.title}</h1>
+      {data.intro && <div class="l-news-archive__leading">{data.intro}</div>}
+      <div class="l-news-archive__articles">
+        {
+          articles.map((article: any) => (
+            <Card
+              title={article.title}
+              text={article.leading}
+              imageUrl={article.featuredImage}
+              date={article.publishedDate}
+              href={article.fullSlug}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>

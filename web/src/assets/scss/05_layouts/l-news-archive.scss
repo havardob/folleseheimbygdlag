@@ -1,0 +1,68 @@
+@use "../02_tools/breakpoint";
+
+.l-news-archive {
+   padding-block-end: 10rem;
+   
+   &__breadcrumbs {
+      margin-block: 1rem;
+      max-width: 50rem;
+   }
+   
+   &__title {
+      font-weight: 400;
+      font-family: var(--ff-secondary), sans-serif;
+      font-size: 2rem;
+      line-height: 1.125;
+      max-width: 50rem;
+      margin-block-start: 2rem;
+      
+      @include breakpoint.medium-up {
+         margin-block-start: 4rem;
+         font-size: 3rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 4rem;
+         line-height: 1.05;
+      }
+   }
+   
+   &__leading {
+      margin-block-start: 1rem;
+      font-size: 1.25rem;
+      max-width: 50rem;
+      
+      @include breakpoint.medium-up {
+         margin-block-start: 1.5rem;
+         font-size: 1.375rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 1.5rem;
+         line-height: 1.375;
+      }
+   }
+   
+   &__articles {
+      margin-block-start: 2rem;
+      padding-block-start: 2rem;
+      border-block-start: 1px solid var(--color-stone);
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 2rem;
+      margin-inline: -1rem;
+      @include breakpoint.medium-up {
+         grid-template-columns: repeat(2, 1fr);
+      }
+      
+      @include breakpoint.large-up {
+         grid-template-columns: repeat(3, 1fr);
+         margin-inline: -1.25rem;
+      }
+      
+      @include breakpoint.huge-up {
+         grid-template-columns: repeat(4, 1fr);
+         margin-inline: -1.25rem;
+      }
+   }
+}
