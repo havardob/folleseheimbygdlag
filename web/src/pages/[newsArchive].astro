@@ -4,6 +4,7 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { getNewsArchiveData } from "../data/newsArchive";
 import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
+import {formatDate} from "../data/_helpers";
 
 export async function getStaticPaths() {
   const result = await getNewsArchiveData();
@@ -44,7 +45,7 @@ const { data, articles } = Astro.props;
               title={article.title}
               text={article.leading}
               imageUrl={article.featuredImage}
-              date={article.publishedDate}
+              date={formatDate(article.publishedDate)}
               href={article.fullSlug}
             />
           ))

@@ -4,6 +4,21 @@ import MoreLink from "../components/MoreLink.astro";
 import Hero from "../components/Hero.astro";
 import Teaser from "../components/Teaser.astro";
 import Card from "../components/Card.astro";
+import { getCollection } from "astro:content";
+import { formatDate } from "../data/_helpers";
+import {getNewsArchiveData} from "../data/newsArchive";
+
+const newsArchive = await getNewsArchiveData();
+const newsArchiveSlug = newsArchive.fullSlug;
+const newsArticles = await getCollection("newsArticles");
+let articles: any[] = [];
+newsArticles.map((article: any, index: number) => {
+  if (index < 4) {
+    articles.push(article.data)
+  } else {
+    return;
+  }
+});
 ---
 
 <Layout metaTitle="Forside">
@@ -46,16 +61,23 @@ import Card from "../components/Card.astro";
       <section class="l-frontpage__cards">
         <h2 class="l-frontpage__cards-title">Nyheter</h2>
         <div class="l-frontpage__cards-list">
-          <Card
-            title="Årsmøte 2025"
-            text="Det inviteres til årsmøte på FOLK den 10. juni kl. 17.00. Alle medlemmer er velkommen til å delta hvis de har muligheten til det. Det vil bli servert kaffe."
-            date="27.04.2025"
-            href="#"
-            imageUrl="/images/sankthans.jpg"
-          />
+          {
+            articles.map(
+              (article: any, index: number) =>
+                index < 4 && (
+                  <Card
+                    title={article.title}
+                    text={article.leading}
+                    imageUrl={article.featuredImage}
+                    date={formatDate(article.publishedDate)}
+                    href={article.fullSlug}
+                  />
+                ),
+            )
+          }
         </div>
         <div class="l-frontpage__cards-more-link">
-          <MoreLink href="#">Se flere nyheter</MoreLink>
+          <MoreLink href={newsArchiveSlug}>Se flere nyheter</MoreLink>
         </div>
       </section>
     </div>
