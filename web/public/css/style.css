@@ -513,6 +513,11 @@ body {
 .image-block.full-bleed img {
   border-radius: 0;
 }
+@media (min-width: 80rem) {
+  .image-block.full-bleed img {
+    border-radius: 0.375rem;
+  }
+}
 .image-block.full-bleed .image-block__caption {
   padding-inline: 1rem;
 }
@@ -759,7 +764,7 @@ body {
     overflow: initial;
   }
 }
-.teaser__image img {
+.teaser__image img, .teaser__image picture {
   height: 100%;
   width: 100%;
   object-fit: cover;

@@ -6,15 +6,17 @@ import Teaser from "../components/Teaser.astro";
 import Card from "../components/Card.astro";
 import { getCollection } from "astro:content";
 import { formatDate } from "../data/_helpers";
-import {getNewsArchiveData} from "../data/newsArchive";
+import { getNewsArchiveData } from "../data/newsArchive";
+import { getFrontPageData } from "../data/frontPage";
 
+const frontPage = await getFrontPageData();
 const newsArchive = await getNewsArchiveData();
 const newsArchiveSlug = newsArchive.fullSlug;
 const newsArticles = await getCollection("newsArticles");
 let articles: any[] = [];
 newsArticles.map((article: any, index: number) => {
   if (index < 4) {
-    articles.push(article.data)
+    articles.push(article.data);
   } else {
     return;
   }
@@ -23,43 +25,43 @@ newsArticles.map((article: any, index: number) => {
 
 <Layout metaTitle="Forside">
   <div class="l-frontpage">
-    <h1 class="u-visually-hidden">Forside</h1>
+    <h1 class="u-visually-hidden">{frontPage.title}</h1>
     <section class="l-frontpage__banner">
       <Hero
-        title="Follese Heimbygdlag, Husmannsplassen i Træ"
-        subtitle="Badeplass og museum"
-        imageUrl="/images/basseng.jpg"
+        title={frontPage.banner.title}
+        subtitle={frontPage.banner.subtitle}
+        image={frontPage.banner.image}
       >
-        Vi er en gjeng engasjerte, positive mennesker med stor kjærlighet for
-        bygden vår.
+        {frontPage.banner.intro}
       </Hero>
     </section>
     <div class="u-max-content-width">
       <section class="l-frontpage__blocks">
-        <Teaser
-          imageUrl="/images/strand.jpg"
-          title="Bli medlem"
-          text="Historielaget har i dag ca. 150 medlemmer som ønsker du å ivareta lokale tilbud, støtter vedlikehold av den offentlige badeplassen og bidrar til bevaring av lokale kulturminner. Medlemskapet koster kr 300 pr. år."
-          link={{
-            text: "Mer om medlemskap",
-            href: "#",
-          }}
-        />
-        <Teaser
-          imageUrl="/images/tegning.jpg"
-          title="Husmannsplassen"
-          text="Husmannsplassen i Træ ligg lunt til ved fjorden mellom svaberg og grøne bakkar. I det 200 år gamle våningshuset kan ein framleis sjå korleis folket levde og budde."
-          link={{
-            text: "Huset og museet",
-            href: "#",
-          }}
-          imagePlacement="left"
-        />
+        {
+          frontPage.blocks.map((block: any, index: number) => (
+            <Teaser
+              image={block.image}
+              title={block.title}
+              text={block.content}
+              link={{
+                text: block.linkText,
+                href: block.link.href,
+              }}
+              imagePlacement={block.imagePlacement}
+            />
+          ))
+        }
       </section>
     </div>
     <div class="u-max-content-width">
       <section class="l-frontpage__cards">
-        <h2 class="l-frontpage__cards-title">Nyheter</h2>
+        <h2 class="l-frontpage__cards-title">
+          {
+            frontPage.newsSection.title
+              ? frontPage.newsSection.title
+              : "Nyheter"
+          }
+        </h2>
         <div class="l-frontpage__cards-list">
           {
             articles.map(
@@ -77,7 +79,13 @@ newsArticles.map((article: any, index: number) => {
           }
         </div>
         <div class="l-frontpage__cards-more-link">
-          <MoreLink href={newsArchiveSlug}>Se flere nyheter</MoreLink>
+          <MoreLink href={newsArchiveSlug}
+            >{
+              frontPage.newsSection.moreText
+                ? frontPage.newsSection.moreText
+                : "Se flere nyheter"
+            }</MoreLink
+          >
         </div>
       </section>
     </div>

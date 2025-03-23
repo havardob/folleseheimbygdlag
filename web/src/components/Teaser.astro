@@ -1,18 +1,27 @@
 ---
+import {urlFor} from "../data/_helpers";
 interface Props {
   title: string;
   text?: string;
   link?: { text: string; href: string };
-  imageUrl: string;
+  image: {};
   imagePlacement?: "left" | "right";
 }
 
-const { title, text, link, imageUrl, imagePlacement = "right" } = Astro.props;
+const { title, text, link, image, imagePlacement = "right" } = Astro.props;
 ---
 
 <div class="teaser" data-position={imagePlacement}>
   <div class="teaser__image">
-    <img src={imageUrl} alt="" />
+    <picture>
+      <source media="(max-width: 640px)" srcset={urlFor(image).width(300).url()} />
+      <source media="(max-width: 1024px)" srcset={urlFor(image).width(500).url()} />
+      <img
+          src={urlFor(image).width(700).url()}
+          alt=""
+          loading="lazy"
+      />
+    </picture>
   </div>
   <div class="teaser__content">
     <h2 class="teaser__title">{title}</h2>

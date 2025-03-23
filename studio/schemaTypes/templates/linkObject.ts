@@ -21,7 +21,8 @@ export const internalLinkRef = {
         { type: "frontPage" },
         { type: "page" },
         { type: "subPage" },
-        { type: "newsArchive" }
+        { type: "newsArchive" },
+        { type: "newsArticle" }
     ],
     options: {
         disableNew: true,

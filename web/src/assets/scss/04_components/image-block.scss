@@ -11,6 +11,9 @@
       
       img {
          border-radius: 0;
+         @include breakpoint.large-up {
+         border-radius: .375rem;
+         }
       }
       
       .image-block__caption {

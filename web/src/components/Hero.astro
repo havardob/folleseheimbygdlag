@@ -1,16 +1,25 @@
 ---
+import {urlFor} from "../data/_helpers";
 interface Props {
-  imageUrl: string;
+  image: {};
   title: string;
   subtitle?: string;
 }
 
-const { imageUrl, title, subtitle } = Astro.props;
+const { image, title, subtitle } = Astro.props;
 ---
 
 <div class="hero">
   <div class="hero__image">
-    <img src={imageUrl} alt="" />
+    <picture>
+      <source media="(max-width: 640px)" srcset={urlFor(image).width(640).url()} />
+      <source media="(max-width: 1024px)" srcset={urlFor(image).width(1024).url()} />
+      <img
+          src={urlFor(image).width(1900).url()}
+          alt=""
+          loading="lazy"
+      />
+    </picture>
   </div>
     <div class="hero__content">
       <hgroup>

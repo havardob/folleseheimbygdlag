@@ -1,4 +1,5 @@
 import {BiHome} from 'react-icons/bi'
+import {internalLinkRef} from "./templates/linkObject";
 
 export default {
   title: 'Forside',
@@ -37,6 +38,7 @@ export default {
           title: 'Intro',
           name: 'intro',
           type: 'text',
+          rows: 3
         },
       ],
     },
@@ -67,10 +69,24 @@ export default {
               rows: 4,
             },
             {
-              title: 'Lenke',
-              name: 'link',
-              type: 'url',
+              title: 'Tekst på knapp',
+              name: 'linkText',
+              type: 'string',
             },
+            {
+              ...internalLinkRef,
+              title: "Lenke til",
+              name: "link",
+            },
+            {
+              title: "Plassering av bilde",
+              name: "imagePlacement",
+              type: "string",
+              options: {
+                layout: "dropdown",
+                list: ["left", "right"]
+              }
+            }
           ],
         },
       ],
@@ -84,6 +100,11 @@ export default {
           title: 'Overskrift over nyhetene',
           name: 'title',
           type: 'string',
+        },
+        {
+          title: "Tekst for 'se flere nyheter'-knapp",
+          name: "moreText",
+          type: "string",
         },
         {
           title: 'Antall',

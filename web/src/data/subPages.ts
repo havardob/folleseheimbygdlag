@@ -9,7 +9,8 @@ const query = `*[_type == "subPage"] {
       "title": *[_type == "page" && references(^._id)][0].title
     },
     "fullSlug": ${getSubpageSlug},
-    "bannerImage": bannerImage.asset->url,
+    bannerImage,
+    "bannerImageUrl": bannerImage.asset->url,
     title, 
     leading,
     "body": ${groqGetBody('body')}

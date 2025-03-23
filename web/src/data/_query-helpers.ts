@@ -9,7 +9,7 @@ export function groqGetBody(key: string) {
   return `${key}[] {
         ...,
         _type == "imageBlock" => {
-            "imageFile": imageFile.asset->url,
+            ...
         },
         _type == "fileBlock" => {
             title,

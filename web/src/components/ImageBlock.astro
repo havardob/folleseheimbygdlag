@@ -1,10 +1,20 @@
 ---
+import {urlFor} from "../data/_helpers";
 const {size, imageFile, hasBorder = false, text, credits, alt} = Astro.props.node;
 ---
 
 <figure class={`image-block | ${size}`}>
   <div class="image-block__frame">
-    <img src={imageFile} alt={alt ?? ""} } loading="lazy" class={hasBorder ? "has-border": ""} />
+    <picture>
+      <source media="(max-width: 640px)" srcset={urlFor(imageFile).width(400).url()} />
+      <source media="(max-width: 1024px)" srcset={urlFor(imageFile).width(800).url()} />
+      <img
+          src={urlFor(imageFile).width(1200).url()}
+          alt={alt ?? ""} }
+          loading="lazy"
+          class={hasBorder ? "has-border": ""}
+      />
+    </picture>
   </div>
     {(text || credits) && (
       <figcaption class="image-block__caption">
