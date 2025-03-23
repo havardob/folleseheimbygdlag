@@ -20,6 +20,5 @@ const query = `*[_id == "frontPage"][0] {
 
 export async function getFrontPageData() {
     const data  = await client.fetch(query);
-    console.log(data);
     return data;
 }
