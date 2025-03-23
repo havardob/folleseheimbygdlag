@@ -1,0 +1,18 @@
+---
+
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";---
+
+<Layout metaTitle="Siden ikke funnet">
+  <div class="l-404">
+    <div class="u-max-content-width">
+      <div class="l-404__breadcrumbs">
+        <Breadcrumbs current="Siden ikke funnet" />
+      </div>
+      <div class="l-404__content">
+        <h1 class="l-404__title">404: Siden ikke funnet</h1>
+        <p class="l-404__leading">Denne siden kan ha blitt fjernet eller flyttet. <a href="/">Gå tilbake til forsiden</a>, eller bruk menyen i toppen for å finne det du var på jakt etter.</p>
+      </div>
+    </div>
+  </div>
+</Layout>

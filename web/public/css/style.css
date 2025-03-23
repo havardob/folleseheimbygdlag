@@ -830,6 +830,62 @@ body {
   }
 }
 
+.l-404 {
+  padding-block-end: 10rem;
+}
+.l-404__breadcrumbs {
+  margin-block: 1rem;
+}
+.l-404__title {
+  font-weight: 400;
+  font-family: var(--ff-secondary), sans-serif;
+  font-size: 2rem;
+  line-height: 1.125;
+  max-width: 50rem;
+  margin-block-start: 2rem;
+}
+@media (min-width: 60rem) {
+  .l-404__title {
+    margin-block-start: 4rem;
+    font-size: 3rem;
+  }
+}
+@media (min-width: 80rem) {
+  .l-404__title {
+    font-size: 4rem;
+    line-height: 1.05;
+  }
+}
+.l-404__leading {
+  margin-block-start: 1rem;
+  font-size: 1.25rem;
+  max-width: 50rem;
+}
+@media (min-width: 60rem) {
+  .l-404__leading {
+    margin-block-start: 1.5rem;
+    font-size: 1.375rem;
+  }
+}
+@media (min-width: 80rem) {
+  .l-404__leading {
+    font-size: 1.5rem;
+    line-height: 1.375;
+  }
+}
+.l-404__leading a:not([class]) {
+  --color-link-decoration-default: var(--color-follese);
+  --color-link-text-hover: var(--color-follese);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-link-decoration-default);
+}
+.l-404__leading a:not([class]):hover {
+  color: var(--color-link-text-hover);
+  text-decoration-thickness: 3px;
+}
+
 .l-frontpage {
   padding-block-end: 6rem;
 }
