@@ -2,11 +2,20 @@
 
 .form-block {
    background-color: var(--color-sky);
-   padding: 2rem;
-   border-radius: .5rem;
    display: flex;
    flex-direction: column;
+   padding: 1rem;
    row-gap: 2rem;
+   width: calc(100% + 2rem);
+   margin-inline: -1rem;
+   border-radius: 0;
+   
+   @include breakpoint.medium-up {
+      border-radius: .5rem;
+      width: 100%;
+      margin-inline: 0;
+      padding: 2rem;
+   }
    
    &__field {
       display: flex;
@@ -20,8 +29,8 @@
       row-gap: 2rem;
       
       @include breakpoint.medium-up {
-      grid-template-columns: 1fr 1fr;
-      column-gap: 1rem;
+         grid-template-columns: 1fr 1fr;
+         column-gap: 1rem;
       }
    }
    

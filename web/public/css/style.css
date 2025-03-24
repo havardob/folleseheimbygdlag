@@ -505,11 +505,21 @@ body {
 
 .form-block {
   background-color: var(--color-sky);
-  padding: 2rem;
-  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
   row-gap: 2rem;
+  width: calc(100% + 2rem);
+  margin-inline: -1rem;
+  border-radius: 0;
+}
+@media (min-width: 60rem) {
+  .form-block {
+    border-radius: 0.5rem;
+    width: 100%;
+    margin-inline: 0;
+    padding: 2rem;
+  }
 }
 .form-block__field {
   display: flex;

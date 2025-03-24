@@ -12,6 +12,7 @@ export const formcarryBlock = {
             title: "Kode til Formcarry",
             name: "endpoint",
             type: "string",
+            validation: (Rule: any) => Rule.required()
         }
     ]
 }
