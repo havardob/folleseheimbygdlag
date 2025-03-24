@@ -1,0 +1,93 @@
+---
+const { endpoint } = Astro.props.node;
+---
+
+<form
+  action={endpoint}
+  method="POST"
+  enctype="multipart/form-data"
+  class="form-block"
+>
+  <div class="form-block__field">
+    <label for="fullName" class="form-block__label">Ditt navn</label>
+    <input
+      type="text"
+      name="name"
+      id="fullName"
+      class="form-block__text-input"
+      required
+    />
+  </div>
+
+  <div class="form-block__field">
+    <label for="email" class="form-block__label">E-postadresse</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      class="form-block__text-input"
+      required
+    />
+  </div>
+
+  <div class="form-block__field">
+    <label for="phone" class="form-block__label"
+      >Telefonnummer (valgfritt)</label
+    >
+    <input
+      type="text"
+      name="phone"
+      id="phone"
+      required
+      class="form-block__text-input"
+    />
+  </div>
+
+  <div class="form-block__field">
+    <label for="address" class="form-block__label">Adresse</label>
+    <input
+      type="text"
+      name="address"
+      id="address"
+      class="form-block__text-input"
+      required
+    />
+  </div>
+
+  <div class="form-block__group">
+    <div class="form-block__field">
+      <label for="postalCode" class="form-block__label">Postnummer</label>
+      <input
+        type="text"
+        name="postalCode"
+        id="postalCode"
+        class="form-block__text-input"
+        required
+      />
+    </div>
+
+    <div class="form-block__field">
+      <label for="city" class="form-block__label">Sted</label>
+      <input
+        type="text"
+        name="city"
+        id="city"
+        class="form-block__text-input"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="form-block__field">
+    <label for="message" class="form-block__label">Melding (Valgfritt)</label>
+    <textarea
+      name="message"
+      id="message"
+      placeholder="Din melding..."
+      class="form-block__textarea"></textarea>
+  </div>
+
+  <div class="form-block__field">
+    <button type="submit" class="form-block__submit-button">Send inn</button>
+  </div>
+</form>

@@ -12,8 +12,7 @@
    
    &__inner {
       display: flex;
-      flex-direction: column;
-      row-gap: 2rem;
+      column-gap: 1.5rem;
       
       @include breakpoint.medium-up {
          flex-direction: row;

@@ -27,8 +27,8 @@ const { data } = Astro.props;
       data.bannerImage && (
         <div class="l-subpage__banner-image">
           <picture>
-            <source media="(max-width: 640px)" srcset={urlFor(data.bannerImage).width(400).url()} />
-            <source media="(max-width: 1024px)" srcset={urlFor(data.bannerImage).width(800).url()} />
+            <source media="(max-width: 640px)" srcset={urlFor(data.bannerImage).width(640).url()} />
+            <source media="(max-width: 1024px)" srcset={urlFor(data.bannerImage).width(1024).url()} />
             <img
                 src={urlFor(data.bannerImage).width(1900).url()}
                 alt=""

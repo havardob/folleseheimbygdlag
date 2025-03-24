@@ -1,0 +1,65 @@
+@use "../02_tools/breakpoint";
+
+.form-block {
+   background-color: var(--color-sky);
+   padding: 2rem;
+   border-radius: .5rem;
+   display: flex;
+   flex-direction: column;
+   row-gap: 2rem;
+   
+   &__field {
+      display: flex;
+      flex-direction: column;
+      row-gap: .25rem;
+   }
+   
+   &__group {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 2rem;
+      
+      @include breakpoint.medium-up {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 1rem;
+      }
+   }
+   
+   &__label {
+      font-weight: 500;
+   }
+   
+   &__text-input,
+   &__textarea {
+      font-size: 1.125rem;
+      padding: .75rem;
+      border: 1px solid var(--color-cobalt-light);
+      border-radius: .125rem;
+      min-width: 0;
+   }
+   
+   &__textarea {
+      min-height: 10rem;
+   }
+   
+   &__submit-button {
+      align-self: flex-start;
+      display: inline-flex;
+      padding-block: .5rem;
+      padding-inline: 1.25rem;
+      border-radius: 99em;
+      text-decoration: none;
+      background-color: var(--color-follese);
+      color: var(--color-white);
+      
+      &:hover {
+         background-color: var(--color-follese-light);
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 1.125rem;
+         padding-block: .75rem;
+         padding-inline: 2rem;
+      }
+   }
+}

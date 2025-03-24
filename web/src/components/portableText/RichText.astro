@@ -3,6 +3,7 @@ import { PortableText } from "astro-portabletext";
 import InlineLink from "../InlineLink.astro";
 import ImageBlock from "../ImageBlock.astro";
 import FileBlock from "../FileBlock.astro";
+import FormBlock from "../FormBlock.astro";
 
 interface Props {
     content: any[]
@@ -16,6 +17,7 @@ const components = {
   type: {
       imageBlock: ImageBlock,
       fileBlock: FileBlock,
+      formcarryBlock: FormBlock,
   },
 };
 

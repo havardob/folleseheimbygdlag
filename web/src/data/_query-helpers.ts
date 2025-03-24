@@ -15,6 +15,9 @@ export function groqGetBody(key: string) {
             title,
             "meta": file.asset->,
         },
+        _type == "formcarryBlock" => {
+          ...,
+        },
         markDefs[] {
           ...,
           _type == "internalLink" => {

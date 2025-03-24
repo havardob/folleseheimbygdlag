@@ -2,9 +2,10 @@ import {
     BiFile,
     BiImage,
     BiLinkAlt,
-    BiLinkExternal, BiQuestionMark,
+    BiLinkExternal, BiPointer, BiQuestionMark,
 } from "react-icons/bi";
 import {externalLinkUrl, internalLinkRef} from "./linkObject";
+import {formcarryBlock} from "./formcarryBlock";
 
 export const richTextMain = {
     title: 'Block Content',
@@ -146,6 +147,10 @@ export const richTextMain = {
                     type: "file"
                 }
             ]
+        },
+        {
+            icon: BiPointer,
+            ...formcarryBlock
         }
     ],
 }
