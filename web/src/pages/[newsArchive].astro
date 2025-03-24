@@ -4,13 +4,17 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { getNewsArchiveData } from "../data/newsArchive";
 import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
-import {formatDate} from "../data/_helpers";
+import { formatDate } from "../data/_helpers";
 
 export async function getStaticPaths() {
   const result = await getNewsArchiveData();
   const newsArticles = await getCollection("newsArticles");
   let articles: any[] = [];
   newsArticles.map((article: any) => articles.push(article.data));
+  articles.sort(
+    (a: any, b: any) =>
+      new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime(),
+  );
 
   return [
     {

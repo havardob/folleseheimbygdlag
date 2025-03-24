@@ -21,6 +21,8 @@ newsArticles.map((article: any, index: number) => {
     return;
   }
 });
+
+articles.sort((a: any, b: any) =>  new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime());
 ---
 
 <Layout metaTitle="Forside">
@@ -66,7 +68,7 @@ newsArticles.map((article: any, index: number) => {
           {
             articles.map(
               (article: any, index: number) =>
-                index < 4 && (
+                index < frontPage.newsSection.count && (
                   <Card
                     title={article.title}
                     text={article.leading}
