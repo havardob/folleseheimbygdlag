@@ -150,7 +150,7 @@ export default {
       ],
     },
     {
-      title: 'Footer',
+      title: 'Informasjon i footer',
       type: 'array',
       name: 'footer',
       group: 'footerGroup',
@@ -173,5 +173,70 @@ export default {
         },
       ],
     },
+    {
+      title: "Lenker til sosiale medier",
+      type: "array",
+      name: "socialMedia",
+      group: "footerGroup",
+      of: [
+        {
+          title: "Lenke",
+          name: "someLink",
+          type: "object",
+          fields: [
+            {
+              title: "Tekst",
+              name: "title",
+              type: "string",
+            },
+            {
+              ...externalLinkUrl
+            },
+            {
+              title: "Ikon",
+              name: "icon",
+              type: "string",
+              options: {
+                layout: "dropdown",
+                list: [
+                  {
+                    title: "Facebook",
+                    value: "fb"
+                  },
+                  {
+                    title: "TikTok",
+                    value: "tiktok"
+                  },
+                  {
+                    title: "X/Twitter",
+                    value: "x"
+                  },
+                  {
+                    title: "LinkedIn",
+                    value: "linkedin"
+                  },
+                  {
+                    title: "Instagram",
+                    value: "instagram"
+                  },
+                  {
+                    title: "Flickr",
+                    value: "flickr"
+                  },
+                  {
+                    title: "Youtube",
+                    value: "youtube"
+                  },
+                  {
+                    title: "Snapchat",
+                    value: "snapchat"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
   ],
 }

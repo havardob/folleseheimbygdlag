@@ -44,6 +44,9 @@ const query = `*[_id == "siteSettings"][0]{
     footer[] {
       title, 
       "text": ${groqGetBody('text')}
+    },
+    socialMedia[] {
+      ...
     } 
 }`;
 

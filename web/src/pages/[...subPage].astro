@@ -3,7 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
 import RichText from "../components/portableText/RichText.astro";
-import {urlFor} from "../data/_helpers";
+import { urlFor } from "../data/_helpers";
+import GalleryBlock from "../components/GalleryBlock.astro";
 
 export async function getStaticPaths() {
   const subPages = await getCollection("subPages");
@@ -27,12 +28,18 @@ const { data } = Astro.props;
       data.bannerImage && (
         <div class="l-subpage__banner-image">
           <picture>
-            <source media="(max-width: 640px)" srcset={urlFor(data.bannerImage).width(640).url()} />
-            <source media="(max-width: 1024px)" srcset={urlFor(data.bannerImage).width(1024).url()} />
+            <source
+              media="(max-width: 640px)"
+              srcset={urlFor(data.bannerImage).width(640).url()}
+            />
+            <source
+              media="(max-width: 1024px)"
+              srcset={urlFor(data.bannerImage).width(1024).url()}
+            />
             <img
-                src={urlFor(data.bannerImage).width(1900).url()}
-                alt=""
-                loading="lazy"
+              src={urlFor(data.bannerImage).width(1900).url()}
+              alt=""
+              loading="lazy"
             />
           </picture>
         </div>

@@ -11,13 +11,19 @@
    }
    
    &__inner {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr;
       column-gap: 1.5rem;
+      row-gap: 3rem;
+      font-size: 1rem;
       
       @include breakpoint.medium-up {
-         flex-direction: row;
          column-gap: 4rem;
-         row-gap: 0;
+      grid-template-columns: auto 1fr auto;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 1.25rem;
       }
    }
    
@@ -25,6 +31,7 @@
       flex-shrink: 0;
       text-decoration: none;
       display: block;
+      grid-column: 1;
       
       img {
          height: 5rem;
@@ -36,14 +43,10 @@
    }
    
    &__content {
+      grid-column: 2;
       display: flex;
       flex-direction: column;
       row-gap: 1.5rem;
-      font-size: 1rem;
-      
-      @include breakpoint.large-up {
-         font-size: 1.25rem;
-      }
       
    }
    
@@ -51,5 +54,35 @@
       color: var(--color-follese-light);
       font-weight: 500;
       font-size: 1em;
+   }
+   
+   &__some {
+      grid-column: 2;
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+      
+      @include breakpoint.medium-up {
+         grid-column: 3;
+      }
+   }
+   
+   &__some-link {
+      display: flex;
+      column-gap: .5rem;
+      text-decoration: underline;
+      text-underline-offset: 0.25em;
+      text-decoration-thickness: 1px;
+      text-decoration-color: var(--color-link-decoration-default);
+      
+      &:hover {
+         color: var(--color-link-text-hover);
+         text-decoration-thickness: 3px;
+      }
+      
+      svg {
+         flex-shrink: 0;
+         font-size: 1.5rem;
+      }
    }
 }

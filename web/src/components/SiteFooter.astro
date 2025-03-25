@@ -1,10 +1,13 @@
 ---
 import RichText from "./portableText/RichText.astro";
+import Facebook from "./icons/Facebook.astro";
+import Instagram from "./icons/Instagram.astro";
 interface Props {
   groups: { title: string; text: any[] }[];
+  socialMedia?: any;
 }
 
-const { groups }: Props = Astro.props;
+const { groups, socialMedia }: Props = Astro.props;
 ---
 
 <footer class="site-footer">
@@ -24,6 +27,17 @@ const { groups }: Props = Astro.props;
                 </div>
               )}
             </div>
+          ))
+        }
+      </div>
+      <div class="site-footer__some">
+        {
+          socialMedia?.map((socialLink: any) => (
+            <a href={socialLink.href} target="_blank" rel="noopener noreferrer" class="site-footer__some-link">
+              {socialLink.icon === "fb" && <Facebook />}
+              {socialLink.icon === "instagram" && <Instagram />}
+              <span>{socialLink.title}</span>
+            </a>
           ))
         }
       </div>
