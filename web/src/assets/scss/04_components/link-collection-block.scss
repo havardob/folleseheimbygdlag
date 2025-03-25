@@ -1,0 +1,45 @@
+@use "../02_tools/breakpoint";
+
+.link-collection-block {
+   &__list {
+      list-style-type: "";
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: .5rem;
+      
+      @include breakpoint.small-up {
+         grid-template-columns: 1fr 1fr;
+         column-gap: 1rem;
+         row-gap: 1rem;
+      }
+   }
+   
+   &__item {
+   }
+   
+   &__link {
+      text-decoration: none;
+      border: 1px solid var(--color-follese-light);
+      display: flex;
+      padding-block: 1rem;
+      padding-inline: .75rem;
+      justify-content: space-between;
+      column-gap: .5rem;
+      align-items: center;
+      
+      @include breakpoint.small-up {
+         padding: 1rem;
+      }
+      
+      &:hover {
+         background-color: var(--color-sky);
+      }
+      
+      svg {
+         font-size: 1.5rem;
+         flex-shrink: 0;
+      }
+   }
+}

@@ -1,0 +1,19 @@
+---
+import ChevronRight from "./icons/ChevronRight.astro";
+const { links } = Astro.props.node;
+---
+
+<div class="link-collection-block">
+  <ul class="link-collection-block__list">
+    {
+      links.map((item: any) => (
+        <li class="link-collection-block__item">
+          <a href={item.link.href} class="link-collection-block__link">
+            <span>{item.title}</span>
+            <ChevronRight />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

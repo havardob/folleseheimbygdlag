@@ -4,6 +4,7 @@ import InlineLink from "../InlineLink.astro";
 import ImageBlock from "../ImageBlock.astro";
 import FileBlock from "../FileBlock.astro";
 import FormBlock from "../FormBlock.astro";
+import LinkCollectionBlock from "../LinkCollectionBlock.astro";
 
 interface Props {
     content: any[]
@@ -17,7 +18,8 @@ const components = {
   type: {
       imageBlock: ImageBlock,
       fileBlock: FileBlock,
-      formcarryBlock: FormBlock,
+      formBlock: FormBlock,
+      linkCollectionBlock: LinkCollectionBlock,
   },
 };
 

@@ -65,6 +65,7 @@ export default {
               title: 'Tekst',
               name: 'title',
               type: 'string',
+              validation: (Rule: any) => Rule.required(),
             },
             {
               ...internalLinkRef,
@@ -81,6 +82,7 @@ export default {
               title: 'Tekst',
               name: 'title',
               type: 'string',
+              validation: (Rule: any) => Rule.required(),
             },
             {
               ...externalLinkUrl,
@@ -97,6 +99,7 @@ export default {
               title: 'Tekst',
               name: 'title',
               type: 'string',
+              validation: (Rule: any) => Rule.required(),
             },
             {
               ...internalLinkRef,
@@ -116,6 +119,7 @@ export default {
                       title: 'Tekst',
                       name: 'title',
                       type: 'string',
+                      validation: (Rule: any) => Rule.required(),
                     },
                     {
                       ...internalLinkRef,
@@ -132,6 +136,7 @@ export default {
                       title: 'Tekst',
                       name: 'title',
                       type: 'string',
+                      validation: (Rule: any) => Rule.required(),
                     },
                     {
                       ...externalLinkUrl,

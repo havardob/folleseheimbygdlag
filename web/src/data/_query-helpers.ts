@@ -15,8 +15,25 @@ export function groqGetBody(key: string) {
             title,
             "meta": file.asset->,
         },
-        _type == "formcarryBlock" => {
+        _type == "formBlock" => {
           ...,
+        },
+        _type == "linkCollectionBlock" => {
+          ...,
+          links[] {          
+            _type == "internal" => {
+              title,
+              "link": internalDocument->{
+                "href": ${getSubpageSlug}
+              },
+            },
+            _type == "externalLink" => {
+              title,
+              "link": {
+                "href": href
+              },
+            }
+          }
         },
         markDefs[] {
           ...,

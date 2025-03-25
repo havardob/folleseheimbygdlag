@@ -1,6 +1,6 @@
-export const formcarryBlock = {
+export const formBlock = {
     title: "Skjema",
-    name: "formcarryBlock",
+    name: "formBlock",
     type: "object",
     preview: {
         select: {
