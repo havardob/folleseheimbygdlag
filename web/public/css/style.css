@@ -223,7 +223,6 @@ body {
   column-gap: 1.5rem;
 }
 .site-header__nav-item {
-  cursor: pointer;
   position: relative;
 }
 .site-header__nav-item:hover, .site-header__nav-item:focus-within, .site-header__nav-item:has(:focus-visible) {
@@ -256,6 +255,9 @@ body {
   display: flex;
   align-items: center;
   column-gap: 0.125rem;
+}
+.site-header__link:is(span) {
+  cursor: default;
 }
 .site-header__link span {
   text-underline-offset: 4px;
@@ -748,6 +750,7 @@ body {
   column-gap: 1.5rem;
   row-gap: 3rem;
   font-size: 1rem;
+  align-items: flex-start;
 }
 @media (min-width: 60rem) {
   .site-footer__inner {
@@ -789,6 +792,7 @@ body {
   grid-column: 2;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   row-gap: 1rem;
 }
 @media (min-width: 60rem) {

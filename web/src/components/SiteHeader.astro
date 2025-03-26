@@ -22,12 +22,18 @@ const { nav }: Props = Astro.props;
             nav?.map((item) => (
               <li class="site-header__nav-item">
                 <div class="site-header__nav-item-inner">
+                  {item.link ? (
                   <a
-                    href={item.link ? item.link.href : "#"}
+                    href={item.link.href ? item.link.href : "#"}
                     class="site-header__link"
                   >
                     <span>{item.title}</span>
                   </a>
+                  ) : (
+                      <span class="site-header__link">
+                        {item.title}
+                      </span>
+                  )}
                   {item.type === "dropdown" && (
                     <span class="site-header__dropdown-icon">
                       <ChevronDown />
