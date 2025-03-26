@@ -2,6 +2,12 @@
 import RichText from "./portableText/RichText.astro";
 import Facebook from "./icons/Facebook.astro";
 import Instagram from "./icons/Instagram.astro";
+import Tiktok from "./icons/Tiktok.astro";
+import LinkedIn from "./icons/LinkedIn.astro";
+import Snapchat from "./icons/Snapchat.astro";
+import Youtube from "./icons/Youtube.astro";
+import X from "./icons/X.astro";
+import Flickr from "./icons/Flickr.astro";
 interface Props {
   groups: { title: string; text: any[] }[];
   socialMedia?: any;
@@ -36,6 +42,12 @@ const { groups, socialMedia }: Props = Astro.props;
             <a href={socialLink.href} target="_blank" rel="noopener noreferrer" class="site-footer__some-link">
               {socialLink.icon === "fb" && <Facebook />}
               {socialLink.icon === "instagram" && <Instagram />}
+              {socialLink.icon === "tiktok" && <Tiktok />}
+              {socialLink.icon === "flickr" && <Flickr />}
+              {socialLink.icon === "linkedin" && <LinkedIn />}
+              {socialLink.icon === "snapchat" && <Snapchat />}
+              {socialLink.icon === "youtube" && <Youtube />}
+              {socialLink.icon === "x" && <X />}
               <span>{socialLink.title}</span>
             </a>
           ))
