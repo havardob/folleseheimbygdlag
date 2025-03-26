@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import {getSitemapData} from "../data/sitemap";
+
+const sitemap = await getSitemapData();
+---
+
+<Layout metaTitle="Nettstedskart">
+  <div class="l-subpage">
+    <div class="u-max-content-width">
+      <div class="l-subpage__breadcrumbs">
+        <Breadcrumbs current={"Nettstedskart"} />
+      </div>
+    </div>
+    <div class="u-max-content-width">
+      <h1 class="l-subpage__title">Nettstedskart</h1>
+      <div class="l-subpage__body u-rich-text">
+        <p><strong>{sitemap.length} sider</strong></p>
+        <ul>
+          {sitemap.map((item: any) => (
+              <li>
+                <a href={item.fullSlug}>{item.fullSlug}</a>
+              </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>
