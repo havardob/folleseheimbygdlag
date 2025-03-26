@@ -11,6 +11,7 @@ export default {
             title: "Overskrift",
             name: "title",
             type: "string",
+            validation: (Rule: any) => Rule.required()
         },
         {
             ...slug,

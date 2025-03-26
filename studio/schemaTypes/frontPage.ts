@@ -13,6 +13,7 @@ export default {
       description:
         "Navnet på siden. Dette vil ikke stå noen plass, men må være med likevel. Kall den 'Forside' eller lignende",
       type: 'string',
+      validation: (Rule: any) => Rule.required()
     },
     {
       title: 'Banner',
@@ -23,11 +24,13 @@ export default {
           title: 'Bilde',
           name: 'image',
           type: 'image',
+          validation: (Rule: any) => Rule.required()
         },
         {
           title: 'Title',
           name: 'title',
           type: 'string',
+          validation: (Rule: any) => Rule.required()
         },
         {
           title: 'Subtitle',
@@ -38,7 +41,8 @@ export default {
           title: 'Intro',
           name: 'intro',
           type: 'text',
-          rows: 3
+          rows: 3,
+          validation: (Rule: any) => Rule.required()
         },
       ],
     },
@@ -100,6 +104,7 @@ export default {
           title: 'Overskrift over nyhetene',
           name: 'title',
           type: 'string',
+          validation: (Rule: any) => Rule.required()
         },
         {
           title: "Tekst for 'se flere nyheter'-knapp",

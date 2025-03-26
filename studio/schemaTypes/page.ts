@@ -14,10 +14,16 @@ export default {
   },
   fields: [
     {
+      title: 'Bilde i toppen',
+      name: 'bannerImage',
+      type: 'image',
+    },
+    {
       title: 'Tittel',
       name: 'title',
       type: 'text',
       rows: 2,
+      validation: (Rule: any) => Rule.required(),
     },
     {
       ...slug,
@@ -27,13 +33,16 @@ export default {
       description: 'Opprett sider under denne',
       name: 'children',
       type: 'array',
+      options: {
+        sortable: false,
+      },
       of: [
         {
           type: 'reference',
           to: [{type: 'subPage'}],
           options: {
             filter: '!(_id in *[_type == "page"].children[]._ref)',
-          }
+          },
         },
       ],
     },

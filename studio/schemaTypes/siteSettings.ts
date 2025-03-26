@@ -1,6 +1,5 @@
-import {BiCog, BiDockBottom, BiDockTop, BiGlobe, BiLink, BiShare} from 'react-icons/bi'
+import {BiChevronDown, BiCog, BiDockBottom, BiDockTop, BiGlobe, BiLink, BiShare} from 'react-icons/bi'
 import {externalLinkUrl, internalLinkRef} from './templates/linkObject'
-import {RiDropdownList} from 'react-icons/ri'
 import {richTextSimple} from './templates/richText'
 
 export default {
@@ -69,6 +68,7 @@ export default {
             },
             {
               ...internalLinkRef,
+              validation: (Rule: any) => Rule.required()
             },
           ],
         },
@@ -86,12 +86,13 @@ export default {
             },
             {
               ...externalLinkUrl,
+              validation: (Rule: any) => Rule.required()
             },
           ],
         },
         {
           title: 'Rullegardin-meny',
-          icon: RiDropdownList,
+          icon: BiChevronDown,
           name: 'dropdown',
           type: 'object',
           fields: [
@@ -123,6 +124,7 @@ export default {
                     },
                     {
                       ...internalLinkRef,
+                      validation: (Rule: any) => Rule.required()
                     },
                   ],
                 },
@@ -140,6 +142,7 @@ export default {
                     },
                     {
                       ...externalLinkUrl,
+                      validation: (Rule: any) => Rule.required()
                     },
                   ],
                 },

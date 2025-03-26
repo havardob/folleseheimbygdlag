@@ -86,6 +86,18 @@ export const richTextMain = {
       icon: BiImage,
       type: 'object',
       name: 'imageBlock',
+      preview: {
+        select: {
+          title: "text",
+          media: 'imageFile',
+        },
+        prepare({title, media }:any) {
+          return {
+            title: title ? title : "Bilde",
+            media: media ? media : null,
+          }
+        },
+      },
       fields: [
         {
           title: 'Bilde',
@@ -162,20 +174,20 @@ export const richTextMain = {
         select: {
           links: 'links',
         },
-        prepare({ links }: any) {
+        prepare({links}: any) {
           if (!links || links.length === 0) {
-            return { title: "Ingen lenker..." };
+            return {title: 'Ingen lenker...'}
           }
 
           const titles = links
-              .map((link: any) => link.title)
-              .filter(Boolean) // Filter out any undefined titles
-              .join(", ");
+            .map((link: any) => link.title)
+            .filter(Boolean) // Filter out any undefined titles
+            .join(', ')
 
           return {
-            title: titles
-          };
-        }
+            title: titles,
+          }
+        },
       },
       fields: [
         {

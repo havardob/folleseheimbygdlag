@@ -18,12 +18,14 @@ export default {
       name: 'title',
       type: 'text',
       rows: 2,
+      validation: (Rule: any) => Rule.required()
     },
     {
       title: "Fremhevet bilde",
       description: "Velg et bilde som skal vises på når denne nyheten forhåndsvises",
       name: "featuredImage",
-      type: "image"
+      type: "image",
+      validation: (Rule: any) => Rule.required()
     },
     {
       ...slug,

@@ -23,6 +23,7 @@ export default {
       name: 'title',
       type: 'text',
       rows: 2,
+      validation: (Rule: any) => Rule.required()
     },
     {
       ...slug,
