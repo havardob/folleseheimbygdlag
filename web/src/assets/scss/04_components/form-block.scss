@@ -5,6 +5,7 @@
    display: flex;
    flex-direction: column;
    padding: 1rem;
+   padding-block-end: 2rem;
    row-gap: 2rem;
    width: calc(100% + 2rem);
    margin-inline: -1rem;
@@ -15,6 +16,7 @@
       width: 100%;
       margin-inline: 0;
       padding: 2rem;
+      padding-block-end: 3rem;
    }
    
    &__field {
