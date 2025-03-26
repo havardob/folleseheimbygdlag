@@ -1,25 +1,89 @@
 ---
-import {urlFor} from "../data/_helpers";
-const {size, imageFile, hasBorder = false, text, credits, alt} = Astro.props.node;
+import { urlFor } from "../data/_helpers";
+import Close from "./icons/Close.astro";
+import Fullscreen from "./icons/Fullscreen.astro";
+import Slideshow from "./Slideshow.astro";
+
+export type ImageType = {
+  size?: string;
+  imageFile: any;
+  hasBorder: boolean;
+  text?: string;
+  credits?: string;
+  alt?: string;
+};
+
+const {
+  size,
+  imageFile,
+  hasBorder = false,
+  text,
+  credits,
+  alt,
+}: ImageType = Astro.props.node;
 ---
 
 <figure class={`image-block | ${size}`}>
   <div class="image-block__frame">
     <picture>
-      <source media="(max-width: 640px)" srcset={urlFor(imageFile).width(400).url()} />
-      <source media="(max-width: 1024px)" srcset={urlFor(imageFile).width(800).url()} />
+      <source
+        media="(max-width: 640px)"
+        srcset={urlFor(imageFile).width(400).url()}
+      />
+      <source
+        media="(max-width: 1024px)"
+        srcset={urlFor(imageFile).width(800).url()}
+      />
       <img
-          src={urlFor(imageFile).width(1200).url()}
-          alt={alt ?? ""} }
-          loading="lazy"
-          class={hasBorder ? "has-border": ""}
+        src={urlFor(imageFile).width(1200).url()}
+        alt={alt ?? ""}
+        loading="lazy"
+        class={hasBorder ? "has-border" : ""}
       />
     </picture>
+    <button
+      class="image-block__open-button"
+      data-dialog-open={imageFile.asset.assetId}
+    >
+      <Fullscreen />
+      <span class="u-visually-hidden">Åpne i fullskjerm</span>
+    </button>
+    <Slideshow image={{ size, imageFile, hasBorder, text, credits, alt }} />
   </div>
-    {(text || credits) && (
+  {
+    (text || credits) && (
       <figcaption class="image-block__caption">
-          {text && (<span class="image-block__description">{text}</span>)}
-          {credits && (<span class="image-block__source"><span class="u-hidden">Foto: </span>{credits}</span>)}
+        {text && <span class="image-block__description">{text}</span>}
+        {credits && (
+          <span class="image-block__source">
+            <span class="u-hidden">Foto: </span>
+            {credits}
+          </span>
+        )}
       </figcaption>
-    )}
+    )
+  }
 </figure>
+
+<script>
+  const openButtons = document.querySelectorAll("[data-dialog-open]");
+  const closeButtons = document.querySelectorAll("[data-dialog-close]");
+
+  openButtons?.forEach((openButton) => {
+    openButton?.addEventListener("click", function () {
+      const dialog = document.getElementById(
+        openButton.getAttribute("data-dialog-open") || "",
+      ) as HTMLDialogElement;
+      dialog?.showModal();
+    });
+  });
+
+  closeButtons?.forEach((closeButton) => {
+    closeButton?.addEventListener("click", function () {
+      const dialog = document.getElementById(
+        closeButton.getAttribute("data-dialog-close") || "",
+      ) as HTMLDialogElement;
+      dialog?.close();
+    });
+  });
+</script>

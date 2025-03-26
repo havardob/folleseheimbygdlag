@@ -1,0 +1,38 @@
+---
+import {urlFor} from "../data/_helpers";
+import Close from "./icons/Close.astro";
+import type { ImageType } from "./ImageBlock.astro";
+interface Props {
+    image: ImageType
+}
+
+const { image } = Astro.props;
+---
+
+<dialog class="slideshow" data-dialog id={image.imageFile.asset.assetId}>
+  <div class="slideshow__images">
+    <div class="slideshow__image">
+      <picture>
+        <source
+          media="(max-width: 600px)"
+          srcset={urlFor(image.imageFile).width(600).url()}
+        />
+        <source
+          media="(max-width: 1000px)"
+          srcset={urlFor(image.imageFile).width(1000).url()}
+        />
+        <img
+          src={urlFor(image.imageFile).width(2000).url()}
+          alt={image.alt ?? ""}
+          loading="lazy"
+        />
+      </picture>
+    </div>
+    <button
+      class="slideshow__close-button"
+      data-dialog-close={image.imageFile.asset.assetId}
+    >
+      <Close />
+    </button>
+  </div>
+</dialog>

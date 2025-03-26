@@ -4,7 +4,8 @@ import {getSubpageSlug, groqGetBody} from "./_query-helpers.ts";
 const query = `*[_type == "page"] {
     _id, 
     "fullSlug": ${getSubpageSlug},
-    "bannerImage": bannerImage.asset->url,
+    bannerImage,
+    "bannerImageUrl": bannerImage.asset->url,
     title, 
     leading,
     "body": ${groqGetBody('body')}

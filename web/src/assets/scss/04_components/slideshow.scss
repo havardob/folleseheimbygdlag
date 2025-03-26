@@ -1,0 +1,44 @@
+.slideshow {
+   border: 0;
+   width: 100%;
+   height: 100%;
+   max-width: 100%;
+   max-height: 100%;
+   background-color: transparent;
+   padding: 3rem;
+   
+   &::backdrop {
+      background-color: rgba(0 0 0 / .95);
+   }
+   
+   &__images {
+      width: 100%;
+      height: 100%;
+   }
+   
+   &__image {
+      height: 100%;
+      width: 100%;
+      picture, img {
+         width: 100%;
+         height: 100%;
+         max-width: 100%;
+         max-height: 100%;
+         object-fit: contain;
+      }
+   }
+   
+   &__close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: rgba(255, 255, 255, .125);
+      border-radius: 50%;
+      font-size: 1.5rem;
+      width: 3rem;
+      height: 3rem;
+      display: grid;
+      place-items: center;
+      color: var(--color-white);
+   }
+}

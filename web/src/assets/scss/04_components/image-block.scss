@@ -9,10 +9,10 @@
       width: calc(100% + 2rem);
       margin-inline: -1rem;
       
-      img {
+      .image-block__frame img {
          border-radius: 0;
          @include breakpoint.large-up {
-         border-radius: .375rem;
+            border-radius: .375rem;
          }
       }
       
@@ -29,12 +29,16 @@
       }
    }
    
-   img {
-      width: 100%;
-      border-radius: .375rem;
+   &__frame {
+      position: relative;
       
-      &.has-border {
-         border: 1px solid #DDD;
+      img {
+         width: 100%;
+         border-radius: .375rem;
+         
+         &.has-border {
+            border: 1px solid #DDD;
+         }
       }
    }
    
@@ -55,4 +59,21 @@
       letter-spacing: .05em;
    }
    
+   &__open-button {
+      position: absolute;
+      top: .75rem;
+      right: .75rem;
+      background-color: rgba(0 0 0 / .5);
+      border-radius: 4px;
+      font-size: 1.25rem;
+      width: 2rem;
+      height: 2rem;
+      display: grid;
+      place-items: center;
+      color: var(--color-white);
+      
+      &:hover {
+         background-color: var(--color-black);
+      }
+   }
 }
