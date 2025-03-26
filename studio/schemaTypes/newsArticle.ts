@@ -2,6 +2,32 @@ import {BiNews} from "react-icons/bi";
 import {slug} from "./templates/slug";
 import {richTextMain} from "./templates/richText";
 
+export const formatDate = function (date: any) {
+  const tempDate = new Date(date);
+  const day = tempDate.getDate();
+  const month = tempDate.getMonth();
+  const year = tempDate.getFullYear();
+
+  const monthNames = [
+    "januar",
+    "februar",
+    "mars",
+    "april",
+    "mai",
+    "juni",
+    "juli",
+    "august",
+    "september",
+    "oktober",
+    "november",
+    "desember",
+  ];
+
+  const newDate = `${day}. ${monthNames[month]} ${year}`;
+
+  return newDate;
+};
+
 export default {
   name: 'newsArticle',
   title: 'Nyhetsartikler',
@@ -10,8 +36,29 @@ export default {
   preview: {
     select: {
       title: 'title',
+      subtitle: 'publishedDate',
+      media: 'featuredImage'
     },
+    prepare({title, subtitle, media}: any) {
+      return {
+        title: title,
+        subtitle: formatDate(subtitle),
+        media: media
+      }
+    }
   },
+  orderings: [
+    {
+      title: "Publiseringsdato",
+      name: "publishedDateDesc",
+      by: [
+        {
+          field: "publishedDate",
+          direction: "desc",
+        }
+      ]
+    }
+  ],
   fields: [
     {
       title: 'Tittel',
