@@ -1,3 +1,5 @@
+@use '../02_tools/breakpoint';
+
 .u-visually-hidden {
    clip: rect(0 0 0 0);
    clip-path: inset(50%);
@@ -68,6 +70,17 @@
       &:hover {
          color: var(--color-link-text-hover);
          text-decoration-thickness: 3px;
+      }
+   }
+   
+   & > blockquote {
+      padding-block: 1em;
+      padding-inline-start: 1em;
+      border-inline-start: 4px solid var(--color-follese);
+      font-family: var(--ff-secondary), serif;
+      font-size: 1.25em;
+      @include breakpoint.large-up {
+         margin-inline: -1em;
       }
    }
    

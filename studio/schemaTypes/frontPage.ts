@@ -27,18 +27,18 @@ export default {
           validation: (Rule: any) => Rule.required()
         },
         {
-          title: 'Title',
+          title: 'Tittel',
           name: 'title',
           type: 'string',
           validation: (Rule: any) => Rule.required()
         },
         {
-          title: 'Subtitle',
+          title: 'Sub-tittel',
           name: 'subtitle',
           type: 'string',
         },
         {
-          title: 'Intro',
+          title: 'Intro-tekst',
           name: 'intro',
           type: 'text',
           rows: 3,

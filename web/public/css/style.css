@@ -1591,6 +1591,18 @@ body {
   color: var(--color-link-text-hover);
   text-decoration-thickness: 3px;
 }
+.u-rich-text > blockquote {
+  padding-block: 1em;
+  padding-inline-start: 1em;
+  border-inline-start: 4px solid var(--color-follese);
+  font-family: var(--ff-secondary), serif;
+  font-size: 1.25em;
+}
+@media (min-width: 80rem) {
+  .u-rich-text > blockquote {
+    margin-inline: -1em;
+  }
+}
 .u-rich-text strong:not([class]) {
   font-weight: 500;
 }

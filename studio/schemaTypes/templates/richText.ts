@@ -26,55 +26,38 @@ export const richTextMain = {
       // use your content.
       styles: [
         {title: 'Normal', value: 'normal'},
-        {title: 'H1', value: 'h1'},
-        {title: 'H2', value: 'h2'},
-        {title: 'H3', value: 'h3'},
-        {title: 'H4', value: 'h4'},
-        {title: 'Quote', value: 'blockquote'},
+        {title: 'Overskrift 2', value: 'h2'},
+        {title: 'Overskrift 3', value: 'h3'},
+        {title: 'Blokksitat', value: 'blockquote'},
       ],
       lists: [
-        {title: 'Bullet', value: 'bullet'},
-        {title: 'Number', value: 'number'},
+        {title: 'Punktliste', value: 'bullet'},
+        {title: 'Nummerert liste', value: 'number'},
       ],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
         decorators: [
-          {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'},
-          {title: 'Code', value: 'code'},
+          {title: 'Fet tekst', value: 'strong'},
+          {title: 'Kursiv tekst', value: 'em'},
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            title: 'Internal Link',
+            title: 'Intern lenke',
             name: 'internalLink',
             icon: BiLinkAlt,
             type: 'object',
             fields: [internalLinkRef],
           },
           {
-            title: 'External Link',
+            title: 'Ekstern lenke',
             name: 'externalLink',
             icon: BiLinkExternal,
             type: 'object',
             fields: [externalLinkUrl],
-          },
-          {
-            title: 'Description tag',
-            name: 'descriptionTag',
-            icon: BiQuestionMark,
-            type: 'object',
-            fields: [
-              {
-                title: 'Text',
-                name: 'text',
-                type: 'text',
-                rows: 4,
-              },
-            ],
-          },
+          }
         ],
       },
     },
@@ -82,7 +65,7 @@ export const richTextMain = {
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
     {
-      title: 'Image',
+      title: 'Bilde',
       icon: BiImage,
       type: 'object',
       name: 'imageBlock',
@@ -259,20 +242,20 @@ export const richTextSimple = {
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
         decorators: [
-          {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'},
+          {title: 'Fet tekst', value: 'strong'},
+          {title: 'Kursiv tekst', value: 'em'},
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            title: 'Internal Link',
+            title: 'Intern lenke',
             name: 'internalLink',
             icon: BiLinkAlt,
             type: 'object',
             fields: [internalLinkRef],
           },
           {
-            title: 'External Link',
+            title: 'Ekstern lenke',
             name: 'externalLink',
             icon: BiLinkExternal,
             type: 'object',
