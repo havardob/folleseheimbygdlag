@@ -96,6 +96,7 @@
       margin-inline: auto;
       --color-link-decoration-default: var(--color-follese);
       --color-link-text-hover: var(--color-follese);
+      --color-link-text: var(--color-follese);
       
       @include breakpoint.medium-up {
          font-size: 1.125rem;

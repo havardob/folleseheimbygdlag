@@ -20,7 +20,7 @@ const { title, imageUrl, text, date, href } = Astro.props;
         <a href={href}>{title}</a>
       </h3>
       {text && <p class="card__text">{text}</p>}
-      <time datetime={date} class="card__date">{date}</time>
+      <time datetime={date} class="card__date">Publisert: {date}</time>
     </div>
   </div>
 </div>

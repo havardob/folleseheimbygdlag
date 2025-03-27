@@ -44,7 +44,7 @@ body {
 }
 
 :where(ul, ol) {
-  padding-inline-start: 1.5rem;
+  padding-inline-start: 2.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1351,6 +1351,7 @@ body {
   margin-inline: auto;
   --color-link-decoration-default: var(--color-follese);
   --color-link-text-hover: var(--color-follese);
+  --color-link-text: var(--color-follese);
 }
 @media (min-width: 60rem) {
   .l-news-article__body {
@@ -1478,6 +1479,7 @@ body {
   margin-inline: auto;
   --color-link-decoration-default: var(--color-follese);
   --color-link-text-hover: var(--color-follese);
+  --color-link-text: var(--color-follese);
 }
 @media (min-width: 60rem) {
   .l-subpage__body {
@@ -1586,6 +1588,7 @@ body {
   text-underline-offset: 0.25em;
   text-decoration-thickness: 1px;
   text-decoration-color: var(--color-link-decoration-default);
+  color: var(--color-link-text);
 }
 .u-rich-text > * > a:not([class]):hover {
   color: var(--color-link-text-hover);

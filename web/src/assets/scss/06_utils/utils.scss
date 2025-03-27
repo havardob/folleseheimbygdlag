@@ -66,6 +66,7 @@
       text-underline-offset: 0.25em;
       text-decoration-thickness: 1px;
       text-decoration-color: var(--color-link-decoration-default);
+      color: var(--color-link-text);
       
       &:hover {
          color: var(--color-link-text-hover);
