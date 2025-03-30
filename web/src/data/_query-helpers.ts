@@ -21,6 +21,21 @@ export function groqGetBody(key: string) {
         _type == "formBlock" => {
           ...,
         },
+        _type == "logoCloudBlock" => {
+          title,
+          intro,
+          images[] {
+            ...,
+            logo {
+              ...,
+              _type == "externalLink" => {
+               "link": {
+                  "href": href
+               },
+              }
+            } 
+          }
+        },
         _type == "linkCollectionBlock" => {
           ...,
           links[] {          

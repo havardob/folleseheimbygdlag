@@ -1,0 +1,26 @@
+---
+import { urlFor } from "../data/_helpers";
+
+console.log(Astro.props);
+const { title, intro, images } = Astro.props.node;
+---
+
+<div class="logo-cloud">
+  <h2 class="logo-cloud__title">
+    {title}
+  </h2>
+  <p class="logo-cloud__intro">
+    {intro}
+  </p>
+  <div class="logo-cloud__grid">
+    {
+      images.map((image: any) => (
+        <div class="logo-cloud__image">
+          <a href={image.href} target="_blank" rel="noopener noreferrer">
+            <img src={urlFor(image.imageFile).url()} alt="" />
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</div>

@@ -15,6 +15,21 @@ const query = `*[_id == "frontPage"][0] {
     },
     newsSection {
        ...
+    },
+    sponsorSection {
+      title,
+      intro,
+      images[] {
+        ...,
+        logo {
+          ...,
+          _type == "externalLink" => {
+           "link": {
+              "href": href
+           },
+          }
+        } 
+      }
     }
 }`
 

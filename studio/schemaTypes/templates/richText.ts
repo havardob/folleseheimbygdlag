@@ -1,6 +1,6 @@
 import {
   BiFile,
-  BiGlobe,
+  BiGlobe, BiGrid,
   BiImage,
   BiLink,
   BiLinkAlt,
@@ -11,6 +11,7 @@ import {
 } from 'react-icons/bi'
 import {externalLinkUrl, internalLinkRef} from './linkObject'
 import {formBlock} from './formBlock'
+import {logoCloudBlock} from "./logoCloudBlock";
 
 export const richTextMain = {
   title: 'Block Content',
@@ -219,6 +220,10 @@ export const richTextMain = {
     {
       icon: BiPointer,
       ...formBlock,
+    },
+    {
+      icon: BiGrid,
+      ...logoCloudBlock
     },
   ],
 }

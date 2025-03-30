@@ -1,5 +1,6 @@
 import {BiHome} from 'react-icons/bi'
-import {internalLinkRef} from "./templates/linkObject";
+import {internalLinkRef} from './templates/linkObject'
+import {logoCloudBlock} from './templates/logoCloudBlock'
 
 export default {
   title: 'Forside',
@@ -13,7 +14,7 @@ export default {
       description:
         "Navnet på siden. Dette vil ikke stå noen plass, men må være med likevel. Kall den 'Forside' eller lignende",
       type: 'string',
-      validation: (Rule: any) => Rule.required()
+      validation: (Rule: any) => Rule.required(),
     },
     {
       title: 'Banner',
@@ -24,13 +25,13 @@ export default {
           title: 'Bilde',
           name: 'image',
           type: 'image',
-          validation: (Rule: any) => Rule.required()
+          validation: (Rule: any) => Rule.required(),
         },
         {
           title: 'Tittel',
           name: 'title',
           type: 'string',
-          validation: (Rule: any) => Rule.required()
+          validation: (Rule: any) => Rule.required(),
         },
         {
           title: 'Sub-tittel',
@@ -42,7 +43,7 @@ export default {
           name: 'intro',
           type: 'text',
           rows: 3,
-          validation: (Rule: any) => Rule.required()
+          validation: (Rule: any) => Rule.required(),
         },
       ],
     },
@@ -79,18 +80,18 @@ export default {
             },
             {
               ...internalLinkRef,
-              title: "Lenke til",
-              name: "link",
+              title: 'Lenke til',
+              name: 'link',
             },
             {
-              title: "Plassering av bilde",
-              name: "imagePlacement",
-              type: "string",
+              title: 'Plassering av bilde',
+              name: 'imagePlacement',
+              type: 'string',
               options: {
-                layout: "dropdown",
-                list: ["left", "right"]
-              }
-            }
+                layout: 'dropdown',
+                list: ['left', 'right'],
+              },
+            },
           ],
         },
       ],
@@ -104,23 +105,28 @@ export default {
           title: 'Overskrift over nyhetene',
           name: 'title',
           type: 'string',
-          validation: (Rule: any) => Rule.required()
+          validation: (Rule: any) => Rule.required(),
         },
         {
           title: "Tekst for 'se flere nyheter'-knapp",
-          name: "moreText",
-          type: "string",
+          name: 'moreText',
+          type: 'string',
         },
         {
           title: 'Antall',
-          description: "Velg hvor mange av de siste nyhetene som skal vises her på forsiden",
+          description: 'Velg hvor mange av de siste nyhetene som skal vises her på forsiden',
           name: 'count',
           type: 'number',
           options: {
-            list: [3, 6, 9]
-          }
+            list: [3, 6, 9],
+          },
         },
       ],
+    },
+    {
+      ...logoCloudBlock,
+      title: 'Sponsorer',
+      name: "sponsorSection"
     },
   ],
 }
