@@ -21,12 +21,13 @@ const { groups, socialMedia }: Props = Astro.props;
     <div class="site-footer__inner">
       <a href="/" class="site-footer__logo">
         <img src="/images/logo_hvit.png" alt="" />
+        <span class="u-visually-hidden">Gå til forsiden</span>
       </a>
       <div class="site-footer__content">
         {
           groups?.map((group) => (
             <div class="site-footer__group">
-              <h3 class="site-footer__group-title">{group.title}</h3>
+              <h2 class="site-footer__group-title">{group.title}</h2>
               {group.text && (
                 <div class="site-footer__group-content | u-rich-text">
                   <RichText content={group.text} />

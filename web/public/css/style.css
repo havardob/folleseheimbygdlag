@@ -58,7 +58,7 @@ body {
   }
 }
 :root {
-  --color-follese-dark: #0a4f97;
+  --color-follese-dark: #094584;
   --color-follese: #1960AA;
   --color-follese-light: #8ac4ea;
   --color-cobalt: #0D2B49;
@@ -74,52 +74,61 @@ body {
   font-family: "Gabarito";
   src: url("../fonts/Gabarito-VariableFont_wght.ttf");
   font-weight: 400 900;
+  font-display: swap;
 }
 @font-face {
   font-family: "Geist";
   src: url("../fonts/Geist.ttf");
   font-weight: 200 900;
+  font-display: swap;
 }
 @font-face {
   font-family: "Geist Mono";
   src: url("../fonts/GeistMono.ttf");
   font-weight: 200 900;
+  font-display: swap;
 }
 @font-face {
   font-family: "Peachi";
   src: url("../fonts/Peachi-Thin.otf");
   font-weight: 200;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Peachi";
   src: url("../fonts/Peachi-Light.otf");
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Peachi";
   src: url("../fonts/Peachi-Regular.otf");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Peachi";
   src: url("../fonts/Peachi-Medium.otf");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Peachi";
   src: url("../fonts/Peachi-Bold.otf");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Peachi";
   src: url("../fonts/Peachi-Black.otf");
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 :root {
   --ff-primary: "Geist";
