@@ -67,6 +67,7 @@ const {
 <script>
   const openButtons = document.querySelectorAll("[data-dialog-open]");
   const closeButtons = document.querySelectorAll("[data-dialog-close]");
+  const root = document.documentElement;
 
   openButtons?.forEach((openButton) => {
     openButton?.addEventListener("click", function () {
@@ -74,6 +75,10 @@ const {
         openButton.getAttribute("data-dialog-open") || "",
       ) as HTMLDialogElement;
       dialog?.showModal();
+
+      dialog?.addEventListener("toggle", function () {
+        dialog.open ? root.style.overflowY = "hidden" : root.style.overflowY = "initial";
+      });
     });
   });
 
@@ -83,6 +88,10 @@ const {
         closeButton.getAttribute("data-dialog-close") || "",
       ) as HTMLDialogElement;
       dialog?.close();
+
+      dialog?.addEventListener("toggle", function () {
+        dialog.open ? root.style.overflowY = "hidden" : root.style.overflowY = "initial";
+      });
     });
   });
 </script>

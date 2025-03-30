@@ -122,8 +122,7 @@ export const richTextMain = {
           options: {
             list: [
               {title: 'Like bred som teksten', value: 'stretch'},
-              {title: 'Fullbredde', value: 'full-bleed'},
-              {title: 'Original størrelse', value: 'original'},
+              {title: 'Bredere enn teksten', value: 'full-bleed'}
             ],
             layout: 'radio',
           },
