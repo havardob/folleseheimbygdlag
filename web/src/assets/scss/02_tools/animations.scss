@@ -1,0 +1,29 @@
+@keyframes SmallTranslateDown {
+   from {
+      transform: translate3d(0, -5%, 0);
+   }
+   
+   to {
+      transform: translate3d(0, 0, 0);
+   }
+}
+
+@keyframes SmallScaleUp {
+   from {
+      scale: .95;
+   }
+   
+   to {
+      scale: 1;
+   }
+}
+
+@keyframes SmallFadeIn {
+   from {
+      opacity: 0;
+   }
+   
+   to {
+      opacity: 1;
+   }
+}

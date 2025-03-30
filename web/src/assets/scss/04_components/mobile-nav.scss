@@ -12,7 +12,7 @@
    &[open] {
       display: flex;
       justify-content: flex-end;
-      animation: slideIn .25s ease-in-out forwards;
+      animation: slideIn .15s ease forwards;
    }
    
    &__inner {
@@ -111,10 +111,10 @@
 
 @keyframes slideIn {
    from {
-      transform: translateX(100%);
+      transform: translateY(-100%);
    }
    
    to {
-      transform: translateX(0);
+      transform: translateY(0);
    }
 }

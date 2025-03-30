@@ -1,8 +1,11 @@
+@use "../02_tools/animations";
+
 .l-site {
    display: flex;
    flex-direction: column;
    min-height: 100dvh;
-&__main  {
-flex-grow: 1;
-}
+   
+   &__main {
+      flex-grow: 1;
+   }
 }

@@ -1,6 +1,9 @@
 @use "../02_tools/breakpoint";
+@use "../02_tools/animations";
 
 .hero {
+   animation: SmallTranslateDown 1s ease forwards;
+   
    &__image {
       width: 100%;
       
@@ -11,12 +14,14 @@
          width: 100%;
          
          @include breakpoint.medium-up {
-         aspect-ratio: 1920 / 715;
+            aspect-ratio: 1920 / 715;
          }
       }
    }
    
    &__content {
+      animation: SmallScaleUp 1s ease forwards;
+      transform-origin: bottom center;
       width: 95%;
       max-width: 45rem;
       margin-inline: auto;

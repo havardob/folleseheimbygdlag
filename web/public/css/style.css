@@ -175,6 +175,8 @@ body {
 
 .site-header {
   background-color: var(--color-sky);
+  position: relative;
+  z-index: 100;
 }
 .site-header__inner {
   display: flex;
@@ -330,6 +332,33 @@ body {
     opacity: 1;
   }
 }
+@keyframes SmallTranslateDown {
+  from {
+    transform: translate3d(0, -5%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes SmallScaleUp {
+  from {
+    scale: 0.95;
+  }
+  to {
+    scale: 1;
+  }
+}
+@keyframes SmallFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.hero {
+  animation: SmallTranslateDown 1s ease forwards;
+}
 .hero__image {
   width: 100%;
 }
@@ -345,6 +374,8 @@ body {
   }
 }
 .hero__content {
+  animation: SmallScaleUp 1s ease forwards;
+  transform-origin: bottom center;
   width: 95%;
   max-width: 45rem;
   margin-inline: auto;
@@ -887,7 +918,7 @@ body {
 .mobile-nav[open] {
   display: flex;
   justify-content: flex-end;
-  animation: slideIn 0.25s ease-in-out forwards;
+  animation: slideIn 0.15s ease forwards;
 }
 .mobile-nav__inner {
   background-color: var(--color-cobalt);
@@ -970,10 +1001,10 @@ body {
 
 @keyframes slideIn {
   from {
-    transform: translateX(100%);
+    transform: translateY(-100%);
   }
   to {
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 .more-link {
@@ -1198,6 +1229,10 @@ body {
   display: flex;
   flex-direction: column;
   row-gap: 3rem;
+  view-timeline-name: --section;
+  animation: fade-slide-up linear forwards;
+  animation-timeline: --section;
+  animation-range: entry -5% cover 30%;
 }
 @media (min-width: 60rem) {
   .l-frontpage__blocks {
@@ -1207,6 +1242,10 @@ body {
 }
 .l-frontpage__cards {
   margin-block-start: 6rem;
+  view-timeline-name: --section;
+  animation: fade-slide-up linear forwards;
+  animation-timeline: --section;
+  animation-range: entry -5% cover 30%;
 }
 .l-frontpage__cards-title {
   font-size: 2rem;
@@ -1244,8 +1283,24 @@ body {
 }
 .l-frontpage__sponsors {
   margin-block-start: 6rem;
+  view-timeline-name: --section;
+  animation: fade-slide-up linear forwards;
+  animation-timeline: --section;
+  animation-range: entry -5% cover 30%;
 }
 
+@keyframes fade-slide-up {
+  from {
+    opacity: 0;
+    scale: 0.9;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    scale: 1;
+  }
+}
 .l-news-archive {
   padding-block-end: 10rem;
 }
@@ -1462,6 +1517,7 @@ body {
   width: 100%;
   margin-inline: auto;
   position: relative;
+  animation: SmallTranslateDown 1s ease forwards;
 }
 .l-subpage__banner-image:after {
   content: "";

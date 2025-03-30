@@ -1,5 +1,13 @@
 @use "../02_tools/breakpoint";
 
+
+@mixin fadeSlideUp {
+   view-timeline-name: --section;
+   animation: fade-slide-up linear forwards;
+   animation-timeline: --section;
+   animation-range: entry -5% cover 30%;
+}
+
 .l-frontpage {
    padding-block-end: 6rem;
    &__blocks {
@@ -7,6 +15,7 @@
       display: flex;
       flex-direction: column;
       row-gap: 3rem;
+      @include fadeSlideUp();
       
       @include breakpoint.medium-up {
          row-gap: 0;
@@ -16,6 +25,7 @@
    
    &__cards {
       margin-block-start: 6rem;
+      @include fadeSlideUp();
    }
    
    &__cards-title {
@@ -53,5 +63,19 @@
    
    &__sponsors {
       margin-block-start: 6rem;
+      @include fadeSlideUp();
+   }
+}
+
+@keyframes fade-slide-up {
+   from {
+      opacity: 0;
+      scale: .9;
+      transform: translateY(0);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+      scale: 1;
    }
 }
