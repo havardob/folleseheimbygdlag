@@ -29,6 +29,8 @@ export const richTextMain = {
         {title: 'Normal', value: 'normal'},
         {title: 'Overskrift 2', value: 'h2'},
         {title: 'Overskrift 3', value: 'h3'},
+        {title: 'Overskrift 4', value: 'h4'},
+        {title: 'Overskrift 5', value: 'h5'},
         {title: 'Blokksitat', value: 'blockquote'},
       ],
       lists: [

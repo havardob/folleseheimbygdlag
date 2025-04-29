@@ -126,5 +126,22 @@
             font-size: 1.75rem;
          }
       }
+      
+      & > h4:not([class]) {
+         font-size: 1rem;
+         
+         @include breakpoint.medium-up {
+            font-size: 1.25rem;
+            line-height: 1.375;
+         }
+         
+         @include breakpoint.large-up {
+            font-size: 1.375rem;
+         }
+      }
+      
+      & > h5:not([class]) {
+         font-size: 1em;
+      }
    }
 }
