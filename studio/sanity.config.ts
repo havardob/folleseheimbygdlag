@@ -4,21 +4,44 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import deskStructure from './src/deskStructure'
 
-export default defineConfig({
-  name: 'default',
-  title: 'Follese Heimbydglag',
+export default defineConfig([
+  {
+    name: 'development-workspace',
+    basePath: '/development',
+    title: 'Testing for utvikler',
+    subtitle: 'Development',
 
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID || "",
-  dataset: process.env.SANITY_STUDIO_DATASET || "",
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
+    dataset: 'development',
 
-  plugins: [
-    structureTool({
-      structure: deskStructure,
-    }),
-    visionTool(),
-  ],
-
-  schema: {
-    types: schemaTypes,
+    plugins: [
+      structureTool({
+        structure: deskStructure,
+        title: 'Innhold',
+      }),
+      visionTool(),
+    ],
+    schema: {
+      types: schemaTypes,
+    },
   },
-})
+  {
+    name: 'default',
+    basePath: '/production',
+    title: 'Nettside',
+    subtitle: 'Production',
+
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
+    dataset: 'production',
+
+    plugins: [
+      structureTool({
+        structure: deskStructure,
+      }),
+    ],
+
+    schema: {
+      types: schemaTypes,
+    },
+  },
+])

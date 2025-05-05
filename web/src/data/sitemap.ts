@@ -1,11 +1,9 @@
 import {client} from "./_sanityClient.ts";
+import {getSubpageSlug} from "./_query-helpers.ts";
 
 const query = `*[_type in ["frontPage", "page", "subPage", "newsArchive", "newsArticle"]] {
   title,
-  "fullSlug": coalesce(
-      "/" + *[_type == "page" && references(^._id)][0].slug.current + "/" + slug.current, 
-      "/" + slug.current
-    ),
+  "fullSlug": ${getSubpageSlug},
   _type == "frontPage" => {
     "fullSlug": "/"
   },

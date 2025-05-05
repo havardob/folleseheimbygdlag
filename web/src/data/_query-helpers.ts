@@ -1,7 +1,7 @@
 export const getSubpageSlug = `
     coalesce(
-      "/" + *[_type == "page" && references(^._id)][0].slug.current + "/" + slug.current, 
-      "/" + slug.current
+        "/" + (parentPage -> slug.current) + "/" + slug.current, 
+        "/" + slug.current
     )
 `;
 
