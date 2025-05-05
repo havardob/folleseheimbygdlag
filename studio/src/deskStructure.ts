@@ -10,8 +10,6 @@ export default (S: any) =>
                 .child(S.document().schemaType("frontPage").documentId("frontPage")),
             S.divider(),
             ...S.documentTypeListItems()
-                .filter((listItem: any) => ["page"].includes(listItem.getId())),
-            ...S.documentTypeListItems()
                 .filter((listItem: any) => ["subPage"].includes(listItem.getId())),
             S.divider(),
             ...S.documentTypeListItems()

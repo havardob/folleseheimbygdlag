@@ -5,11 +5,12 @@ const query = `*[_type == "subPage"] {
     _id, 
     "slug": slug.current,
     "parent": {
-      "slug": *[_type == "page" && references(^._id)][0].slug.current,
-      "title": *[_type == "page" && references(^._id)][0].title
+      "slug": parentPage -> slug.current,
+      "title": parentPage -> title
     },
     "fullSlug": ${getSubpageSlug},
     bannerImage,
+    bannerImageCreditation,
     "bannerImageUrl": bannerImage.asset->url,
     title, 
     leading,

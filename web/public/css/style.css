@@ -1174,6 +1174,10 @@ body {
   }
 }
 
+.embed-block {
+  border: 1px solid var(--color-stone);
+}
+
 .l-404 {
   padding-block-end: 10rem;
 }
@@ -1552,6 +1556,16 @@ body {
 .l-subpage__banner-image + .l-subpage__breadcrumbs {
   position: relative;
 }
+.l-subpage__banner-creditation {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  border-radius: 0.25rem;
+  padding: 0.25em 0.5em;
+  font-size: 0.875rem;
+}
 .l-subpage__breadcrumbs {
   margin-block: 1rem;
   max-width: 50rem;
@@ -1615,9 +1629,9 @@ body {
     font-size: 1.25rem;
   }
 }
-.l-subpage__body > :where(h1, h2, h3):not([class]) {
+.l-subpage__body > :where(h1, h2, h3, h4, h5):not([class]) {
   font-family: var(--ff-secondary), serif;
-  font-weight: 400;
+  font-weight: 500;
 }
 .l-subpage__body > h2:not([class]) {
   font-size: 1.5rem;
