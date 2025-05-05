@@ -6,6 +6,25 @@ import deskStructure from './src/deskStructure'
 
 export default defineConfig([
   {
+    name: 'default',
+    basePath: '/production',
+    title: 'Nettside',
+    subtitle: 'Production',
+
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
+    dataset: 'production',
+
+    plugins: [
+      structureTool({
+        structure: deskStructure,
+      }),
+    ],
+
+    schema: {
+      types: schemaTypes,
+    },
+  },
+  {
     name: 'development-workspace',
     basePath: '/development',
     title: 'Testing for utvikler',
@@ -21,25 +40,6 @@ export default defineConfig([
       }),
       visionTool(),
     ],
-    schema: {
-      types: schemaTypes,
-    },
-  },
-  {
-    name: 'default',
-    basePath: '/production',
-    title: 'Nettside',
-    subtitle: 'Production',
-
-    projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
-    dataset: 'production',
-
-    plugins: [
-      structureTool({
-        structure: deskStructure,
-      }),
-    ],
-
     schema: {
       types: schemaTypes,
     },
