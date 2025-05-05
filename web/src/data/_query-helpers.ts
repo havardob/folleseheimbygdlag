@@ -10,6 +10,10 @@ export function groqGetBody(key: string) {
         ...,
         _type == "imageBlock" => {
             ...,
+            imageFile {
+              ...,
+              asset->
+            }
         },
         _type == "fileBlock" => {
             title,
