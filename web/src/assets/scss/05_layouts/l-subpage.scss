@@ -36,6 +36,17 @@
       }
    }
    
+   &__banner-creditation {
+      position: absolute;
+      top: .5rem;
+      right: .5rem;
+      background-color: rgba(255, 255, 255, .5);
+      display: inline-block;
+      border-radius: .25rem;
+      padding: .25em .5em;
+      font-size: .875rem;
+   }
+   
    &__breadcrumbs {
       margin-block: 1rem;
       max-width: 50rem;
@@ -96,9 +107,9 @@
          font-size: 1.25rem;
       }
       
-      & > :where(h1, h2, h3):not([class]) {
+      & > :where(h1, h2, h3, h4, h5):not([class]) {
          font-family: var(--ff-secondary), serif;
-         font-weight: 400;
+         font-weight: 500;
       }
       
       & > h2:not([class]) {

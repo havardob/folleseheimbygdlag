@@ -4,14 +4,14 @@ export const formBlock = {
     type: "object",
     preview: {
         select: {
-            title: "endpoint"
+            title: "source"
         }
     },
     fields: [
         {
-            title: "Kode til Formcarry",
-            name: "endpoint",
-            type: "string",
+            title: "URL til skjema",
+            name: "source",
+            type: "url",
             validation: (Rule: any) => Rule.required()
         }
     ]
