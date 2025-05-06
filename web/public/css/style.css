@@ -1206,24 +1206,25 @@ body {
 }
 .l-404__leading {
   margin-block-start: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   max-width: 50rem;
 }
 @media (min-width: 60rem) {
   .l-404__leading {
     margin-block-start: 1.5rem;
-    font-size: 1.375rem;
+    font-size: 1.25rem;
   }
 }
 @media (min-width: 80rem) {
   .l-404__leading {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     line-height: 1.375;
   }
 }
 .l-404__leading a:not([class]) {
   --color-link-decoration-default: var(--color-follese);
   --color-link-text-hover: var(--color-follese);
+  color: var(--color-follese);
   text-decoration: underline;
   text-underline-offset: 0.25em;
   text-decoration-thickness: 1px;
@@ -1343,18 +1344,18 @@ body {
 }
 .l-news-archive__leading {
   margin-block-start: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   max-width: 50rem;
 }
 @media (min-width: 60rem) {
   .l-news-archive__leading {
     margin-block-start: 1.5rem;
-    font-size: 1.375rem;
+    font-size: 1.25rem;
   }
 }
 @media (min-width: 80rem) {
   .l-news-archive__leading {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     line-height: 1.375;
   }
 }
@@ -1446,19 +1447,19 @@ body {
 }
 .l-news-article__leading {
   margin-block-start: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   max-width: 50rem;
   margin-inline: auto;
 }
 @media (min-width: 60rem) {
   .l-news-article__leading {
     margin-block-start: 1.5rem;
-    font-size: 1.375rem;
+    font-size: 1.25rem;
   }
 }
 @media (min-width: 80rem) {
   .l-news-article__leading {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     line-height: 1.375;
   }
 }
@@ -1482,12 +1483,12 @@ body {
 }
 @media (min-width: 60rem) {
   .l-news-article__body {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
   }
 }
 @media (min-width: 80rem) {
   .l-news-article__body {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 }
 .l-news-article__body > :where(h1, h2, h3):not([class]) {
@@ -1594,24 +1595,24 @@ body {
 }
 .l-subpage__leading {
   margin-block-start: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   max-width: 50rem;
   margin-inline: auto;
 }
 @media (min-width: 60rem) {
   .l-subpage__leading {
     margin-block-start: 1.5rem;
-    font-size: 1.375rem;
+    font-size: 1.25rem;
   }
 }
 @media (min-width: 80rem) {
   .l-subpage__leading {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     line-height: 1.375;
   }
 }
 .l-subpage__body {
-  margin-block-start: 4rem;
+  margin-block-start: 3rem;
   max-width: 50rem;
   font-size: 1rem;
   margin-inline: auto;
@@ -1621,12 +1622,12 @@ body {
 }
 @media (min-width: 60rem) {
   .l-subpage__body {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
   }
 }
 @media (min-width: 80rem) {
   .l-subpage__body {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 }
 .l-subpage__body > :where(h1, h2, h3, h4, h5):not([class]) {
@@ -1702,6 +1703,11 @@ body {
   max-width: 80rem;
   width: calc(100% - 2rem);
   margin-inline: auto;
+}
+@media (min-width: 60rem) {
+  .u-max-content-width {
+    width: calc(100% - 8rem);
+  }
 }
 .u-max-content-width--wide {
   max-width: 100rem;

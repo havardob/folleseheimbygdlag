@@ -8,40 +8,41 @@ export default {
   type: 'document',
   icon: BiLayout,
   groups: [
-    { name: "contentTab", title: "Tekst", icon: BiText, default: true },
-    { name: "bannerTab", title: "Bannerbilde", icon: BiImage },
-    { name: "settingsTab", title: "URL og innstillinger", icon: BiCog },
+    {name: 'contentTab', title: 'Tekst', icon: BiText, default: true},
+    {name: 'bannerTab', title: 'Bannerbilde', icon: BiImage},
+    {name: 'settingsTab', title: 'URL og innstillinger', icon: BiCog},
   ],
   preview: {
     select: {
       title: 'title',
       slug: 'slug.current',
       parentSlug: 'parentPage.slug.current',
-      bannerImage: 'bannerImage'
+      bannerImage: 'bannerImage',
     },
     prepare(selection: any) {
       const {title, slug, parentSlug, bannerImage} = selection
       return {
         title: title,
         subtitle: parentSlug ? `/${parentSlug}/${slug}` : `/${slug}`,
-        media: bannerImage
+        media: bannerImage,
       }
-    }
+    },
   },
   fields: [
     {
       title: 'Bilde i toppen',
       name: 'bannerImage',
       type: 'image',
-      group: "bannerTab"
+      group: 'bannerTab',
+      options: {hotspot: true},
     },
     {
-      title: "Bildekreditering",
-      description: "Hvem har tatt bilde/har eierskap til bildet?",
-      name: "bannerImageCreditation",
-      type: "text",
+      title: 'Bildekreditering',
+      description: 'Hvem har tatt bilde/har eierskap til bildet?',
+      name: 'bannerImageCreditation',
+      type: 'text',
       rows: 2,
-      group: "bannerTab"
+      group: 'bannerTab',
     },
     {
       title: 'Tittel',
@@ -49,11 +50,11 @@ export default {
       type: 'text',
       rows: 2,
       validation: (Rule: any) => Rule.required(),
-      group: "contentTab"
+      group: 'contentTab',
     },
     {
       ...slug,
-      group: "settingsTab",
+      group: 'settingsTab',
     },
     {
       title: 'Foreldreside',
@@ -61,30 +62,30 @@ export default {
       name: 'parentPage',
       type: 'reference',
       to: [{type: 'subPage'}],
-      group: "settingsTab",
+      group: 'settingsTab',
       options: {
         disableNew: true,
       },
       validation: (Rule: any) =>
-          Rule.custom((parentRef: any, context: any) => {
-            if (parentRef && parentRef._ref === context.document._id) {
-              return 'En side kan ikke være sin egen foreldreside.'
-            }
-            return true
-          }),
+        Rule.custom((parentRef: any, context: any) => {
+          if (parentRef && parentRef._ref === context.document._id) {
+            return 'En side kan ikke være sin egen foreldreside.'
+          }
+          return true
+        }),
     },
     {
       title: 'Ingress',
       name: 'leading',
       type: 'text',
       rows: 6,
-      group: "contentTab"
+      group: 'contentTab',
     },
     {
       ...richTextMain,
       title: 'Brødtekst',
       name: 'body',
-      group: "contentTab"
+      group: 'contentTab',
     },
   ],
 }

@@ -28,22 +28,23 @@
    
    &__leading {
       margin-block-start: 1rem;
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       max-width: 50rem;
       
       @include breakpoint.medium-up {
          margin-block-start: 1.5rem;
-         font-size: 1.375rem;
+         font-size: 1.25rem;
       }
       
       @include breakpoint.large-up {
-         font-size: 1.5rem;
+         font-size: 1.375rem;
          line-height: 1.375;
       }
       
       a:not([class]) {
          --color-link-decoration-default: var(--color-follese);
          --color-link-text-hover: var(--color-follese);
+         color: var(--color-follese);
          text-decoration: underline;
          text-underline-offset: 0.25em;
          text-decoration-thickness: 1px;

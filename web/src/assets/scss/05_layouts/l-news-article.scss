@@ -64,17 +64,17 @@
    
    &__leading {
       margin-block-start: 1rem;
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       max-width: 50rem;
       margin-inline: auto;
       
       @include breakpoint.medium-up {
          margin-block-start: 1.5rem;
-         font-size: 1.375rem;
+         font-size: 1.25rem;
       }
       
       @include breakpoint.large-up {
-         font-size: 1.5rem;
+         font-size: 1.375rem;
          line-height: 1.375;
       }
    }
@@ -99,11 +99,11 @@
       --color-link-text: var(--color-follese);
       
       @include breakpoint.medium-up {
-         font-size: 1.125rem;
+         font-size: 1.0625rem;
       }
       
       @include breakpoint.large-up {
-         font-size: 1.25rem;
+         font-size: 1.125rem;
       }
       
       & > :where(h1, h2, h3):not([class]) {

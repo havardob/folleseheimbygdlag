@@ -15,6 +15,10 @@
    width: calc(100% - 2rem);
    margin-inline: auto;
    
+   @include breakpoint.medium-up {
+      width: calc(100% - 8rem);
+   }
+   
    &--wide {
       max-width: 100rem;
    }
