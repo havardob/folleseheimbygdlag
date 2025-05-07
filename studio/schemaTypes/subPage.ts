@@ -65,6 +65,7 @@ export default {
       group: 'settingsTab',
       options: {
         disableNew: true,
+        filter: '!defined(parentPage)',
       },
       validation: (Rule: any) =>
         Rule.custom((parentRef: any, context: any) => {
