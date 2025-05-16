@@ -1,9 +1,11 @@
 @use "../02_tools/breakpoint";
+@use "../02_tools/animations";
 
 .site-header {
    background-color: var(--color-sky);
    position: relative;
    z-index: 100;
+   animation: SmallTranslateDown .75s ease-out forwards;
    
    &__inner {
       display: flex;

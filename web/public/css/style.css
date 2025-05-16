@@ -182,10 +182,51 @@ body {
   text-decoration: underline;
 }
 
+@keyframes SmallTranslateDown {
+  from {
+    transform: translate3d(0, -200px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes LargeTranslateDown {
+  from {
+    transform: translate3d(0, -50%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes SmallTranslateUp {
+  from {
+    transform: translate3d(0, 150px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes SmallScaleUp {
+  from {
+    scale: 0.95;
+  }
+  to {
+    scale: 1;
+  }
+}
+@keyframes SmallFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .site-header {
   background-color: var(--color-sky);
   position: relative;
   z-index: 100;
+  animation: SmallTranslateDown 0.75s ease-out forwards;
 }
 .site-header__inner {
   display: flex;
@@ -341,32 +382,8 @@ body {
     opacity: 1;
   }
 }
-@keyframes SmallTranslateDown {
-  from {
-    transform: translate3d(0, -5%, 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes SmallScaleUp {
-  from {
-    scale: 0.95;
-  }
-  to {
-    scale: 1;
-  }
-}
-@keyframes SmallFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .hero {
-  animation: SmallTranslateDown 1s ease forwards;
+  animation: SmallTranslateDown 0.75s ease-out forwards;
 }
 .hero__image {
   width: 100%;
@@ -383,7 +400,7 @@ body {
   }
 }
 .hero__content {
-  animation: SmallScaleUp 1s ease forwards;
+  animation: SmallScaleUp 0.75s ease-out forwards;
   transform-origin: bottom center;
   width: 95%;
   max-width: 45rem;
@@ -1322,6 +1339,9 @@ body {
   margin-block: 1rem;
   max-width: 50rem;
 }
+.l-news-archive__content {
+  animation: SmallTranslateUp 0.35s ease-out forwards;
+}
 .l-news-archive__title {
   font-weight: 400;
   font-family: var(--ff-secondary), sans-serif;
@@ -1423,6 +1443,9 @@ body {
   margin-block: 1rem;
   max-width: 50rem;
   margin-inline: auto;
+}
+.l-news-article__content {
+  animation: SmallTranslateUp 0.35s ease-out forwards;
 }
 .l-news-article__title {
   font-weight: 400;
@@ -1531,7 +1554,7 @@ body {
   width: 100%;
   margin-inline: auto;
   position: relative;
-  animation: SmallTranslateDown 1s ease forwards;
+  animation: SmallTranslateDown 0.75s ease-out forwards;
 }
 .l-subpage__banner-image:after {
   content: "";
@@ -1571,6 +1594,9 @@ body {
   margin-block: 1rem;
   max-width: 50rem;
   margin-inline: auto;
+}
+.l-subpage__content {
+  animation: SmallTranslateUp 0.35s ease-out forwards;
 }
 .l-subpage__title {
   font-weight: 400;

@@ -40,20 +40,22 @@ const { data, articles } = Astro.props;
       </div>
     </div>
     <div class="u-max-content-width u-max-content-width--wide">
-      <h1 class="l-news-archive__title">{data.title}</h1>
-      {data.intro && <div class="l-news-archive__leading">{data.intro}</div>}
-      <div class="l-news-archive__articles">
-        {
-          articles.map((article: any) => (
-            <Card
-              title={article.title}
-              text={article.leading}
-              imageUrl={article.featuredImage}
-              date={formatDate(article.publishedDate)}
-              href={article.fullSlug}
-            />
-          ))
-        }
+      <div class="l-news-archive__content">
+        <h1 class="l-news-archive__title">{data.title}</h1>
+        {data.intro && <div class="l-news-archive__leading">{data.intro}</div>}
+        <div class="l-news-archive__articles">
+          {
+            articles.map((article: any) => (
+              <Card
+                title={article.title}
+                text={article.leading}
+                imageUrl={article.featuredImage}
+                date={formatDate(article.publishedDate)}
+                href={article.fullSlug}
+              />
+            ))
+          }
+        </div>
       </div>
     </div>
   </div>

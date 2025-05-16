@@ -42,6 +42,10 @@
       margin-inline: auto;
    }
    
+   &__content {
+      animation: SmallTranslateUp .35s ease-out forwards;
+   }
+   
    &__title {
       font-weight: 400;
       font-family: var(--ff-secondary), sans-serif;
