@@ -7,7 +7,7 @@
       width: 100%;
       margin-inline: auto;
       position: relative;
-      animation: SmallTranslateDown 1s ease forwards;
+      animation: SmallTranslateDown .75s ease-out forwards;
       
       &:after {
          content: "";
@@ -51,6 +51,10 @@
       margin-block: 1rem;
       max-width: 50rem;
       margin-inline: auto;
+   }
+   
+   &__content {
+      animation: SmallTranslateUp .35s ease-out forwards;
    }
    
    &__title {

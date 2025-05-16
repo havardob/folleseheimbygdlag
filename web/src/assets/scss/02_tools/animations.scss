@@ -1,6 +1,27 @@
 @keyframes SmallTranslateDown {
    from {
-      transform: translate3d(0, -5%, 0);
+      transform: translate3d(0, -200px, 0);
+   }
+   
+   to {
+      transform: translate3d(0, 0, 0);
+   }
+}
+
+@keyframes LargeTranslateDown {
+   from {
+      transform: translate3d(0, -50%, 0);
+   }
+   
+   to {
+      transform: translate3d(0, 0, 0);
+   }
+}
+
+
+@keyframes SmallTranslateUp {
+   from {
+      transform: translate3d(0, 150px, 0);
    }
    
    to {

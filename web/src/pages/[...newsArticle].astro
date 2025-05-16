@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
 import RichText from "../components/portableText/RichText.astro";
-import {formatDate} from "../data/_helpers";
+import { formatDate } from "../data/_helpers";
 
 export async function getStaticPaths() {
   const newsArticles = await getCollection("newsArticles");
@@ -23,28 +23,30 @@ const { data } = Astro.props;
 
 <Layout metaTitle={data.title}>
   <div class="l-news-article">
-      <div class="u-max-content-width">
-    <div class="l-news-article__breadcrumbs">
+    <div class="u-max-content-width">
+      <div class="l-news-article__breadcrumbs">
         <Breadcrumbs current={data.title} parent={data.parent} />
       </div>
     </div>
     <div class="u-max-content-width">
-      <h1 class="l-news-article__title">{data.title}</h1>
-      {
-        data.leading && (
-          <div class="l-news-article__leading">{data.leading}</div>
-        )
-      }
-      <div class="l-news-article__meta">
-        Publisert: {formatDate(data.publishedDate)}
+      <div class="l-news-article__content">
+        <h1 class="l-news-article__title">{data.title}</h1>
+        {
+          data.leading && (
+            <div class="l-news-article__leading">{data.leading}</div>
+          )
+        }
+        <div class="l-news-article__meta">
+          Publisert: {formatDate(data.publishedDate)}
+        </div>
+        {
+          data.body !== null && (
+            <div class="l-news-article__body u-rich-text">
+              <RichText content={data.body} />
+            </div>
+          )
+        }
       </div>
-      {
-        data.body !== null && (
-          <div class="l-news-article__body u-rich-text">
-            <RichText content={data.body} />
-          </div>
-        )
-      }
     </div>
   </div>
 </Layout>

@@ -2,7 +2,7 @@
 @use "../02_tools/animations";
 
 .hero {
-   animation: SmallTranslateDown 1s ease forwards;
+   animation: SmallTranslateDown .75s ease-out forwards;
    
    &__image {
       width: 100%;
@@ -20,7 +20,7 @@
    }
    
    &__content {
-      animation: SmallScaleUp 1s ease forwards;
+      animation: SmallScaleUp .75s ease-out forwards;
       transform-origin: bottom center;
       width: 95%;
       max-width: 45rem;
