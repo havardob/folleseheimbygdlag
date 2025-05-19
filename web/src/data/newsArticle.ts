@@ -11,7 +11,7 @@ const query = `*[_type == "newsArticle"] {
     },
     "fullSlug": "/" + *[_type == "newsArchive"]{ "slug": slug.current }[0].slug + "/" + slug.current,
     publishedDate,
-    "featuredImage": featuredImage.asset->url,
+    featuredImage,
     "body": ${groqGetBody('body')}
 }`
 

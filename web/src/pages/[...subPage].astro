@@ -4,7 +4,6 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
 import RichText from "../components/portableText/RichText.astro";
 import { urlFor } from "../data/_helpers";
-import GalleryBlock from "../components/GalleryBlock.astro";
 
 export async function getStaticPaths() {
   const subPages = await getCollection("subPages");
@@ -22,7 +21,7 @@ export async function getStaticPaths() {
 const { data } = Astro.props;
 ---
 
-<Layout metaTitle={data.title}>
+<Layout metaTitle={data.title} metaDescription={data.leading} metaImage={data.bannerImage} />
   <div class="l-subpage">
     {
       data.bannerImageUrl && (

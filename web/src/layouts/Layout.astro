@@ -3,11 +3,12 @@ import { getCollection } from "astro:content";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import MobileNav from "../components/MobileNav.astro";
+import {urlFor} from "../data/_helpers";
 
 interface Props {
   metaTitle: string;
   metaDescription?: string;
-  metaImageUrl?: string;
+  metaImage?: string;
   metaUrl?: string;
 }
 
@@ -17,7 +18,7 @@ const siteSettings = siteSettingsData[0].data;
 const {
   metaTitle,
   metaDescription = siteSettings?.metaDescription,
-  metaImageUrl = siteSettings?.metaImageUrl,
+  metaImage = siteSettings?.metaImage,
   metaUrl = siteSettings?.metaUrl,
 }: Props = Astro.props;
 ---
@@ -39,7 +40,7 @@ const {
     <meta name="description" content={metaDescription} />
     <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={metaUrl} />
-    <meta property="og:image" content={metaImageUrl} />
+    <meta property="og:image" content={urlFor(metaImage).width(1200).url()} />
     <meta name="format-detection" content="telephone=no" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />

@@ -5,6 +5,7 @@ const query = `*[_id == "siteSettings"][0]{
     _id,
     metaTitle,
     metaDescription,
+    metaImage,
     metaUrl,
     mainNav[] {
       _type == "external" => {

@@ -41,6 +41,12 @@ export default {
       group: 'metaGroup',
     },
     {
+      title: "Metabilde",
+      name: "metaImage",
+      type: "image",
+      group: 'metaGroup',
+    },
+    {
       title: 'Nettstedsadresse',
       name: 'metaUrl',
       description: "Hele URL-en til nettsiden, med 'https://', f.eks. 'https://vg.no'",
