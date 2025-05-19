@@ -1,5 +1,5 @@
 import { client } from "./_sanityClient.ts";
-import {getSubpageSlug, groqGetBody} from "./_query-helpers.ts";
+import { getSubpageSlug, groqGetBody } from "./_query-helpers.ts";
 
 const query = `*[_type == "subPage"] {
     _id, 
@@ -14,10 +14,9 @@ const query = `*[_type == "subPage"] {
     "bannerImageUrl": bannerImage.asset->url,
     title, 
     leading,
-    "body": ${groqGetBody('body')}
+    "body": ${groqGetBody("body")}
 }`;
 
 export async function getSubPagesData() {
-  const data = await client.fetch(query);
-  return data;
+  return await client.fetch(query);
 }

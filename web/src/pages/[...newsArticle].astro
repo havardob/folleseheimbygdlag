@@ -20,10 +20,9 @@ export async function getStaticPaths() {
 
 
 const { data } = Astro.props;
-console.log(data)
 ---
 
-<Layout metaTitle={data.title} metaDescription={data.leading} metaImage={data.featuredImage}>
+<Layout metaTitle={data.title} metaDescription={data.leading} metaImage={data.featuredImageUrl ? data.featuredImage : undefined}>
   <div class="l-news-article">
     <div class="u-max-content-width">
       <div class="l-news-article__breadcrumbs">

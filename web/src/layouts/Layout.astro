@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import MobileNav from "../components/MobileNav.astro";
-import {urlFor} from "../data/_helpers";
+import { urlFor } from "../data/_helpers";
 
 interface Props {
   metaTitle: string;
@@ -39,22 +39,39 @@ const {
     />
     <meta name="description" content={metaDescription} />
     <meta property="og:description" content={metaDescription} />
-    <meta property="og:url" content={metaUrl} />
-    <meta property="og:image" content={urlFor(metaImage).width(1200).url()} />
+    {metaUrl && <meta property="og:url" content={metaUrl} />}
+    {
+      metaImage && (
+        <meta
+          property="og:image"
+          content={urlFor(metaImage).width(1200).url()}
+        />
+      )
+    }
     <meta name="format-detection" content="telephone=no" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta name="google-site-verification" content="z_9-Fqakh0Uc1NEgzg8qLwD7G0NquRKC3Va3FWhzWNk" />
+    <meta
+      name="google-site-verification"
+      content="z_9-Fqakh0Uc1NEgzg8qLwD7G0NquRKC3Va3FWhzWNk"
+    />
+    <script
+      is:inline
+      src="https://www.googletagmanager.com/gtag/js?id=G-DZ49QF3929"></script>
   </head>
   <!-- Google tag (gtag.js) -->
-  <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-DZ49QF3929" />
+
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
-    gtag('config', 'G-DZ49QF3929');
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+
+    gtag("config", "G-DZ49QF3929");
   </script>
   <body>
     <div class="l-site">
@@ -66,7 +83,10 @@ const {
         <slot />
       </div>
       <div class="l-site__footer">
-        <SiteFooter groups={siteSettings.footer} socialMedia={siteSettings.socialMedia} />
+        <SiteFooter
+          groups={siteSettings.footer}
+          socialMedia={siteSettings.socialMedia}
+        />
       </div>
     </div>
   </body>

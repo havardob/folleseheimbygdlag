@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 const { data } = Astro.props;
 ---
 
-<Layout metaTitle={data.title} metaDescription={data.leading} metaImage={data.bannerImage} />
+<Layout metaTitle={data.title} metaDescription={data.leading} metaImage={data.bannerImageUrl ? data.bannerImage : undefined}>
   <div class="l-subpage">
     {
       data.bannerImageUrl && (
