@@ -95,11 +95,15 @@ articles.sort(
         </div>
       </section>
     </div>
-    <div class="u-max-content-width">
-      <div class="l-frontpage__weather">
-        <TideAndTempBlock client:load />
-      </div>
-    </div>
+    {
+      frontPage.weatherSection?.showWeather && (
+        <div class="u-max-content-width">
+          <div class="l-frontpage__weather">
+            <TideAndTempBlock title={frontPage.weatherSection?.title} client:load />
+          </div>
+        </div>
+      )
+    }
     {
       (frontPage.sponsorSection?.title ||
         frontPage.sponsorSection?.intro ||

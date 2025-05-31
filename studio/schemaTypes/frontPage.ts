@@ -124,9 +124,28 @@ export default {
       ],
     },
     {
+      title: 'Vær-seksjon',
+      name: 'weatherSection',
+      type: 'object',
+      fields: [
+        {
+          title: 'Overskrift',
+          name: 'title',
+          type: 'string',
+        },
+        {
+          title: 'Vis vær og flo/fjære på forsiden',
+          description:
+              'Velg om du vil vise havnivåstatus fra Kartverket og værvarsel fra yr.no eller ikke',
+          name: 'showWeather',
+          type: 'boolean',
+        },
+      ],
+    },
+    {
       ...logoCloudBlock,
       title: 'Sponsorer',
-      name: "sponsorSection"
+      name: 'sponsorSection',
     },
   ],
 }

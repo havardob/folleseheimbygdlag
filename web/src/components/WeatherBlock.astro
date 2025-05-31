@@ -1,0 +1,7 @@
+---
+import {TideAndTempBlock} from "./TideAndTempBlock";
+
+const {title} = Astro.props.node;
+---
+
+<TideAndTempBlock title={title} client:load />

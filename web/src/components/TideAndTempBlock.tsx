@@ -56,6 +56,10 @@ export const Spinner = () => {
   );
 };
 
+interface TideAndTempBlockProps {
+  title?: string;
+}
+
 type WaterLevel = {
   value: string;
   time: string;
@@ -69,7 +73,7 @@ function formatToMidnight(date: Date) {
   return `${year}-${month}-${day}T00%3A00`;
 }
 
-export const TideAndTempBlock = () => {
+export const TideAndTempBlock = ({ title }: TideAndTempBlockProps) => {
   const [tideData, setTideData] = useState<WaterLevel[]>([]);
   const [location, setLocation] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
@@ -114,7 +118,7 @@ export const TideAndTempBlock = () => {
 
   return (
     <div className="weather-block">
-      <h2 className="weather-block__title">Badeplassen i dag</h2>
+      {title && <h2 className="weather-block__title">{title}</h2>}
       {loading ? (
         <dl className="weather-block__list">
           <div className="weather-block__item">

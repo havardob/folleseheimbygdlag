@@ -16,6 +16,9 @@ const query = `*[_id == "frontPage"][0] {
     newsSection {
        ...
     },
+    weatherSection {
+        ...
+    },
     sponsorSection {
       title,
       intro,

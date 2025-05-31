@@ -54,6 +54,9 @@ export function groqGetBody(key: string) {
             }
           }
         },
+        _type == "weatherBlock" => {
+          ...
+        },
         markDefs[] {
           ...,
           _type == "internalLink" => {
