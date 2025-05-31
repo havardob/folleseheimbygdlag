@@ -12,11 +12,16 @@
     "sass": "sass"
   },
   "dependencies": {
+    "@astrojs/react": "^4.3.0",
     "@astrojs/sitemap": "^3.3.0",
     "@sanity/client": "^6.28.3",
     "@sanity/image-url": "^1.1.0",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
     "astro": "^5.4.3",
     "astro-portabletext": "^0.11.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "sass": "^1.85.1"
   },
   "devDependencies": {

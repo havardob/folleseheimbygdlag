@@ -4,8 +4,9 @@ import MoreLink from "../components/MoreLink.astro";
 import Hero from "../components/Hero.astro";
 import Teaser from "../components/Teaser.astro";
 import Card from "../components/Card.astro";
+import { TideAndTempBlock } from "../components/TideAndTempBlock";
 import { getCollection } from "astro:content";
-import {formatDate, urlFor} from "../data/_helpers";
+import { formatDate, urlFor } from "../data/_helpers";
 import { getNewsArchiveData } from "../data/newsArchive";
 import { getFrontPageData } from "../data/frontPage";
 
@@ -94,30 +95,39 @@ articles.sort(
         </div>
       </section>
     </div>
-    {(frontPage.sponsorSection?.title || frontPage.sponsorSection?.intro || frontPage.sponsorSection?.images.length > 0) && (
+    <div class="u-max-content-width">
+      <div class="l-frontpage__weather">
+        <TideAndTempBlock client:load />
+      </div>
+    </div>
+    {
+      (frontPage.sponsorSection?.title ||
+        frontPage.sponsorSection?.intro ||
+        frontPage.sponsorSection?.images.length > 0) && (
         <div class="u-max-content-width">
           <div class="l-frontpage__sponsors">
             <div class="logo-cloud">
               <h2 class="logo-cloud__title">
                 {frontPage.sponsorSection.title}
               </h2>
-              <p class="logo-cloud__intro">
-                {frontPage.sponsorSection.intro}
-              </p>
+              <p class="logo-cloud__intro">{frontPage.sponsorSection.intro}</p>
               <div class="logo-cloud__grid">
-                {
-                  frontPage.sponsorSection.images?.map((image: any) => (
-                      <div class="logo-cloud__image">
-                        <a href={image.href} target="_blank" rel="noopener noreferrer">
-                          <img src={urlFor(image.imageFile).url()} alt="" />
-                        </a>
-                      </div>
-                  ))
-                }
+                {frontPage.sponsorSection.images?.map((image: any) => (
+                  <div class="logo-cloud__image">
+                    <a
+                      href={image.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={urlFor(image.imageFile).url()} alt="" />
+                    </a>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
-    )}
+      )
+    }
   </div>
 </Layout>
