@@ -234,7 +234,7 @@ export const richTextMain = {
           type: 'string',
         },
         {
-          title: 'Vis vær og flo/fjære på forsiden',
+          title: 'Vis vær og flo/fjære',
           description:
               'Velg om du vil vise havnivåstatus fra Kartverket og værvarsel fra yr.no eller ikke',
           name: 'showWeather',

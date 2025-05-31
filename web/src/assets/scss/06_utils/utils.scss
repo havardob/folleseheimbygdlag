@@ -100,4 +100,8 @@
    & > *:not(.file-block) + .file-block {
       margin-block-start: 1.5em;
    }
+   
+   .weather-block {
+      margin-block-start: 3em;
+   }
 }

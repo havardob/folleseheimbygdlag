@@ -1921,3 +1921,6 @@ body {
 .u-rich-text > *:not(.file-block) + .file-block {
   margin-block-start: 1.5em;
 }
+.u-rich-text .weather-block {
+  margin-block-start: 3em;
+}
