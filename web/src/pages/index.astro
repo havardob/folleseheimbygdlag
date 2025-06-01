@@ -9,6 +9,7 @@ import { getCollection } from "astro:content";
 import { formatDate, urlFor } from "../data/_helpers";
 import { getNewsArchiveData } from "../data/newsArchive";
 import { getFrontPageData } from "../data/frontPage";
+import MapBlock from "../components/MapBlock.astro";
 
 const frontPage = await getFrontPageData();
 const newsArchive = await getNewsArchiveData();
@@ -99,11 +100,21 @@ articles.sort(
       frontPage.weatherSection?.showWeather && (
         <div class="u-max-content-width">
           <div class="l-frontpage__weather">
-            <TideAndTempBlock title={frontPage.weatherSection?.title} client:load />
+            <TideAndTempBlock
+              title={frontPage.weatherSection?.title}
+              client:load
+            />
           </div>
         </div>
       )
     }
+    {(frontPage.mapSection?.title || frontPage.mapSection?.text) && (
+    <div class="u-max-content-width">
+      <div class="l-frontpage__map">
+        <MapBlock title={frontPage.mapSection?.title} text={frontPage.mapSection?.text} />
+      </div>
+    </div>
+    )}
     {
       (frontPage.sponsorSection?.title ||
         frontPage.sponsorSection?.intro ||

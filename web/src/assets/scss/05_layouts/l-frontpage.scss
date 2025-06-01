@@ -61,6 +61,11 @@
       justify-content: center;
    }
    
+   &__map {
+      margin-block-start: 6rem;
+      @include fadeSlideUp();
+   }
+   
    &__weather {
       margin-block-start: 6rem;
       @include fadeSlideUp();

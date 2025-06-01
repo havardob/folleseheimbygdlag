@@ -101,6 +101,10 @@
       margin-block-start: 1.5em;
    }
    
+   & > * + .map-block {
+      margin-block-start: 2.5em;
+   }
+   
    .weather-block {
       margin-block-start: 3em;
    }

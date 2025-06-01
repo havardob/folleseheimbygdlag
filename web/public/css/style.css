@@ -1307,6 +1307,82 @@ body {
     transform: rotate(360deg);
   }
 }
+.map-block {
+  container: MapBlock/inline-size;
+}
+.map-block__inner {
+  background-color: var(--color-sky);
+  padding-block: 2rem;
+  padding-inline: 1rem;
+  display: grid;
+  row-gap: 1.5rem;
+}
+@container MapBlock (min-width: 60rem) {
+  .map-block__inner {
+    column-gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    padding-block: 3rem;
+    padding-inline: 3rem;
+  }
+}
+.map-block__title {
+  font-family: var(--ff-secondary), serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  text-wrap: pretty;
+}
+@container MapBlock (min-width: 60rem) {
+  .map-block__title {
+    font-size: 2rem;
+  }
+}
+.map-block__title + .map-block__text {
+  margin-block-start: 0.5em;
+}
+.map-block__text {
+  font-size: 1.125rem;
+  text-wrap: pretty;
+}
+@container MapBlock (min-width: 60rem) {
+  .map-block__text {
+    font-size: 1.25rem;
+  }
+}
+.map-block__links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+@container MapBlock (min-width: 60rem) {
+  .map-block__links {
+    justify-content: flex-end;
+  }
+}
+.map-block__link {
+  display: inline-flex;
+  column-gap: 0.5rem;
+  align-items: center;
+  padding-block: 0.5rem;
+  padding-inline: 1.125rem;
+  border-radius: 99em;
+  text-decoration: none;
+  border: 2px solid currentColor;
+  color: var(--color-follese);
+  background-color: var(--color-white);
+}
+.map-block__link:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+@container MapBlock (min-width: 60rem) {
+  .map-block__link {
+    font-size: 1.125rem;
+    padding-block: 0.75rem;
+    padding-inline: 1.5rem;
+  }
+}
+
 .l-404 {
   padding-block-end: 10rem;
 }
@@ -1423,6 +1499,13 @@ body {
   margin-block-start: 4rem;
   display: flex;
   justify-content: center;
+}
+.l-frontpage__map {
+  margin-block-start: 6rem;
+  view-timeline-name: --section;
+  animation: fade-slide-up linear forwards;
+  animation-timeline: --section;
+  animation-range: entry -5% cover 30%;
 }
 .l-frontpage__weather {
   margin-block-start: 6rem;
@@ -1920,6 +2003,9 @@ body {
 }
 .u-rich-text > *:not(.file-block) + .file-block {
   margin-block-start: 1.5em;
+}
+.u-rich-text > * + .map-block {
+  margin-block-start: 2.5em;
 }
 .u-rich-text .weather-block {
   margin-block-start: 3em;

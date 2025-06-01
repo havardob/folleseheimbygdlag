@@ -1,0 +1,77 @@
+.map-block {
+   container: MapBlock / inline-size;
+   
+   &__inner {
+      background-color: var(--color-sky);
+      padding-block: 2rem;
+      padding-inline: 1rem;
+      
+      display: grid;
+      row-gap: 1.5rem;
+      
+      @container MapBlock (min-width: 60rem) {
+         column-gap: 2rem;
+         grid-template-columns: 1fr 1fr;
+         padding-block: 3rem;
+         padding-inline: 3rem;
+      }
+   }
+   
+   &__title {
+      font-family: var(--ff-secondary), serif;
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 1.25;
+      text-wrap: pretty;
+      
+      @container MapBlock (min-width: 60rem) {
+         font-size: 2rem;
+      }
+      
+      & + .map-block__text {
+      margin-block-start: .5em;
+      }
+   }
+   
+   &__text {
+      font-size: 1.125rem;
+      text-wrap: pretty;
+      
+      @container MapBlock (min-width: 60rem) {
+         font-size: 1.25rem;
+      }
+   }
+   
+   &__links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .75rem;
+      @container MapBlock (min-width: 60rem) {
+         justify-content: flex-end;
+      }
+   }
+   
+   &__link {
+      display: inline-flex;
+      column-gap: .5rem;
+      align-items: center;
+      padding-block: .5rem;
+      padding-inline: 1.125rem;
+      border-radius: 99em;
+      text-decoration: none;
+      border: 2px solid currentColor;
+      color: var(--color-follese);
+      background-color: var(--color-white);
+      
+      &:hover {
+         background-color: rgba(#FFF, .5);
+      }
+      
+      @container MapBlock (min-width: 60rem) {
+         font-size: 1.125rem;
+         padding-block: .75rem;
+         padding-inline: 1.5rem;
+      }
+   }
+}

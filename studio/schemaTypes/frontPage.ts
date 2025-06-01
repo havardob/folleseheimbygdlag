@@ -143,6 +143,24 @@ export default {
       ],
     },
     {
+      title: 'Kart-seksjon',
+      name: 'mapSection',
+      type: 'object',
+      fields: [
+        {
+          title: 'Overskrift',
+          name: 'title',
+          type: 'string',
+        },
+        {
+          title: "Tekst",
+          name: "text",
+          type: "text",
+          rows: 4,
+        }
+      ],
+    },
+    {
       ...logoCloudBlock,
       title: 'Sponsorer',
       name: 'sponsorSection',

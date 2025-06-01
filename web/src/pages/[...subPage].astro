@@ -4,6 +4,7 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
 import RichText from "../components/portableText/RichText.astro";
 import { urlFor } from "../data/_helpers";
+import MapBlock from "../components/MapBlock.astro";
 
 export async function getStaticPaths() {
   const subPages = await getCollection("subPages");
