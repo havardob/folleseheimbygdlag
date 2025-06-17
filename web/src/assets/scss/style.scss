@@ -12,6 +12,7 @@
 @use "./04_components/site-header";
 @use "./04_components/hero";
 @use "./04_components/card";
+@use "./04_components/event-card";
 @use "./04_components/file-block";
 @use "./04_components/form-block";
 @use "./04_components/gallery-block";
@@ -28,6 +29,7 @@
 @use "./04_components/map-block";
 
 @use "./05_layouts/l-404";
+@use "./05_layouts/l-event-archive";
 @use "./05_layouts/l-frontpage";
 @use "./05_layouts/l-news-archive";
 @use "./05_layouts/l-news-article";

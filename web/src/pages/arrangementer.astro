@@ -1,0 +1,51 @@
+---
+import { formatDate } from "../data/_helpers";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import EventCard from "../components/EventCard.astro";
+---
+
+<Layout metaTitle={"test"} metaDescription={"test"}>
+  <div class="l-event-archive">
+    <div class="u-max-content-width u-max-content-width--wide">
+      <div class="l-event-archive__breadcrumbs">
+        <Breadcrumbs current={"Arrangementer"} />
+      </div>
+    </div>
+    <div class="u-max-content-width u-max-content-width--narrow">
+      <div class="l-event-archive__content">
+        <h1 class="l-event-archive__title">Arrangementer</h1>
+        <div class="l-event-archive__leading">
+          Alle kommende og avholdte arrangementer
+        </div>
+        <div class="l-event-archive__tabs">
+          <button class="l-event-archive__tab |" id="nextEventsToggle">Kommende</button>
+          <button class="l-event-archive__tab active" id="prevEventsToggle">Avholdte</button>
+        </div>
+        <div class="l-event-archive__events">
+          <EventCard
+            title={"Årsmøte"}
+            text={"Velkommen til årets første årsmøte"}
+            eventDate={"12. jan 2025"}
+            href={""}
+          />
+          <EventCard
+              title={"Årsmøte"}
+              text={"Velkommen til årets første årsmøte"}
+              eventDate={"12. jan 2025"}
+              eventTime={"kl. 19.00"}
+              eventLocation={"Kulturhuset FOLK - Follesevegen 35, 5304 FOLLESE"}
+              href={""}
+          />
+          <EventCard
+              title={"Årsmøte"}
+              text={"Velkommen til årets første årsmøte"}
+              eventDate={"12. jan 2025"}
+              href={""}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

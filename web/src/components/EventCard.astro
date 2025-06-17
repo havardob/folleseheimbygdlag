@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  eventDate: string;
+  eventTime?: string;
+  eventLocation?: string;
+  text?: string;
+  href: string;
+}
+
+const { title, eventDate, eventTime, eventLocation, text, href } = Astro.props;
+---
+
+<div class="event-card">
+  <div class="event-card__inner">
+    <div class="event-card__meta">
+      <time datetime={eventDate} class="event-card__date">{eventDate}</time>
+      {eventTime && <span class="event-card__time">{eventTime}</span>}
+      {
+        eventLocation && (
+          <span class="event-card__location">{eventLocation}</span>
+        )
+      }
+    </div>
+    <div class="event-card__content">
+      <h2 class="event-card__title">
+        <a href={href}>{title}</a>
+      </h2>
+      {text && <p class="event-card__text">{text}</p>}
+    </div>
+  </div>
+</div>

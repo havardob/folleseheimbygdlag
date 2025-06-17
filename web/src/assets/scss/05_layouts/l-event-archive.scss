@@ -1,0 +1,102 @@
+@use "../02_tools/breakpoint";
+
+.l-event-archive {
+   padding-block-end: 10rem;
+   
+   &__breadcrumbs {
+      margin-block: 1rem;
+      max-width: 50rem;
+   }
+   
+   &__content {
+      animation: SmallTranslateUp .35s ease-out forwards;
+   }
+   
+   &__tabs {
+      margin-block-start: 3rem;
+      display: flex;
+      gap: .25rem;
+      padding: .5rem;
+      border: 0.0625rem solid var(--color-stone);
+      border-radius: .5rem;
+      @include breakpoint.medium-up {
+         display: inline-flex;
+      }
+   }
+   
+   &__tab {
+      padding: .75em 1.125em;
+      font-size: .875rem;
+      text-transform: uppercase;
+      color: var(--color-cobalt);
+      font-weight: 600;
+      letter-spacing: .025em;
+      border-radius: .25rem;
+      flex-basis: 50%;
+      
+      &:hover {
+         background-color: var(--color-sky);
+         color: var(--color-follese);
+      }
+      
+      &.active {
+         background-color: var(--color-follese);
+         color: var(--color-white);
+      }
+   }
+   
+   &__title {
+      font-weight: 400;
+      font-family: var(--ff-secondary), sans-serif;
+      font-size: 2rem;
+      line-height: 1.125;
+      max-width: 50rem;
+      margin-block-start: 2rem;
+      
+      @include breakpoint.medium-up {
+         margin-block-start: 4rem;
+         font-size: 3rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 4rem;
+         line-height: 1.05;
+      }
+   }
+   
+   &__leading {
+      margin-block-start: 1rem;
+      font-size: 1.125rem;
+      max-width: 50rem;
+      
+      @include breakpoint.medium-up {
+         margin-block-start: 1.5rem;
+         font-size: 1.25rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 1.375rem;
+         line-height: 1.375;
+      }
+   }
+   
+   &__events {
+      margin-block-start: 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-inline: -1rem;
+      
+      @include breakpoint.large-up {
+         margin-inline: 0;
+      }
+      
+      & > * + * {
+         margin-block-start: -1px;
+      }
+      
+      & > *:hover {
+         position: relative;
+         z-index: 1;
+      }
+   }
+}

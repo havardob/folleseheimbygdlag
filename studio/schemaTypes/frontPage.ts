@@ -124,6 +124,33 @@ export default {
       ],
     },
     {
+      title: 'Arrangement-seksjon',
+      name: 'eventSection',
+      type: 'object',
+      fields: [
+        {
+          title: 'Overskrift over arrangementene',
+          name: 'title',
+          type: 'string',
+          validation: (Rule: any) => Rule.required(),
+        },
+        {
+          title: "Tekst for 'se flere arrangmenter'-knapp",
+          name: 'moreText',
+          type: 'string',
+        },
+        {
+          title: 'Antall',
+          description: 'Velg hvor mange av de kommende arrangementene som skal vises her på forsiden',
+          name: 'count',
+          type: 'number',
+          options: {
+            list: [3, 6, 9],
+          },
+        },
+      ],
+    },
+    {
       title: 'Vær-seksjon',
       name: 'weatherSection',
       type: 'object',
