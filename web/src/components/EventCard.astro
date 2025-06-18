@@ -1,12 +1,7 @@
 ---
-interface Props {
-  title: string;
-  eventDate: string;
-  eventTime?: string;
-  eventLocation?: string;
-  text?: string;
-  href: string;
-}
+import type {EventType} from "./_types/types";
+
+interface Props extends EventType {}
 
 const { title, eventDate, eventTime, eventLocation, text, href } = Astro.props;
 ---

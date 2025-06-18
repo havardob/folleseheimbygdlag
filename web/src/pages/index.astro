@@ -10,6 +10,8 @@ import { formatDate, urlFor } from "../data/_helpers";
 import { getNewsArchiveData } from "../data/newsArchive";
 import { getFrontPageData } from "../data/frontPage";
 import MapBlock from "../components/MapBlock.astro";
+import {EventList} from "../components/EventList";
+import {dummyEvents} from "./arrangementer.astro";
 
 const frontPage = await getFrontPageData();
 const newsArchive = await getNewsArchiveData();
@@ -17,17 +19,23 @@ const newsArchiveSlug = newsArchive.fullSlug;
 const newsArticles = await getCollection("newsArticles");
 let articles: any[] = [];
 newsArticles.map((article: any, index: number) => {
-  if (index < 4) {
     articles.push(article.data);
-  } else {
-    return;
-  }
 });
 
 articles.sort(
   (a: any, b: any) =>
     new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime(),
 );
+
+const eventPages = await getCollection("events");
+
+let events: any[] = [];
+
+eventPages.map((item: any, index: number) => {
+  events.push(item.data);
+});
+
+const eventArchiveSlug = eventPages[0].data.parent.slug ?? "/";
 ---
 
 <Layout metaTitle="Forside">
@@ -64,14 +72,14 @@ articles.sort(
       <section class="l-frontpage__cards">
         <h2 class="l-frontpage__cards-title">
           {
-            frontPage.newsSection.title
-              ? frontPage.newsSection.title
+            frontPage?.newsSection?.title
+              ? frontPage.newsSection?.title
               : "Nyheter"
           }
         </h2>
         <div class="l-frontpage__cards-list">
           {
-            articles.map(
+            articles?.map(
               (article: any, index: number) =>
                 index < frontPage.newsSection.count && (
                   <Card
@@ -88,10 +96,32 @@ articles.sort(
         <div class="l-frontpage__cards-more-link">
           <MoreLink href={newsArchiveSlug}
             >{
-              frontPage.newsSection.moreText
-                ? frontPage.newsSection.moreText
+              frontPage.newsSection?.moreText
+                ? frontPage.newsSection?.moreText
                 : "Se flere nyheter"
             }</MoreLink
+          >
+        </div>
+      </section>
+    </div>
+    <div class="u-max-content-width u-max-content-width--narrow">
+      <section class="l-frontpage__events">
+        <h2 class="l-frontpage__events-title">
+          {
+            frontPage.eventSection?.title
+                ? frontPage.eventSection?.title
+                : "Kommende arrangementer"
+          }
+        </h2>
+
+        <EventList events={events} limit={4} hideToggle={true} client:load />
+        <div class="l-frontpage__events-more-link">
+          <MoreLink href={eventArchiveSlug}
+          >{
+            frontPage.eventSection?.moreText
+                ? frontPage.eventSection?.moreText
+                : "Se alle arrangementer"
+          }</MoreLink
           >
         </div>
       </section>

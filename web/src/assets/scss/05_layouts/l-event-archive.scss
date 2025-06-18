@@ -12,39 +12,6 @@
       animation: SmallTranslateUp .35s ease-out forwards;
    }
    
-   &__tabs {
-      margin-block-start: 3rem;
-      display: flex;
-      gap: .25rem;
-      padding: .5rem;
-      border: 0.0625rem solid var(--color-stone);
-      border-radius: .5rem;
-      @include breakpoint.medium-up {
-         display: inline-flex;
-      }
-   }
-   
-   &__tab {
-      padding: .75em 1.125em;
-      font-size: .875rem;
-      text-transform: uppercase;
-      color: var(--color-cobalt);
-      font-weight: 600;
-      letter-spacing: .025em;
-      border-radius: .25rem;
-      flex-basis: 50%;
-      
-      &:hover {
-         background-color: var(--color-sky);
-         color: var(--color-follese);
-      }
-      
-      &.active {
-         background-color: var(--color-follese);
-         color: var(--color-white);
-      }
-   }
-   
    &__title {
       font-weight: 400;
       font-family: var(--ff-secondary), sans-serif;
@@ -81,22 +48,6 @@
    }
    
    &__events {
-      margin-block-start: 1.25rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      margin-inline: -1rem;
-      
-      @include breakpoint.large-up {
-         margin-inline: 0;
-      }
-      
-      & > * + * {
-         margin-block-start: -1px;
-      }
-      
-      & > *:hover {
-         position: relative;
-         z-index: 1;
-      }
+      margin-block-start: 3rem;
    }
 }

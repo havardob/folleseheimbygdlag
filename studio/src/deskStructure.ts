@@ -1,4 +1,4 @@
-import {BiArchive, BiCalendarPlus, BiCog, BiHome} from "react-icons/bi";
+import {BiArchive, BiCalendar, BiCog, BiHome} from "react-icons/bi";
 
 export default (S: any) =>
     S.list()
@@ -23,7 +23,7 @@ export default (S: any) =>
                 .filter((listItem: any) => ["eventPage"].includes(listItem.getId())),
             S.listItem()
                 .title("Arrangementoversikt")
-                .icon(BiCalendarPlus)
+                .icon(BiCalendar)
                 .child(S.document().schemaType("eventArchive").documentId("eventArchive")),
             S.divider(),
             S.listItem()

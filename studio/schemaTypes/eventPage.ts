@@ -1,4 +1,4 @@
-import {BiCalendar} from "react-icons/bi";
+import {BiCalendarEvent} from "react-icons/bi";
 import {slug} from "./templates/slug";
 import {richTextMain} from "./templates/richText";
 
@@ -30,7 +30,7 @@ export default {
     name: 'eventPage',
     title: 'Arrangementer',
     type: 'document',
-    icon: BiCalendar,
+    icon: BiCalendarEvent,
     preview: {
         select: {
             title: 'title',

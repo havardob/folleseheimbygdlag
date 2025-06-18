@@ -2,8 +2,15 @@
 import { formatDate } from "../data/_helpers";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import EventCard from "../components/EventCard.astro";
+import {EventList} from "../components/EventList";
+
+export const dummyEvents = [
+  {title: "Sankthansaften 2025", eventDate: "20. juni 2025", sortableDate: "2025-06-20", href: "#"},
+  {title: "Årsmøte", eventDate: "20. juni 2025", sortableDate: "2025-06-20", href: "#"},
+  {title: "Styremøte", eventDate: "20. juni 2025", sortableDate: "2025-06-20", href: "#"},
+  {title: "Styremøte", eventDate: "19. juni 2025", sortableDate: "2025-06-19", href: "#"},
+  {title: "Styremøte", eventDate: "10. mai 2025", sortableDate: "2025-05-10", href: "#"},
+]
 ---
 
 <Layout metaTitle={"test"} metaDescription={"test"}>
@@ -19,31 +26,8 @@ import EventCard from "../components/EventCard.astro";
         <div class="l-event-archive__leading">
           Alle kommende og avholdte arrangementer
         </div>
-        <div class="l-event-archive__tabs">
-          <button class="l-event-archive__tab |" id="nextEventsToggle">Kommende</button>
-          <button class="l-event-archive__tab active" id="prevEventsToggle">Avholdte</button>
-        </div>
         <div class="l-event-archive__events">
-          <EventCard
-            title={"Årsmøte"}
-            text={"Velkommen til årets første årsmøte"}
-            eventDate={"12. jan 2025"}
-            href={""}
-          />
-          <EventCard
-              title={"Årsmøte"}
-              text={"Velkommen til årets første årsmøte"}
-              eventDate={"12. jan 2025"}
-              eventTime={"kl. 19.00"}
-              eventLocation={"Kulturhuset FOLK - Follesevegen 35, 5304 FOLLESE"}
-              href={""}
-          />
-          <EventCard
-              title={"Årsmøte"}
-              text={"Velkommen til årets første årsmøte"}
-              eventDate={"12. jan 2025"}
-              href={""}
-          />
+          <EventList events={dummyEvents} client:load />
         </div>
       </div>
     </div>
