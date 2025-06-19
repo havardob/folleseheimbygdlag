@@ -27,7 +27,7 @@ export async function getStaticPaths() {
 const { data, events } = Astro.props;
 ---
 
-<Layout metaTitle={data.title} metaDescription={data.leading}>
+<Layout metaTitle={data.title} metaDescription={data.intro}>
   <div class="l-event-archive">
     <div class="u-max-content-width u-max-content-width--wide">
       <div class="l-event-archive__breadcrumbs">
@@ -38,8 +38,8 @@ const { data, events } = Astro.props;
       <div class="l-event-archive__content">
         <h1 class="l-event-archive__title">{data.title}</h1>
         {
-          data.leading && (
-            <div class="l-event-archive__leading">{data.leading}</div>
+          data.intro && (
+            <div class="l-event-archive__leading">{data.intro}</div>
           )
         }
         <div class="l-event-archive__events">
