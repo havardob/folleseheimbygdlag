@@ -21,6 +21,8 @@ export const internalLinkRef = {
         { type: "frontPage" },
         { type: "page" },
         { type: "subPage" },
+        { type: "eventArchive" },
+        { type: "eventPage" },
         { type: "newsArchive" },
         { type: "newsArticle" }
     ],
