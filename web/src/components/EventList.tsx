@@ -1,7 +1,6 @@
 import type { EventType } from "./_types/types.ts";
 import { useState } from "react";
-import { formatDate } from "../data/_helpers.ts";
-import { filter } from "rxjs";
+import {formatDate} from "../data/_helpers.ts";
 
 interface EventList {
   events: EventType[] | any[];
@@ -22,9 +21,9 @@ export const EventList = ({
   const filteredEvents = events
     .filter((item) => {
       if (toggle === "future") {
-        return item.sortableDate > isoToday;
+        return item.sortableDate >= isoToday;
       } else {
-        return item.sortableDate <= isoToday;
+        return item.sortableDate < isoToday;
       }
     })
     .sort((a, b) => {
@@ -68,7 +67,7 @@ export const EventList = ({
                       dateTime={item.eventDate}
                       className="event-card__date"
                     >
-                      {item.eventDate}
+                      {formatDate(item.eventDate)}
                     </time>
                     {item.eventTime && (
                       <span className="event-card__time">{item.eventTime}</span>
@@ -81,10 +80,10 @@ export const EventList = ({
                   </div>
                   <div className="event-card__content">
                     <h2 className="event-card__title">
-                      <a href={item.href}>{item.title}</a>
+                      <a href={item.fullSlug}>{item.title}</a>
                     </h2>
-                    {item.text && (
-                      <p className="event-card__text">{item.text}</p>
+                    {item.leading && (
+                      <p className="event-card__text">{item.leading}</p>
                     )}
                   </div>
                 </div>

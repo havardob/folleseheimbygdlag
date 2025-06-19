@@ -11,11 +11,13 @@ import { getNewsArchiveData } from "../data/newsArchive";
 import { getFrontPageData } from "../data/frontPage";
 import MapBlock from "../components/MapBlock.astro";
 import {EventList} from "../components/EventList";
-import {dummyEvents} from "./arrangementer.astro";
+import {getEventArchiveData} from "../data/eventArchive";
 
 const frontPage = await getFrontPageData();
 const newsArchive = await getNewsArchiveData();
+const eventArchive = await getEventArchiveData();
 const newsArchiveSlug = newsArchive.fullSlug;
+const eventArchiveSlug = eventArchive.fullSlug;
 const newsArticles = await getCollection("newsArticles");
 let articles: any[] = [];
 newsArticles.map((article: any, index: number) => {
@@ -35,7 +37,6 @@ eventPages.map((item: any, index: number) => {
   events.push(item.data);
 });
 
-const eventArchiveSlug = eventPages[0].data.parent.slug ?? "/";
 ---
 
 <Layout metaTitle="Forside">
@@ -114,7 +115,7 @@ const eventArchiveSlug = eventPages[0].data.parent.slug ?? "/";
           }
         </h2>
 
-        <EventList events={events} limit={4} hideToggle={true} client:load />
+        <EventList events={events} hideToggle={true} limit={frontPage.eventSection?.count} client:load />
         <div class="l-frontpage__events-more-link">
           <MoreLink href={eventArchiveSlug}
           >{

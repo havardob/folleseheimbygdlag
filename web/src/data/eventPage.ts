@@ -12,8 +12,8 @@ const query = `*[_type == "eventPage"] {
     "fullSlug": "/" + *[_type == "eventArchive"]{ "slug": slug.current }[0].slug + "/" + slug.current,
     "sortableDate": eventDate,
     "eventDate": eventDate,
-    eventTime,
-    eventLocation,
+    "eventTime": time,
+    "eventLocation": location,
     "body": ${groqGetBody('body')}
 }`
 

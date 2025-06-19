@@ -34,8 +34,7 @@ export default {
     preview: {
         select: {
             title: 'title',
-            subtitle: 'publishedDate',
-            media: 'featuredImage'
+            subtitle: 'eventDate',
         },
         prepare({title, subtitle, media}: any) {
             return {
@@ -47,11 +46,11 @@ export default {
     },
     orderings: [
         {
-            title: "Publiseringsdato",
-            name: "publishedDateDesc",
+            title: "Dato",
+            name: "eventDateDesc",
             by: [
                 {
-                    field: "publishedDate",
+                    field: "eventDate",
                     direction: "desc",
                 }
             ]

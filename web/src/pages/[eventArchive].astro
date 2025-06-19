@@ -1,0 +1,51 @@
+---
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Layout from "../layouts/Layout.astro";
+import { EventList } from "../components/EventList";
+import { getEventArchiveData } from "../data/eventArchive";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const result = await getEventArchiveData();
+  const eventPages = await getCollection("events");
+  let events: any[] = [];
+  eventPages.map((item: any) => events.push(item.data));
+
+  return [
+    {
+      params: {
+        eventArchive: result.fullSlug,
+      },
+      props: {
+        data: result,
+        events: events,
+      },
+    },
+  ];
+}
+
+const { data, events } = Astro.props;
+---
+
+<Layout metaTitle={data.title} metaDescription={data.leading}>
+  <div class="l-event-archive">
+    <div class="u-max-content-width u-max-content-width--wide">
+      <div class="l-event-archive__breadcrumbs">
+        <Breadcrumbs current={data.title} />
+      </div>
+    </div>
+    <div class="u-max-content-width u-max-content-width--narrow">
+      <div class="l-event-archive__content">
+        <h1 class="l-event-archive__title">{data.title}</h1>
+        {
+          data.leading && (
+            <div class="l-event-archive__leading">{data.leading}</div>
+          )
+        }
+        <div class="l-event-archive__events">
+          <EventList events={events} client:load />
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
