@@ -19,6 +19,10 @@
       width: calc(100% - 8rem);
    }
    
+   &--narrow {
+      max-width: 60rem;
+   }
+   
    &--wide {
       max-width: 100rem;
    }

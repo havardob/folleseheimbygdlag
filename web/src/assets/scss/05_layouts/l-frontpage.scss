@@ -28,7 +28,7 @@
       @include fadeSlideUp();
    }
    
-   &__cards-title {
+   &__cards-title, &__events-title {
       font-size: 2rem;
       line-height: 1.25;
       font-weight: 400;
@@ -55,10 +55,15 @@
       }
    }
    
-   &__cards-more-link {
+   &__cards-more-link, &__events-more-link {
       margin-block-start: 4rem;
       display: flex;
       justify-content: center;
+   }
+   
+   &__events {
+      margin-block-start: 9rem;
+      @include fadeSlideUp();
    }
    
    &__map {

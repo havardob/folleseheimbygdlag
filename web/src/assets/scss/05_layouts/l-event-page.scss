@@ -1,0 +1,138 @@
+@use "../02_tools/breakpoint";
+
+.l-event-page {
+   padding-block-end: 10rem;
+   
+   &__breadcrumbs {
+      margin-block: 1rem;
+      max-width: 50rem;
+      margin-inline: auto;
+   }
+   
+   &__content {
+      animation: SmallTranslateUp .35s ease-out forwards;
+   }
+   
+   &__title {
+      font-weight: 400;
+      font-family: var(--ff-secondary), sans-serif;
+      font-size: 2rem;
+      line-height: 1.125;
+      max-width: 50rem;
+      margin-block-start: 2rem;
+      margin-inline: auto;
+      
+      @include breakpoint.medium-up {
+         margin-block-start: 4rem;
+         font-size: 3rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 4rem;
+         line-height: 1.05;
+      }
+   }
+   
+   &__leading {
+      margin-block-start: 1rem;
+      font-size: 1.125rem;
+      max-width: 50rem;
+      margin-inline: auto;
+      
+      @include breakpoint.medium-up {
+         margin-block-start: 1.5rem;
+         font-size: 1.25rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 1.375rem;
+         line-height: 1.375;
+      }
+   }
+   
+   &__meta {
+      margin-block-start: 2rem;
+      padding: .5rem 1rem;
+      background-color: var(--color-sky);
+      display: flex;
+      flex-direction: column;
+      max-width: calc(50rem + 4rem);
+      margin-inline: -1rem;
+      
+      @include breakpoint.medium-up {
+         font-size: 1.125rem;
+         padding: 1rem 2rem;
+         margin-inline: auto;
+         border-radius: .375rem;
+      }
+      
+      div {
+         display: flex;
+         justify-content: space-between;
+         column-gap: 1rem;
+         padding-block: 1rem;
+         
+         &:not(:last-child) {
+            
+            border-block-end: 1px solid var(--color-follese-light);
+         }
+      }
+      
+      dt {
+         font-weight: 500;
+      }
+      
+      dd {
+         text-align: right;
+      }
+   }
+   
+   &__body {
+      margin-block-start: 3rem;
+      max-width: 50rem;
+      font-size: 1rem;
+      margin-inline: auto;
+      --color-link-decoration-default: var(--color-follese);
+      --color-link-text-hover: var(--color-follese);
+      --color-link-text: var(--color-follese);
+      
+      @include breakpoint.medium-up {
+         font-size: 1.0625rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 1.125rem;
+      }
+      
+      & > :where(h1, h2, h3):not([class]) {
+         font-family: var(--ff-secondary), serif;
+         font-weight: 400;
+      }
+      
+      & > h2:not([class]) {
+         font-size: 1.5rem;
+         
+         @include breakpoint.medium-up {
+            font-size: 2rem;
+            line-height: 1.25;
+         }
+         
+         @include breakpoint.large-up {
+            font-size: 2.5rem;
+         }
+      }
+      
+      & > h3:not([class]) {
+         font-size: 1.125rem;
+         
+         @include breakpoint.medium-up {
+            font-size: 1.5rem;
+            line-height: 1.375;
+         }
+         
+         @include breakpoint.large-up {
+            font-size: 1.75rem;
+         }
+      }
+   }
+}

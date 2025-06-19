@@ -1,0 +1,53 @@
+@use "../02_tools/breakpoint";
+
+.l-event-archive {
+   padding-block-end: 10rem;
+   
+   &__breadcrumbs {
+      margin-block: 1rem;
+      max-width: 50rem;
+   }
+   
+   &__content {
+      animation: SmallTranslateUp .35s ease-out forwards;
+   }
+   
+   &__title {
+      font-weight: 400;
+      font-family: var(--ff-secondary), sans-serif;
+      font-size: 2rem;
+      line-height: 1.125;
+      max-width: 50rem;
+      margin-block-start: 2rem;
+      
+      @include breakpoint.medium-up {
+         margin-block-start: 4rem;
+         font-size: 3rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 4rem;
+         line-height: 1.05;
+      }
+   }
+   
+   &__leading {
+      margin-block-start: 1rem;
+      font-size: 1.125rem;
+      max-width: 50rem;
+      
+      @include breakpoint.medium-up {
+         margin-block-start: 1.5rem;
+         font-size: 1.25rem;
+      }
+      
+      @include breakpoint.large-up {
+         font-size: 1.375rem;
+         line-height: 1.375;
+      }
+   }
+   
+   &__events {
+      margin-block-start: 3rem;
+   }
+}

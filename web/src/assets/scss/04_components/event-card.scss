@@ -1,0 +1,96 @@
+@use '../02_tools/breakpoint';
+
+.event-card {
+   --inner-bg: transparent;
+   --divider: var(--color-stone);
+   
+   & {
+      position: relative;
+   }
+   
+   &:hover {
+      --inner-bg: var(--color-sky);
+      --divider: var(--color-follese-light);
+   }
+   
+   &__inner {
+      background-color: var(--inner-bg);
+      padding-block: 2rem;
+      padding-inline: 1.25rem;
+      display: grid;
+      grid-template-columns: min(35%, 250px) auto;
+      border-block: 1px solid var(--divider);
+      @include breakpoint.medium-up {
+         row-gap: 2rem;
+      }
+   }
+   
+   &__meta {
+      padding-inline-end: 1rem;
+      border-inline-end: 1px solid var(--divider);
+      display: flex;
+      flex-direction: column;
+      row-gap: .75rem;
+      font-size: .875rem;
+      
+      @include breakpoint.medium-up {
+         font-size: 1.125rem;
+         padding-inline-end: 2rem;
+      }
+   }
+   
+   &__content {
+      padding-inline-start: 1rem;
+      
+      @include breakpoint.medium-up {
+         padding-inline-start: 2rem;
+      }
+   }
+   
+   &__date {
+      display: block;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-follese);
+      @include breakpoint.medium-up {
+         font-size: 1.375rem;
+      }
+   }
+   
+   &__title {
+      font-size: 1.25rem;
+      font-family: var(--ff-secondary), serif;
+      font-weight: 400;
+      text-wrap: pretty;
+      
+      @include breakpoint.medium-up {
+         font-size: 1.5rem;
+         line-height: 1.25;
+      }
+      
+      a {
+         text-decoration-thickness: 2px;
+         text-underline-offset: .125em;
+         
+         &:after {
+            content: "";
+            display: block;
+            inset: 0;
+            position: absolute;
+         }
+      }
+   }
+   
+   &__text {
+      font-size: 1rem;
+      margin-block-start: .75rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      @include breakpoint.medium-up {
+         margin-block-start: .75rem;
+         font-size: 1.25rem;
+      }
+   }
+}

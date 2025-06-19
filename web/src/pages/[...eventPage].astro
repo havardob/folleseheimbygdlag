@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { getCollection } from "astro:content";
+import RichText from "../components/portableText/RichText.astro";
+import { formatDate } from "../data/_helpers";
+
+export async function getStaticPaths() {
+  const eventPages = await getCollection("events");
+
+  return eventPages.map((result: any) => ({
+    params: {
+      eventPage: result.data.fullSlug,
+    },
+    props: {
+      data: result.data,
+    },
+  }));
+}
+
+const { data } = Astro.props;
+---
+
+<Layout metaTitle={data.title} metaDescription={data.leading}>
+  <div class="l-event-page">
+    <div class="u-max-content-width">
+      <div class="l-event-page__breadcrumbs">
+        <Breadcrumbs current={data.title} parent={data.parent} />
+      </div>
+    </div>
+    <div class="u-max-content-width">
+      <div class="l-event-page__content">
+        <h1 class="l-event-page__title">{data.title}</h1>
+        {
+          data.leading && (
+            <div class="l-event-page__leading">{data.leading}</div>
+          )
+        }
+        <dl class="l-event-page__meta">
+          <div>
+            <dt>Dato</dt>
+            <dd className="l-event-page__date">
+              {formatDate(data.eventDate)}
+            </dd>
+          </div>
+          {
+            data.eventTime && (
+              <div>
+                <dt>Tidspunkt</dt>
+                <dd className="l-event-page__time">{data.eventTime}</dd>
+              </div>
+            )
+          }
+          {
+            data.eventLocation && (
+              <div>
+                <dt>Sted</dt>
+                <dd className="l-event-page__location">{data.eventLocation}</dd>
+              </div>
+            )
+          }
+        </dl>
+        {
+          data.body !== null && (
+            <div class="l-event-page__body u-rich-text">
+              <RichText content={data.body} />
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</Layout>
